@@ -94,11 +94,11 @@ Please refer to [http://android-query.googlecode.com/svn/trunk/javadoc/com/andro
 
 Note: AQuery just get started! Do expect this list of methods to expand as time goes by. [http://code.google.com/p/android-query/issues/list Open a ticket] if you want a method to be added to the library!
 
-===Activity===
+=== Activity ===
   * hardwareAccelerated11
   * overridePendingTransition5
 
-===All Views===
+=== All Views ===
   * background
   * clicked
   * enabled
@@ -113,19 +113,19 @@ Note: AQuery just get started! Do expect this list of methods to expand as time 
   * itemClicked
   * setLayerType11
 
-===TextView===
+=== TextView ===
   * text
   * textColor
   * getEditable
   * getTextView
 
-===Edit Text===
+=== EditText ===
   * getEditText
 
-===Image View===
+=== ImageView ===
   * image
   * getImageView
 
-===ListView===
+=== ListView ===
   * dataChanged
   * scrolledBottom

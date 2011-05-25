@@ -50,16 +50,19 @@ public class TestActivity extends Activity {
 		setContentView(R.layout.test);
 
 		//use activity to create the AQuery object
-		//this set the activity as the "root"	  
+		//this set the activity as the "root"	
+  
 		aq = new AQuery(this);
 	  
 		//id(R.id.text) - point the current "view" to the TextView with id=R.id.text
 		//text("Hello") - call the corresponding methods to change it
+
 		aq.id(R.id.text).text("Hello");
 	  
 		//id(R.id.button) - switch to a different "view"
 		//text("Click Me") - update the button text
 		//clicked(this, "buttonClicked") - assign a listener to the button, pass in the method name
+
 		aq.id(R.id.button).text("Click Me").clicked(this, "buttonClicked");
 	  
 		

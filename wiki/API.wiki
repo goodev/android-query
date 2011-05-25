@@ -86,3 +86,39 @@ AQuery usage:
 That's it! 
 
 == Methods ==
+
+===Activity===
+hardwareAccelerated11
+overridePendingTransition5
+
+===All Views===
+background
+clicked
+enabled
+margin
+gone
+visible
+invisible
+transparent
+getTag
+getView
+isExist
+itemClicked
+setLayerType11
+
+===TextView===
+text
+textColor
+getEditable
+getTextView
+
+===Edit Text===
+getEditText
+
+===Image View===
+image
+getImageView
+
+===ListView===
+dataChanged
+scrolledBottom

@@ -7,6 +7,8 @@ Android-Query (AQuery)is a light-weight library for manipulating UI elements in 
 
 ===Less Code===
 
+AQuery allows the developer to be more expressive and write less code and do more. Simpler code are easier to read and maintain.
+
 *Before AQuery:*
 {{{
 public void renderContent(Content content, View view) {
@@ -14,8 +16,18 @@ public void renderContent(Content content, View view) {
 	
 	ImageView tbView = (ImageView) view.findViewById(R.id.icon); 
 	if(tbView != null){
+		
 		tbView.setImageBitmap(R.drawable.icon);
 		tbView.setVisibility(View.VISIBLE);
+		
+		tbView.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					someMethod();
+				}
+			});
+		
 	}
 	
 	TextView nameView = (TextView) view.findViewById(R.id.name);   	
@@ -46,20 +58,21 @@ public void renderContent(Content content, View view) {
 
 public void renderContent(Content content, View view) {
 	
-	//reduce to just 5 lines of code
-
 	AQuery aq = new AQuery(view);
 	
-	aq.id(R.id.icon).image(R.drawable.icon).visible();	
+	aq.id(R.id.icon).image(R.drawable.icon).visible().clicked(this, "someMethod");	
 	aq.id(R.id.name).text(content.getPname());
 	aq.id(R.id.time).text(FormatUtility.relativeTime(System.currentTimeMillis(), content.getCreate())).visible();
 	aq.id(R.id.desc).text(content.getDesc()).visible();		
+	
 	
 }
 
 }}}
 
 ===Chaining===
+
+
 
 ===Less Fragmentation===
 

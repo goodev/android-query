@@ -6,11 +6,11 @@ Add your content here.
 
 ==Core Concept ==
 
-There's only 1 main class in AQuery. That is, the AQuery class.
+There's only 1 class in AQuery. That is, the AQuery class.
 
-AQuery only has two states. The root, and the view.
+AQuery object has two states: "root" and the "view".
 
-Let's start with a simplest :
+Let's start with a simplest android activity:
 
 {{{
 
@@ -50,3 +50,11 @@ public class TestActivity extends Activity {
 }
 
 }}}
+
+AQuery usage:
+
+  # Create an AQuery object with activity, or the root view of a fragment
+  # Use the id() or find() method to set the current "view"
+  # Call the appropriate methods to update the view
+
+That's it! 

@@ -179,6 +179,8 @@ public void renderContent(Content content, View view) {
 }
 }}}
 
+Our [https://market.android.com/details?id=com.pekca.vikispot.android demo app] have different layouts for phone and tablet, but underneath it uses the same logic to render the UI.
+
 ===Extendable===
 
 Extending AQuery for your need is simple.

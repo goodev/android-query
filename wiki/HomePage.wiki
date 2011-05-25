@@ -1,13 +1,13 @@
 =Android Query=
 
-Android-Query (AQuery)is a light-weight library for manipulating UI elements in Android. The goal is to make UI coding simpler and easier.
+Android-Query (AQuery) is a light-weight library for manipulating UI elements in Android. The goal is to make UI coding in Android simpler and easier.
 
 ==Why AQuery? ==
 
 
 ===Less Code===
 
-AQuery allows the developer to be more expressive and write less code and do more. Simpler code are easier to read and maintain.
+AQuery allows the developer to be more expressive and write-less/do-more. Simpler code is easier to read and maintain.
 
 *Before AQuery:*
 {{{
@@ -72,7 +72,41 @@ public void renderContent(Content content, View view) {
 
 ===Chaining===
 
+All "set" methods in AQuery returns itself. Starts chaining!
 
+{{{
+String name = "My name in black text, red background, visible, and invoke nameClicked when clicked";
+aq.id(R.id.name).text(name).background(R.color.red).textColor(R.color.black).enabled(true).visible().clicked(this, "nameClicked");
+}}}
+
+===Binding===
+
+Tired of creating and registering new listeners? AQuery makes binding listeners to views simple and easy.
+
+{{{
+@Override
+protected void onCreate(Bundle savedInstanceState){
+  	
+  	//set content view here...
+  	
+	AQuery aq = new AQuery(this);	
+	
+	aq.id(R.id.button).clicked(this, "buttonClicked");
+	aq.id(R.id.list).itemClicked(this, "itemClicked")
+}
+
+public void buttonClicked(View view){
+
+	//a button is clicked
+
+}
+
+public void itemClicked(AdapterView<?> parent, View v, int pos, long id) {
+		
+	//list item is clicked
+	
+}
+}}}
 
 ===Less Fragmentation===
 
@@ -113,9 +147,31 @@ protected void onCreate(Bundle savedInstanceState){
 
 === Multiple UI, One Piece of Code===
 
-With the waves of new Tablet devices, Android apps need to support a wider range of screen sizes.  
+With the waves of new Tablet devices, Android apps will need to support a wider range of screen sizes. Developers might need to design different UI layout for phone and tablets, but do we need to write a different set of code also?
+
+AQuery allows you to manage different layouts with the same piece of code. If a view is not in a layout, AQuery will just ignore all the operations you perform on the view.
+
+{{{
+public void renderContent(Content content, View view) {
+
+	//this is a phone!
+
+	//this view exists
+	aq.id(R.id.textInMobileLayoutOnly).text("Welcome to my Mobile App!");
+	
+	//this button exist in tablet layout only, but it's ok!
+	//AQuery will ignore all the operations on this view!
+	aq.id(R.id.butttonInTabletOnly).text("Open a new tab!");	
+
+}
+}}}
 
 ===Extend-able===
+
+Extending AQuery for your need is simple.
+
+
+
 
 ===Light Weight===
 

@@ -166,12 +166,33 @@ public void renderContent(Content content, View view) {
 }
 }}}
 
-===Extend-able===
+===Extendable===
 
 Extending AQuery for your need is simple.
 
+{{{
 
+public class MyQuery extends AbstractAQuery<MyQuery>{
 
+	public MyQuery(View view) {
+		super(view);
+	}
+
+	public MyQuery(Activity act) {
+		super(act);
+	}
+	
+	public MyQuery myMethod(String text){
+		
+		if(view != null){		
+			//do something to the view		
+		}
+		return this;
+	}
+	
+}
+
+}}}
 
 ===Light Weight===
 
@@ -179,7 +200,7 @@ Memory is scarce for mobile apps. The AQuery lib is standalone and relatively sm
 
 =History=
 
-AQuery is inspired by jQuery, a javascript framework for web. 
+AQuery is inspired by jQuery, a javascript framework for web, hence the name "Query". 
 
 =Demo App=
 

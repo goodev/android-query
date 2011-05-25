@@ -1,13 +1,19 @@
-#summary One-sentence summary of this page.
+#AQuery API Quick Start
 
-= Introduction =
+= AQuery API=
 
 Add your content here.
 
+==Core Concept ==
 
-= Details =
+There's only 1 main class in AQuery. That is, the AQuery class.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+AQuery only has two states. The root, and the view.
+
+Let's start with a sample Android UI tree hierarchy:
+
+Activity
+ * Linear Layout
+   * TextView
+
+

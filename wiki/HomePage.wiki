@@ -230,6 +230,6 @@ AQuery is a new library and need nourishment from the community. The initial ver
 
 =Support=
 
-If you like AQuery approach to simplify Android development, help us spread the words to other Android developers! 
+If you like AQuery's approach to simplify Android development, help us spread the words to other Android developers! 
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/facebook.xml" height="200" width="450" border="0" /> 

@@ -157,7 +157,7 @@ protected void onCreate(Bundle savedInstanceState){
 
 With the waves of new Tablet devices, Android apps will need to support a wider range of screen sizes. Developers might need to design different UI layout for phone and tablets, but do we need to write a different set of code also?
 
-AQuery allows you to manage different layouts with the same piece of code. If a view is not in a layout, AQuery will just ignore all the operations you perform on the view.
+AQuery allows developers to manage different layouts with the same piece of code. If a view is not in a layout, AQuery will just ignore all the operations performed on the view.
 
 {{{
 public void renderContent(Content content, View view) {

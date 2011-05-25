@@ -204,9 +204,9 @@ AQuery is inspired by jQuery, a javascript framework for web, hence the name "Qu
 
 =Demo App=
 
-Try out [https://market.android.com/details?id=com.pekca.vikispot.android VikiSpot Reader].
+Try out our [https://market.android.com/details?id=com.pekca.vikispot.android VikiSpot Reader] written with AQuery.
 
-AQuery is originally written along the way of the development of the VikiSpot Reader.
+AQuery is originally written along the way of the development of the VikiSpot Reader. It's now independent and open source.
 
 =Contribute!=
 

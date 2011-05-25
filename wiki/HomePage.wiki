@@ -66,7 +66,7 @@ public void renderContent(Content content, View view) {
 
 }}}
 
-*After AQuery:*
+*With AQuery:*
 {{{
 
 public void renderContent(Content content, View view) {

@@ -87,9 +87,9 @@ That's it!
 
 == Methods ==
 
-Refer to [http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html javadoc] for method signature.
+Please refer to [http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html javadoc] for detail method signatures.
 
-Note: AQuery just get started! Do expect this list of methods to expand as time goes by.
+Note: AQuery just get started! Do expect this list of methods to expand as time goes by. [http://code.google.com/p/android-query/issues/list Open a ticket] if you want a method to be added to the library!
 
 ===Activity===
   * hardwareAccelerated11

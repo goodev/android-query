@@ -10,8 +10,34 @@ There's only 1 class in AQuery. That is, the AQuery class.
 
 AQuery object has two states: "root" and the "view".
 
-Let's start with a simplest android activity:
+Let's start with a simple example:
 
+Layout:
+{{{
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"    
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:orientation="vertical">
+    
+   <TextView
+	    android:id="@+id/text"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"	    
+	    android:text="Text"
+	></TextView>
+	
+	<Button 
+		android:id="@+id/button" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content" 
+		android:text="Button" 
+	></Button>
+	
+</LinearLayout>
+
+}}}
+
+Activity:
 {{{
 
 public class TestActivity extends Activity {

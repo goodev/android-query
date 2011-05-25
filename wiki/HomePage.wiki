@@ -1,13 +1,47 @@
-#summary One-sentence summary of this page.
+=Android Query=
 
-= Introduction =
+Android-Query (AQuery)is a light-weight library for manipulating UI elements in Android. The goal is to make UI coding simpler and easier.
 
-Add your content here.
+==Why AQuery? ==
 
 
-= Details =
+===Less Code===
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+===Chaining===
+
+===Bypass API Limitation===
+
+Fragmentation is annoying for Android. Features in new API are great, but majority of mobile devices are not updated with the latest API.
+
+AQuery alleviate this issue by dynamically inspecting the Android framework, and make new API features available to code that are compiled for lower API.
+
+Enable hardware acceleration with pre-11 API:
+{{{
+@Override
+protected void onCreate(Bundle savedInstanceState){
+  	
+  	//My API level 4 onCreate setup here... 
+  	
+	AQuery aq = new AQuery(this);	
+	
+	//Enable hardware acceleration if the device has API 11 or above	
+	aq.hardwareAccelerated();
+	
+}
+
+}}}
+
+
+===Extend-able===
+
+===Light Weight===
+
+Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small (~10k for 0.0.1).
+
+=Contribute!=
+
+AQuery is a new library and need nourishment from the community. The initial version is only covering a small (but frequently used) of the Android UI framework. If you have requests or want to contribute code, please open a ticket with the [http://code.google.com/p/android-query/issues/list tracking system].
+
+=Support=
+
+If you like AQuery approach to simplify Android development, help us spread the words to other Android developers! 

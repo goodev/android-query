@@ -41,7 +41,23 @@ public void renderContent(Content content, View view) {
 
 }}}
 
+*After AQuery:*
+{{{
 
+public void renderContent(Content content, View view) {
+	
+	//reduce to just 5 lines of code
+
+	AQuery aq = new AQuery(view);
+	
+	aq.id(R.id.icon).image(R.drawable.icon).visible();	
+	aq.id(R.id.name).text(content.getPname());
+	aq.id(R.id.time).text(FormatUtility.relativeTime(System.currentTimeMillis(), content.getCreate())).visible();
+	aq.id(R.id.desc).text(content.getDesc()).visible();		
+	
+}
+
+}}}
 
 ===Chaining===
 

@@ -214,21 +214,21 @@ public class MyQuery extends AbstractAQuery<MyQuery>{
 
 Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small (~10k for 0.0.1).
 
-=History=
+==History==
 
 AQuery is inspired by jQuery, a javascript framework for web, hence the name "Query". 
 
-=Demo App=
+==Demo App==
 
 Try out our [https://market.android.com/details?id=com.pekca.vikispot.android VikiSpot Reader] written with AQuery.
 
 AQuery is originally written along the way of the development of the [https://market.android.com/details?id=com.pekca.vikispot.android VikiSpot Reader]. It's now independent and open source.
 
-=Contribute!=
+==Contribute!==
 
 AQuery is a new library and need nourishment from the community. The initial version is only covering a small (but frequently used) of the Android UI framework. If you have requests or want to contribute code, please open a ticket with the [http://code.google.com/p/android-query/issues/list tracking system].
 
-=Support=
+==Support==
 
 If you like AQuery's approach to simplify Android development, help us spread the words to other Android developers! 
 

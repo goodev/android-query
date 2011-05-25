@@ -6,7 +6,7 @@ Android-Query (AQuery) is a light-weight library for manipulating UI elements in
   * [#Less_Code Less Code]
   * [#Chaining Chaining]
   * [#Binding Binding]
-  * [#Less_Fragmentation Less Fragmentation]
+  * [#Handle_Fragmentation Handle Fragmentation]
   * [#Multiple_UI,_One_Piece_of_Code Multiple UI, One Piece of Code]
   * [#Extendable Extendable]
   * [#Light_Weight Light Weight]
@@ -116,7 +116,7 @@ public void itemClicked(AdapterView<?> parent, View v, int pos, long id) {
 }
 }}}
 
-===Less Fragmentation===
+===Handle Fragmentation===
 
 Fragmentation is annoying for Android. Features in new API are great, but majority of mobile devices are not updated with the latest API. See [http://developer.android.com/resources/dashboard/platform-versions.html Android Platform Versions Distribution]
 

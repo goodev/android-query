@@ -12,8 +12,6 @@ AQuery only has two states. The root, and the view.
 
 Let's start with a sample Android UI tree hierarchy:
 
-Activity
- * Linear Layout
-   * TextView
-
-
+  *Activity
+   * Linear Layout
+    * TextView

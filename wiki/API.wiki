@@ -87,38 +87,42 @@ That's it!
 
 == Methods ==
 
+Refer to [http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html javadoc] for method signature.
+
+Note: AQuery just get started! Do expect this list of methods to expand as time goes by.
+
 ===Activity===
-hardwareAccelerated11
-overridePendingTransition5
+  * hardwareAccelerated11
+  * overridePendingTransition5
 
 ===All Views===
-background
-clicked
-enabled
-margin
-gone
-visible
-invisible
-transparent
-getTag
-getView
-isExist
-itemClicked
-setLayerType11
+  * background
+  * clicked
+  * enabled
+  * margin
+  * gone
+  * visible
+  * invisible
+  * transparent
+  * getTag
+  * getView
+  * isExist
+  * itemClicked
+  * setLayerType11
 
 ===TextView===
-text
-textColor
-getEditable
-getTextView
+  * text
+  * textColor
+  * getEditable
+  * getTextView
 
 ===Edit Text===
-getEditText
+  * getEditText
 
 ===Image View===
-image
-getImageView
+  * image
+  * getImageView
 
 ===ListView===
-dataChanged
-scrolledBottom
+  * dataChanged
+  * scrolledBottom

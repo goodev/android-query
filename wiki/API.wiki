@@ -2,7 +2,6 @@
 
 = AQuery API=
 
-Add your content here.
 
 ==Core Concept ==
 
@@ -15,7 +14,7 @@ Let's start with a simple example:
 Layout:
 {{{
 <LinearLayout 
-	xmlns:android="http://schemas.android.com/apk/res/android"    
+    xmlns:android="http://schemas.android.com/apk/res/android"    
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" android:orientation="vertical">
     
@@ -79,8 +78,11 @@ public class TestActivity extends Activity {
 
 AQuery usage:
 
-  # Create an AQuery object with activity, or the root view of a fragment
-  # Use the id() or find() method to set the current "view"
+  # Create an AQuery object with an activity, or the root view of a fragment
+  # Use the id() or find() methods to set the current "view"
   # Call the appropriate methods to update the view
+  # Repeats #2
 
 That's it! 
+
+== Methods ==

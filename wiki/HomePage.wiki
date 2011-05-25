@@ -9,13 +9,13 @@ Android-Query (AQuery)is a light-weight library for manipulating UI elements in 
 
 ===Chaining===
 
-===Bypass API Limitation===
+===Less Fragmentation===
 
-Fragmentation is annoying for Android. Features in new API are great, but majority of mobile devices are not updated with the latest API.
+Fragmentation is annoying for Android. Features in new API are great, but majority of mobile devices are not updated with the latest API. [http://developer.android.com/resources/dashboard/platform-versions.html See Android Platform Versions Distribution]
 
-AQuery alleviate this issue by dynamically inspecting the Android framework, and make new API features available to code that are compiled for lower API.
+AQuery alleviate this issue by dynamically inspecting the Android framework, and make new API features available to code that are compiled for lower API. If the feature is not available, AQuery simply ignores the request.
 
-Enable hardware acceleration with pre-11 API:
+*Enable hardware acceleration with API 4:*
 {{{
 @Override
 protected void onCreate(Bundle savedInstanceState){
@@ -31,6 +31,20 @@ protected void onCreate(Bundle savedInstanceState){
 
 }}}
 
+*Enable activity transition animation in API 4:*
+{{{
+@Override
+protected void onCreate(Bundle savedInstanceState){
+  	
+  	AQuery aq = new AQuery(this);	
+	
+	//Override activity transition for device with API level 5	
+	aq.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+  	
+  	//API level 4 onCreate setup here... 
+  	
+}
+}}}
 
 ===Extend-able===
 

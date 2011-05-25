@@ -7,11 +7,47 @@ Android-Query (AQuery)is a light-weight library for manipulating UI elements in 
 
 ===Less Code===
 
+*Before AQuery:*
+{{{
+public void renderContent(Content content, View view) {
+	
+	
+	ImageView tbView = (ImageView) view.findViewById(R.id.icon); 
+	if(tbView != null){
+		tbView.setImageBitmap(R.drawable.icon);
+		tbView.setVisibility(View.VISIBLE);
+	}
+	
+	TextView nameView = (TextView) view.findViewById(R.id.name);   	
+	if(nameView != null){
+		nameView.setText(content.getPname());
+	}
+	
+	TextView timeView = (TextView) view.findViewById(R.id.time);  
+	
+	if(timeView != null){
+		long now = System.currentTimeMillis();
+		timeView.setText(FormatUtility.relativeTime(now, content.getCreate()));
+		timeView.setVisibility(View.VISIBLE);
+	}
+	
+	TextView descView = (TextView) view.findViewById(R.id.desc);   	
+	
+	if(descView != null){
+		descView.setText(content.getDesc());
+		descView.setVisibility(View.VISIBLE);
+	}
+}
+
+}}}
+
+
+
 ===Chaining===
 
 ===Less Fragmentation===
 
-Fragmentation is annoying for Android. Features in new API are great, but majority of mobile devices are not updated with the latest API. [http://developer.android.com/resources/dashboard/platform-versions.html See Android Platform Versions Distribution]
+Fragmentation is annoying for Android. Features in new API are great, but majority of mobile devices are not updated with the latest API. See [http://developer.android.com/resources/dashboard/platform-versions.html Android Platform Versions Distribution]
 
 AQuery alleviate this issue by dynamically inspecting the Android framework, and make new API features available to code that are compiled for lower API. If the feature is not available, AQuery simply ignores the request.
 
@@ -46,11 +82,25 @@ protected void onCreate(Bundle savedInstanceState){
 }
 }}}
 
+=== Multiple UI, One Piece of Code===
+
+With the waves of new Tablet devices, Android apps need to support a wider range of screen sizes.  
+
 ===Extend-able===
 
 ===Light Weight===
 
 Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small (~10k for 0.0.1).
+
+=History=
+
+AQuery is inspired by jQuery, a javascript framework for web. 
+
+=Demo App=
+
+Try out [https://market.android.com/details?id=com.pekca.vikispot.android VikiSpot Reader].
+
+AQuery is originally written along the way of the development of the VikiSpot Reader.
 
 =Contribute!=
 

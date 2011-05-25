@@ -132,7 +132,7 @@ protected void onCreate(Bundle savedInstanceState){
 	AQuery aq = new AQuery(this);	
 	
 	//Enable hardware acceleration if the device has API 11 or above	
-	aq.hardwareAccelerated();
+	aq.hardwareAccelerated11();
 	
 }
 
@@ -146,7 +146,7 @@ protected void onCreate(Bundle savedInstanceState){
   	AQuery aq = new AQuery(this);	
 	
 	//Override activity transition for device with API level 5	
-	aq.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+	aq.overridePendingTransition5(R.anim.slide_in_right, R.anim.slide_out_left)
   	
   	//API level 4 onCreate setup here... 
   	

@@ -230,6 +230,14 @@ AQuery is originally written along the way of the development of the [https://ma
 
 AQuery is a new library and need nourishment from the community. The initial version is only covering a small set (but frequently used) of the Android UI framework. If you have requests or want to contribute code, please open a ticket with the [http://code.google.com/p/android-query/issues/list tracking system].
 
+==Subscribe AQuery News==
+
+New release will be posted here:
+[http://groups.google.com/group/android-query Android-Query Group]
+[http://www.facebook.com/pages/Android-Query/205050232863343 Android-Query Facebook Page]
+
+Subscribe to join the AQuery discussion.
+
 ==Support==
 
 If you like AQuery's approach to simplify Android development, help us spread the words to other Android developers! 

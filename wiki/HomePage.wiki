@@ -39,7 +39,7 @@ public void renderContent(Content content, View view) {
 				
 				@Override
 				public void onClick(View v) {
-					someMethod();
+					someMethod(v);
 				}
 			});
 		
@@ -227,7 +227,7 @@ AQuery is originally written along the way of the development of the [https://ma
 
 ==Contribute!==
 
-AQuery is a new library and need nourishment from the community. The initial version is only covering a small (but frequently used) of the Android UI framework. If you have requests or want to contribute code, please open a ticket with the [http://code.google.com/p/android-query/issues/list tracking system].
+AQuery is a new library and need nourishment from the community. The initial version is only covering a small set (but frequently used) of the Android UI framework. If you have requests or want to contribute code, please open a ticket with the [http://code.google.com/p/android-query/issues/list tracking system].
 
 ==Support==
 

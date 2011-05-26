@@ -81,7 +81,7 @@ public class TestActivity extends Activity {
 
 AQuery usage:
 
-  # Create an AQuery object with an activity, or the root view of a fragment
+  # Create an AQuery object with an activity, or the root view of a fragment, or just any view container
   # Use the id() or find() methods to set the current "view"
   # Call the appropriate methods to update the view
   # Repeats #2

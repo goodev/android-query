@@ -214,7 +214,7 @@ public class MyQuery extends AbstractAQuery<MyQuery>{
 
 ===Light Weight===
 
-Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small (~10k for 0.0.1).
+Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small (~10k for 0.0.1). The actual increase in apk size will be even smaller.
 
 ==History==
 

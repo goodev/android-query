@@ -64,7 +64,18 @@ public class TestActivity extends Activity {
 		//clicked(this, "buttonClicked") - assign a listener to the button, pass in the method name
 
 		aq.id(R.id.button).text("Click Me").clicked(this, "buttonClicked");
-	  
+
+
+		//this view does not exist in the layout
+		//this shows how to check view existence and how to get the underlying view
+		aq.id(R.id.image);
+		if(aq.isExist()){
+	
+			ImageView imageView = aq.getImageView();
+	
+			//perform other non-AQuery operations
+	
+		}	  
 		
 	}
 	

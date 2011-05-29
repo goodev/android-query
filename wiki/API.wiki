@@ -68,6 +68,7 @@ public class TestActivity extends Activity {
 
 		//this view does not exist in the layout
 		//this shows how to check view existence and how to get the underlying view
+		//if operation is performed on an not existent view, all operations are ignored and return immeidately
 		aq.id(R.id.image);
 		if(aq.isExist()){
 	

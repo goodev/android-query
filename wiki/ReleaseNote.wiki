@@ -1,0 +1,16 @@
+#Release note.
+
+= Release Notes =
+
+
+== 0.1.0 ==
+
+  * getProgressBar
+  * getButton
+  * getCheckBox
+  * getListView
+  * getGridView
+  * getWebView
+  * 
+  * 
+  * 

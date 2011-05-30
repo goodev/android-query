@@ -141,3 +141,16 @@ Note: AQuery just get started! Do expect this list of methods to expand as time 
 === ListView ===
   * dataChanged
   * scrolledBottom
+  * getListView
+
+=== GridView ===
+  * getGridView
+
+=== Progress Bar ===
+  * getProgressBar
+
+=== Button ===
+  * getButton
+
+=== CheckBox ===
+  * getCheckBox

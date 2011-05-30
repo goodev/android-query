@@ -125,7 +125,10 @@ Note: AQuery just get started! Do expect this list of methods to expand as time 
   * itemClicked
   * setLayerType11
 
-=== TextView ===
+=== TextView===
+
+Including subclasses: Button, EditText, CheckBox...
+
   * text
   * textColor
   * getEditable

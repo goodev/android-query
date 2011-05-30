@@ -5,6 +5,8 @@
 
 == 0.1.0 ==
 
+Added methods:
+
   * getProgressBar
   * getButton
   * getCheckBox
@@ -13,4 +15,3 @@
   * getWebView
   * clicked(OnClickListener listener)
   * itemClicked(OnItemClickListener listener)
-  * 

@@ -11,6 +11,6 @@
   * getListView
   * getGridView
   * getWebView
-  * 
-  * 
+  * clicked(OnClickListener listener)
+  * itemClicked(OnItemClickListener listener)
   * 

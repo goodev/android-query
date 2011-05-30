@@ -6,7 +6,7 @@ Android-Query (AQuery) is a light-weight library for manipulating UI elements in
   * See [https://market.android.com/details?id=com.pekca.vikispot.android Demo App].
   * See [http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html javadoc]
   * See [http://blog.androidquery.com/ Android Development Blog]
-  * Download [http://code.google.com/p/android-query/downloads/list jar]  (~10k)
+  * Download [http://code.google.com/p/android-query/downloads/list jar]  (~10k), [http://code.google.com/p/android-query/wiki/ReleaseNote Release Notes]
   * [http://groups.google.com/group/android-query Discussion Group]
 
 ==Why AQuery? ==

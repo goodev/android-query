@@ -5,7 +5,7 @@
 
 ==Core Concept ==
 
-There's only 1 class in AQuery. That is, the AQuery class.
+There's only 1 main class in AQuery. That is, the AQuery class.
 
 AQuery object has two states: "root" and the "view".
 

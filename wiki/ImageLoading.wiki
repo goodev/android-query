@@ -24,16 +24,30 @@ aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.pn
 
 == Configuration ==
 
+More fine tuning can be done when an application starts. A good place to set the configuration is in the onCreate() method of the application.
+
 {{{
 
-//set the max number of concurrent network connections, default is 4
-AjaxCallback.setNetworkLimit(8);
+public class MainApplication extends Application{
 
-//set the max number of icons (image width <= 50) to be cached in memory, default is 20
-BitmapAjaxCallback.setIconCacheLimit(20);
+	
+	@Override
+    public void onCreate() {     
+          
+        //set the max number of concurrent network connections, default is 4
+		AjaxCallback.setNetworkLimit(8);
 
-//set the max number of images (image width > 50) to be cached in memory, default is 20
-BitmapAjaxCallback.setCacheLimit(40);
+		//set the max number of icons (image width <= 50) to be cached in memory, default is 20
+		BitmapAjaxCallback.setIconCacheLimit(20);
+
+		//set the max number of images (image width > 50) to be cached in memory, default is 20
+		BitmapAjaxCallback.setCacheLimit(40);		        
+        
+        super.onCreate();
+    }
+	
+	
+}
 }}}
 
 == Operations ==
@@ -50,4 +64,3 @@ public void onDestroy(){
 }}}
 
 === Clean Up ===
-

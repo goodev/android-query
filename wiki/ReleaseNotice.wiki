@@ -1,4 +1,3 @@
-
 = 0.2.0 =
 
 AQuery 0.2.0 Released with AJAX and Async Image Loading
@@ -6,14 +5,16 @@ AQuery 0.2.0 Released with AJAX and Async Image Loading
 Android-Query just added these features:
 
 Aync Image Loading:
+{{{
 aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");
-
+}}}
 Doc:
 http://code.google.com/p/android-query/wiki/ImageLoading
 
 
 Ajax Callback:
 
+{{{
 public void asyncJson(){
         
         //perform a Google search in just a few lines of code
@@ -29,6 +30,8 @@ public void asyncJson(){
         });
         
 }
+
+}}}
 
 Doc:
 http://code.google.com/p/android-query/#AJAX_Callback

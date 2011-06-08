@@ -35,3 +35,19 @@ BitmapAjaxCallback.setIconCacheLimit(20);
 //set the max number of images (image width > 50) to be cached in memory, default is 20
 BitmapAjaxCallback.setCacheLimit(40);
 }}}
+
+== Operations ==
+
+=== Cancel ===
+
+{{{
+public void onDestroy(){
+	
+	//stop all aync calls when current activity is exiting
+	AjaxCallback.cancel();
+	
+}
+}}}
+
+=== Clean Up ===
+

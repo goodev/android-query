@@ -1,0 +1,28 @@
+#Asynchronous Image Loading with AndroidQuery
+
+= Code =
+
+Simple:
+{{{
+//load an image to an ImageView from network, cache image to file and memory
+aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");
+}}}
+
+Advance:
+{{{
+
+//load an image from network, but only cache with file
+
+//this image is huge, avoid memory caching
+boolean memCache = false;
+boolean fileCache = true;
+		aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png", memCache, fileCache);
+}}}
+
+
+= Configuration =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

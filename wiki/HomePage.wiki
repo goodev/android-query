@@ -356,4 +356,4 @@ Subscribe to join the AQuery discussion.
 
 If you like AQuery's approach to simplify Android development, help us spread the words to other Android developers! 
 
-<wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/social2.xml?v=9" height="150" width="450" border="0" /> 
+<wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/social2.xml?v=10" height="150" width="450" border="0" /> 

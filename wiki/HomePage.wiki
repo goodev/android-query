@@ -181,9 +181,11 @@ public void asyncBitmap(){
 	
 }
 
-See [http://code.google.com/p/android-query/wiki/API more...]
 
 }}}
+
+See [http://code.google.com/p/android-query/wiki/API more...]
+
 
 === Image Loading ===
 

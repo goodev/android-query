@@ -2,6 +2,8 @@
 
 == Code ==
 
+Asynchronous image loading is easy with AQuery.
+
 ===Simple===
 {{{
 //load an image to an ImageView from network, cache image to file and memory

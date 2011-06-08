@@ -189,7 +189,7 @@ See [http://code.google.com/p/android-query/wiki/API more...]
 
 === Image Loading ===
 
-Asynchronous image loading from network with file and memory caching.
+AQuery supports asynchronous image loading from network, with file and memory caching!
 
 {{{
 aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");
@@ -323,7 +323,7 @@ public class MyQuery extends AbstractAQuery<MyQuery>{
 
 }}}
 
-If you like to give back to the community, open a ticket and submit your custom methods! We will add the method to the library if it has no app specific dependency.
+If you like to give back to the community, open a ticket and submit your custom methods. We will add the method to the library if it has no app specific dependency.
 
 ===Light Weight===
 

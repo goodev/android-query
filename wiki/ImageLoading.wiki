@@ -1,14 +1,15 @@
 #Asynchronous Image Loading with AndroidQuery
 
-= Code =
+== Code ==
 
-Simple:
+===Simple===
 {{{
 //load an image to an ImageView from network, cache image to file and memory
+
 aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");
 }}}
 
-Advance:
+===Advance===
 {{{
 
 //load an image from network, but only cache with file
@@ -16,11 +17,12 @@ Advance:
 //this image is huge, avoid memory caching
 boolean memCache = false;
 boolean fileCache = true;
-		aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png", memCache, fileCache);
+
+aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png", memCache, fileCache);
 }}}
 
 
-= Configuration =
+== Configuration ==
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_

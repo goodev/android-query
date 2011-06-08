@@ -184,7 +184,7 @@ public void asyncBitmap(){
 
 }}}
 
-See [http://code.google.com/p/android-query/wiki/API more...]
+See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
 
 
 === Image Loading ===
@@ -195,7 +195,7 @@ AQuery supports asynchronous image loading from network, with file and memory ca
 aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");
 }}}
 
-See [http://code.google.com/p/android-query/wiki/API more...]
+See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
 
 ===Chaining===
 

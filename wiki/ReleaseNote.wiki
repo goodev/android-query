@@ -2,6 +2,16 @@
 
 = Release Notes =
 
+== 0.2.0 ==
+
+Added methods:
+
+  * getContext
+  * ajax
+  * ajaxCancel
+  * image(java.lang.String url)
+  * image(java.lang.String url, boolean memCache, boolean fileCache) 
+
 
 == 0.1.0 ==
 

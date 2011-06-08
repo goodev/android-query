@@ -65,6 +65,7 @@ public void onDestroy(){
 }
 }}}
 
+
 === Clean Up ===
 
 Simple:
@@ -97,3 +98,16 @@ protected void onDestroy(){
 }
 
 }}}
+
+=== Low Memory ===
+
+public class MainApplication extends Application{
+
+	@Override
+	public void onLowMemory(){	
+
+	//clear all memory cache when system is in low memory
+    	BitmapAjaxCallback.clearCache();
+    }
+	
+}

@@ -24,7 +24,14 @@ aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.pn
 
 == Configuration ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+{{{
+
+//set the max number of concurrent network connections, default is 4
+AjaxCallback.setNetworkLimit(8);
+
+//set the max number of icons (image width <= 50) to be cached in memory, default is 20
+BitmapAjaxCallback.setIconCacheLimit(20);
+
+//set the max number of images (image width > 50) to be cached in memory, default is 20
+BitmapAjaxCallback.setCacheLimit(40);
+}}}

@@ -103,20 +103,44 @@ Asynchronous AJAX calls are simple.
 JSON RPC:
 {{{
 
+
 public void asyncJson(){
 	
 	//perform a Google search in just a few lines of code
 	
-	AQuery aq = new AQuery(this);
+	String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
 	
-	String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";	
 	aq.ajax(url, JSONObject.class, new AjaxCallback<JSONObject>() {
 
 		@Override
 		public void callback(String url, JSONObject json, AjaxStatus status) {
-			System.out.println("json:" + json);
+			Toast.makeText(aq.getContext(), json.toString(), Toast.LENGTH_LONG).show();
 		}
 	});
+	
+}
+
+}}}
+
+Fetch a webpage in html:
+
+{{{
+public void asyncHtml(){
+	
+	//fetch Google's homepage in html
+	
+	String url = "http://www.google.com";
+	
+	aq.ajax(url, String.class, new AjaxCallback<String>() {
+
+		@Override
+		public void callback(String url, String html, AjaxStatus status) {
+			
+			Toast.makeText(aq.getContext(), html, Toast.LENGTH_LONG).show();
+		}
+		
+	});
+	
 	
 }
 

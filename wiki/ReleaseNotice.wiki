@@ -1,0 +1,34 @@
+
+= 0.2.0 =
+
+AQuery 0.2.0 Released with AJAX and Async Image Loading
+
+Android-Query just added these features:
+
+Aync Image Loading:
+aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");
+
+Doc:
+http://code.google.com/p/android-query/wiki/ImageLoading
+
+
+Ajax Callback:
+
+public void asyncJson(){
+        
+        //perform a Google search in just a few lines of code
+        
+        String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+        
+        aq.ajax(url, JSONObject.class, new AjaxCallback<JSONObject>() {
+
+                @Override
+                public void callback(String url, JSONObject json, AjaxStatus status) {
+                        Toast.makeText(aq.getContext(), json.toString(), Toast.LENGTH_LONG).show();
+                }
+        });
+        
+}
+
+Doc:
+http://code.google.com/p/android-query/#AJAX_Callback

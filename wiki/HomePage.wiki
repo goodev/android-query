@@ -169,6 +169,7 @@ public void asyncBytes(){
 
 Fetch an image:
 
+{{{
 public void asyncBitmap(){
 	
 	//fetch a image over the network
@@ -184,7 +185,7 @@ public void asyncBitmap(){
 	});
 	
 }
-
+}}}
 
 ===Binding===
 

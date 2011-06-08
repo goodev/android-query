@@ -70,7 +70,7 @@ public void onDestroy(){
 
 === Clean Up ===
 
-If you use file cache, regularly clean the cache dir when the application exits.
+If you use file cache for images, regularly clean the cache dir when the application exits.
 
 Simple:
 
@@ -110,7 +110,7 @@ public class MainApplication extends Application{
 	@Override
 	public void onLowMemory(){	
 
-	//clear all memory cache when system is in low memory
+	//clear all memory cached images when system is in low memory
 	//note that you can configure the max image cache count, see CONFIGURATION
     	BitmapAjaxCallback.clearCache();
     }

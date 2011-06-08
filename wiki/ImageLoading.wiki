@@ -110,8 +110,8 @@ public class MainApplication extends Application{
 	@Override
 	public void onLowMemory(){	
 
-		//clear all memory cache when system is in low memory
-		//note that you can configure the max image cache count, see CONFIGURATION
+	//clear all memory cache when system is in low memory
+	//note that you can configure the max image cache count, see CONFIGURATION
     	BitmapAjaxCallback.clearCache();
     }
 	

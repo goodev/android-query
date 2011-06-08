@@ -96,6 +96,31 @@ String name = "My name in black text, red background, visible, and invoke nameCl
 aq.id(R.id.name).text(name).background(R.color.red).textColor(R.color.black).enabled(true).visible().clicked(this, "nameClicked");
 }}}
 
+===AJAX Callback===
+
+Asynchronous AJAX calls are simple.
+
+JSON RPC:
+{{{
+
+public void asyncJson(){
+	
+	//perform a Google search in 4 lines of code
+	
+	String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";	
+	aq.ajax(url, JSONObject.class, new AjaxCallback<JSONObject>() {
+
+		@Override
+		public void callback(String url, JSONObject json, AjaxStatus status) {
+			System.out.println("json:" + json);
+		}
+	});
+	
+}
+
+}}}
+
+
 ===Binding===
 
 Tired of creating and registering new listeners? AQuery makes binding listeners to views simple and easy.

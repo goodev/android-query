@@ -4,6 +4,8 @@
 
 == 0.2.0 ==
 
+6/8/2011
+
 Added methods:
 
   * getContext

@@ -88,14 +88,7 @@ public void renderContent(Content content, View view) {
 
 }}}
 
-===Chaining===
 
-All "set" methods in AQuery returns itself. Starts chaining!
-
-{{{
-String name = "My name in black text, red background, visible, and invoke nameClicked when clicked";
-aq.id(R.id.name).text(name).background(R.color.red).textColor(R.color.black).enabled(true).visible().clicked(this, "nameClicked");
-}}}
 
 ===AJAX Callback===
 
@@ -186,6 +179,15 @@ public void asyncBitmap(){
 	});
 	
 }
+}}}
+
+===Chaining===
+
+All "set" methods in AQuery returns itself. Starts chaining!
+
+{{{
+String name = "My name in black text, red background, visible, and invoke nameClicked when clicked";
+aq.id(R.id.name).text(name).background(R.color.red).textColor(R.color.black).enabled(true).visible().clicked(this, "nameClicked");
 }}}
 
 ===Binding===

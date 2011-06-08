@@ -116,7 +116,7 @@ public void asyncJson(){
 
 }}}
 
-*HTML*
+==== HTML ====
 
 {{{
 public void asyncHtml(){
@@ -140,7 +140,7 @@ public void asyncHtml(){
 
 }}}
 
-*bytes*
+==== bytes ====
 
 {{{
 public void asyncBytes(){
@@ -161,7 +161,7 @@ public void asyncBytes(){
 }
 }}}
 
-*Image*
+==== Image ====
 
 {{{
 public void asyncBitmap(){

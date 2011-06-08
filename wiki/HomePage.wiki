@@ -153,8 +153,8 @@ public void asyncBytes(){
 	aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 
 		@Override
-		public void callback(String url, byte[] object, AjaxStatus status) {
-			Toast.makeText(aq.getContext(), "bytes array:" + object.length, Toast.LENGTH_LONG).show();
+		public void callback(String url, byte[] data, AjaxStatus status) {
+			Toast.makeText(aq.getContext(), "bytes array:" + data.length, Toast.LENGTH_LONG).show();
 		}
 	});
 	
@@ -174,8 +174,8 @@ public void asyncBitmap(){
 	aq.ajax(url, Bitmap.class, new AjaxCallback<Bitmap>() {
 
 		@Override
-		public void callback(String url, Bitmap object, AjaxStatus status) {
-			Toast.makeText(aq.getContext(), object.toString(), Toast.LENGTH_LONG).show();
+		public void callback(String url, Bitmap image, AjaxStatus status) {
+			Toast.makeText(aq.getContext(), image.toString(), Toast.LENGTH_LONG).show();
 		}
 	});
 	

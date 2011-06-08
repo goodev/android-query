@@ -92,9 +92,9 @@ public void renderContent(Content content, View view) {
 
 ===AJAX Callback===
 
-Asynchronous AJAX calls are simple.
+Asynchronous AJAX or RPC calls are simple.
 
-*JSON* RPC:
+====JSON====:
 {{{
 
 

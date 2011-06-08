@@ -105,7 +105,9 @@ JSON RPC:
 
 public void asyncJson(){
 	
-	//perform a Google search in 4 lines of code
+	//perform a Google search in just a few lines of code
+	
+	AQuery aq = new AQuery(this);
 	
 	String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";	
 	aq.ajax(url, JSONObject.class, new AjaxCallback<JSONObject>() {

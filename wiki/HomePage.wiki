@@ -117,7 +117,7 @@ public void asyncJson(){
 
 }}}
 
-==== HTML ====
+==== HTML/XML ====
 
 {{{
 public void asyncHtml(){

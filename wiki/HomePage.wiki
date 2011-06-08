@@ -348,6 +348,7 @@ AQuery is a new library and need nourishment from the community. The initial ver
 New release will be posted here:
   * [http://groups.google.com/group/android-query Android-Query Group]
   * [http://www.facebook.com/pages/Android-Query/205050232863343 Android-Query Facebook Page]
+  * [http://twitter.com/AndroidQuery Android-Query Twitter]
 
 Subscribe to join the AQuery discussion.
 

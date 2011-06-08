@@ -52,7 +52,7 @@ public class MainApplication extends Application{
 }
 }}}
 
-== Operations ==
+== Maintenance==
 
 There's a few utility function to control ajax and caching.
 

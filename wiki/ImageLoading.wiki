@@ -35,13 +35,13 @@ public class MainApplication extends Application{
     public void onCreate() {     
           
         //set the max number of concurrent network connections, default is 4
-		AjaxCallback.setNetworkLimit(8);
+	AjaxCallback.setNetworkLimit(8);
 
-		//set the max number of icons (image width <= 50) to be cached in memory, default is 20
-		BitmapAjaxCallback.setIconCacheLimit(20);
+	//set the max number of icons (image width <= 50) to be cached in memory, default is 20
+	BitmapAjaxCallback.setIconCacheLimit(20);
 
-		//set the max number of images (image width > 50) to be cached in memory, default is 20
-		BitmapAjaxCallback.setCacheLimit(40);		        
+	//set the max number of images (image width > 50) to be cached in memory, default is 20
+	BitmapAjaxCallback.setCacheLimit(40);		        
         
         super.onCreate();
     }
@@ -100,14 +100,16 @@ protected void onDestroy(){
 }}}
 
 === Low Memory ===
-
+{{{
 public class MainApplication extends Application{
 
 	@Override
 	public void onLowMemory(){	
 
-	//clear all memory cache when system is in low memory
+		//clear all memory cache when system is in low memory
+		//note that you can configure the max image cache count, see CONFIGURATION
     	BitmapAjaxCallback.clearCache();
     }
 	
 }
+}}}

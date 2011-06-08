@@ -70,6 +70,8 @@ public void onDestroy(){
 
 === Clean Up ===
 
+If you use file cache, regularly clean the cache dir when the application exits.
+
 Simple:
 
 {{{

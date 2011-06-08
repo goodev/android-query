@@ -146,6 +146,45 @@ public void asyncHtml(){
 
 }}}
 
+Fetch a network resource:
+
+{{{
+public void asyncBytes(){
+	
+	//fetch a remote resource in raw bytes
+	
+	String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+	
+	aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
+
+		@Override
+		public void callback(String url, byte[] object, AjaxStatus status) {
+			Toast.makeText(aq.getContext(), "bytes array:" + object.length, Toast.LENGTH_LONG).show();
+		}
+	});
+	
+	
+}
+}}}
+
+Fetch an image:
+
+public void asyncBitmap(){
+	
+	//fetch a image over the network
+	
+	String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+	
+	aq.ajax(url, Bitmap.class, new AjaxCallback<Bitmap>() {
+
+		@Override
+		public void callback(String url, Bitmap object, AjaxStatus status) {
+			Toast.makeText(aq.getContext(), object.toString(), Toast.LENGTH_LONG).show();
+		}
+	});
+	
+}
+
 
 ===Binding===
 

@@ -10,7 +10,7 @@ Optimized with proguard to reduce size.
 
 Added methods:
 
-  * ajax(java.lang.String url, java.lang.Class<K> type, String callback)
+  * ajax(java.lang.String url, java.lang.Class type, String callback)
 
 
 == 0.2.0 ==

@@ -2,6 +2,8 @@
 
 6/13/2011
 
+AQuery 0.2.3 Released
+
 Optimized with proguard to reduce size.
 
 Added methods:

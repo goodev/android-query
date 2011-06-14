@@ -2,6 +2,17 @@
 
 = Release Notes =
 
+== 0.2.3 ==
+
+6/13/2011
+
+Optimized with proguard to reduce size.
+
+Added methods:
+
+  * ajax(java.lang.String url, java.lang.Class<K> type, String callback)
+
+
 == 0.2.0 ==
 
 6/8/2011

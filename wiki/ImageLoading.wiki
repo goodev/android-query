@@ -110,8 +110,8 @@ Low memory happens when the device is overloaded with apps. When this happens, w
 {{{
 public class MainApplication extends Application{
 
-	@Override
-	public void onLowMemory(){	
+    @Override
+    public void onLowMemory(){	
 
 	//clear all memory cached images when system is in low memory
 	//note that you can configure the max image cache count, see CONFIGURATION

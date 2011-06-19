@@ -283,6 +283,9 @@ protected void onCreate(Bundle savedInstanceState){
 }
 }}}
 
+Related Blog:
+[http://blog.androidquery.com/2011/05/android-fragmentation-and-buildtarget.html]
+
 === Multiple UI, One Piece of Code===
 
 With the waves of new Tablet devices, Android apps will need to support a wider range of screen sizes. Developers might need to design different UI layout for phone and tablets, but do we need to write a different set of code also?
@@ -339,6 +342,9 @@ If you like to give back to the community, open a ticket and submit your custom 
 ===Light Weight===
 
 Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small and optimized with proguard (~20k for 0.2.3). The actual increase in apk size will be even smaller.
+
+Related Blog:
+[http://blog.androidquery.com/2011/06/android-optimization-with-proper.html ProGuard Android Optimization]
 
 ==History==
 

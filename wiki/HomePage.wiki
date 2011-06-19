@@ -284,7 +284,7 @@ protected void onCreate(Bundle savedInstanceState){
 }}}
 
 Related Blog:
-[http://blog.androidquery.com/2011/05/android-fragmentation-and-buildtarget.html]
+[http://blog.androidquery.com/2011/05/android-fragmentation-and-buildtarget.html Android Fragmentation & Target Build Level]
 
 === Multiple UI, One Piece of Code===
 
@@ -344,7 +344,7 @@ If you like to give back to the community, open a ticket and submit your custom 
 Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small and optimized with proguard (~20k for 0.2.3). The actual increase in apk size will be even smaller.
 
 Related Blog:
-[http://blog.androidquery.com/2011/06/android-optimization-with-proper.html ProGuard Android Optimization]
+[http://blog.androidquery.com/2011/06/android-optimization-with-proper.html Android ProGuard Optimization]
 
 ==History==
 

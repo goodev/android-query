@@ -130,7 +130,7 @@ public void asyncJson(){
 
 }}}
 
-JSON with activity as callback:
+====JSON (activity as callback) ====
 {{{
 public void asyncJson(){
 	
@@ -156,69 +156,36 @@ public void jsonCallback(String url, JSONObject json, AjaxStatus status){
 ==== HTML/XML ====
 
 {{{
-public void asyncHtml(){
-	
-	//fetch Google's homepage in html
-	
-	String url = "http://www.google.com";
-	
-	aq.ajax(url, String.class, new AjaxCallback<String>() {
+//fetch Google's homepage in html
 
-		@Override
-		public void callback(String url, String html, AjaxStatus status) {
-			
-			Toast.makeText(aq.getContext(), html, Toast.LENGTH_LONG).show();
-		}
+String url = "http://www.google.com";
+
+aq.ajax(url, String.class, new AjaxCallback<String>() {
+
+	@Override
+	public void callback(String url, String html, AjaxStatus status) {
 		
-	});
+	}
 	
-	
-}
-
+});
 }}}
 
 ==== bytes ====
 
 {{{
-public void asyncBytes(){
-	
-	//fetch a remote resource in raw bytes
-	
-	String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
-	
-	aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
+//fetch a remote resource in raw bytes
 
-		@Override
-		public void callback(String url, byte[] data, AjaxStatus status) {
-			Toast.makeText(aq.getContext(), "bytes array:" + data.length, Toast.LENGTH_LONG).show();
-		}
-	});
-	
-	
-}
+String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+
+aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
+
+	@Override
+	public void callback(String url, byte[] object, AjaxStatus status) {
+		Toast.makeText(aq.getContext(), "bytes array:" + object.length, Toast.LENGTH_LONG).show();
+	}
+});
 }}}
 
-==== Image ====
-
-{{{
-public void asyncBitmap(){
-	
-	//fetch a image over the network
-	
-	String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
-	
-	aq.ajax(url, Bitmap.class, new AjaxCallback<Bitmap>() {
-
-		@Override
-		public void callback(String url, Bitmap image, AjaxStatus status) {
-			Toast.makeText(aq.getContext(), image.toString(), Toast.LENGTH_LONG).show();
-		}
-	});
-	
-}
-
-
-}}}
 
 See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
 

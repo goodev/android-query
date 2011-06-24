@@ -153,6 +153,8 @@ public void jsonCallback(String url, JSONObject json, AjaxStatus status){
 
 }}}
 
+Note that AQuery uses a weak reference to hold the handler for this method. This is to make sure an activity won't be memory leaked when it's terminated before the AJAX request finishes.
+
 ==== HTML/XML ====
 
 {{{

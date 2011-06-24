@@ -130,7 +130,7 @@ public void asyncJson(){
 
 }}}
 
-
+JSON with activity as callback:
 {{{
 public void asyncJson(){
 	
@@ -143,13 +143,9 @@ public void asyncJson(){
 
 public void jsonCallback(String url, JSONObject json, AjaxStatus status){
 	
-	if(json != null){
-		
-		//successful ajax call
-		
-	
-	}else{
-		
+	if(json != null){		
+		//successful ajax call		
+	}else{		
 		//ajax error
 	}
 	

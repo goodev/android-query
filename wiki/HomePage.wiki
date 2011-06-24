@@ -194,7 +194,7 @@ See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
 
 === Image Loading ===
 
-AQuery supports asynchronous image loading from network with file and memory caching.
+AQuery supports easy asynchronous image loading from network, with automatic file and memory caching.
 
 {{{
 aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");

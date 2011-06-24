@@ -129,6 +129,9 @@ public void asyncJson(){
 }
 
 }}}
+
+
+{{{
 public void asyncJson(){
 	
 	//perform a Google search in just a few lines of code
@@ -152,9 +155,6 @@ public void jsonCallback(String url, JSONObject json, AjaxStatus status){
 	}
 	
 }
-
-{{{
-
 
 }}}
 

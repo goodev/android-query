@@ -200,6 +200,13 @@ AQuery supports easy asynchronous image loading from network, with automatic fil
 aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png");
 }}}
 
+Images are cached under the app's cache/aquery folder.
+
+Retrieve a cached file:
+{{{
+aq.getCachedFile(url);
+}}}
+
 See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
 
 ===Chaining===

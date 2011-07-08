@@ -9,6 +9,7 @@
 Added method:
 
   * checked (compound button, checkbox)
+  * getChecked (compound button, checkbox)
   * clickable (view clickable)
 
 == 0.3.1 ==

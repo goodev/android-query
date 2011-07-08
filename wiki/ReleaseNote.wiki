@@ -2,11 +2,20 @@
 
 = Release Notes =
 
+== 0.3.3 ==
+
+7/8/2011
+
+Added method:
+
+  * checked (compound button, checkbox)
+  * clickable (view clickable)
+
 == 0.3.1 ==
 
 7/2/2011
 
-Add method:
+Added method:
 
   * textChanged (listen to change of edit text)
   * getCachedFile (get previously cached file by ajax requests) 

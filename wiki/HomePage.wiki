@@ -349,6 +349,10 @@ Memory is scarce for mobile apps. The AQuery lib is standalone and relatively sm
 Related Blog:
 [http://blog.androidquery.com/2011/06/android-optimization-with-proper.html Android ProGuard Optimization]
 
+==Philosophy==
+
+AQuery's philosophy is to make common tasks as simple as possible in a non-intrusive manner. 
+
 ==History==
 
 AQuery is inspired by jQuery, a javascript framework for web, hence the name "Query". 

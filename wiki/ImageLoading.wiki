@@ -41,7 +41,8 @@ aq.id(R.id.image1).image(imageUrl, true, true, 200, 0);
 
 //if we are not able to load the image, use a default image (R.drawable.default_image)
 
-aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png", true, true, 0, R.drawable.default_image);
+String imageUrl = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+aq.id(R.id.image1).image(imageUrl, true, true, 0, R.drawable.default_image);
 
 }}}
 

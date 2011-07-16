@@ -28,7 +28,7 @@ aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.pn
 
 //we are loading a huge image from the network, but we only need the image to be bigger than 200 pixels wide
 //passing in the target width of 200 will down sample the image to conserve memory
-//aquery will only down sample with power of 2 (2,4,8...) for image quality
+//aquery will only down sample with power of 2 (2,4,8...) for good image quality and efficiency
 //the resulting image width will be between 200 and 399 pixels
 
 String imageUrl = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg";		

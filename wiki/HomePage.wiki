@@ -209,6 +209,15 @@ Getting previously cached file:
 File file = aq.getCachedFile(url);
 }}}
 
+Features:
+  * Simple
+  * Memory & File Caching
+  * Down Sampling
+  * Default Image
+  * Avoid Duplicated Simultaneous Fetches
+  * Custom Callback
+
+
 See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
 
 ===Chaining===

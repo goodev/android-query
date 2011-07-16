@@ -106,7 +106,13 @@ public class MainApplication extends Application{
 	BitmapAjaxCallback.setIconCacheLimit(20);
 
 	//set the max number of images (image width > 50) to be cached in memory, default is 20
-	BitmapAjaxCallback.setCacheLimit(40);		        
+	BitmapAjaxCallback.setCacheLimit(40);
+
+	//set the max size of an image to be cached in memory, default is 1600 pixels (ie. 400x400)
+	BitmapAjaxCallback.setPixelLimit(400 * 400);
+        
+	//set the max size of the memory cache, default is 1M pixels (4M)
+	BitmapAjaxCallback.setMaxPixelLimit(2000000);		        
         
         super.onCreate();
     }

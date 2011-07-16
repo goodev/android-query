@@ -80,6 +80,13 @@ aq.id(R.id.image2).image(imageUrl);
 
 }}}
 
+=== Access Cached Images ===
+
+{{{
+//returns the cached file by url, returns null if url is not cached
+File file = aq.getCachedFile(url);
+}}}
+
 == Configuration ==
 
 More fine tuning can be done when an application starts. A good place to set the configuration is in the onCreate() method of the application.

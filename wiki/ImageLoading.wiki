@@ -72,7 +72,7 @@ aq.id(R.id.image1).image(imageUrl, true, true, 0, 0, new BitmapAjaxCallback(){
 === Duplicated URL ===
 {{{
 
-//AQuery detects duplicated image urls request, and only fetches 1 image and apply them to all associated image views
+//AQuery detects duplicated image urls request and only fetches 1 image and apply them to all associated image views
 
 String imageUrl = "http://www.vikispot.com/z/images/vikispot/android-w.png";
 aq.id(R.id.image1).image(imageUrl);

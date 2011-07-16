@@ -69,6 +69,17 @@ aq.id(R.id.image1).image(imageUrl, true, true, 0, 0, new BitmapAjaxCallback(){
 
 }}}
 
+=== Duplicated URL ===
+{{{
+
+//AQuery detects duplicated image urls request, and only fetches 1 image and apply them to all associated image views
+
+String imageUrl = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+aq.id(R.id.image1).image(imageUrl);
+aq.id(R.id.image2).image(imageUrl);
+
+}}}
+
 == Configuration ==
 
 More fine tuning can be done when an application starts. A good place to set the configuration is in the onCreate() method of the application.

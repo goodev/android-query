@@ -23,7 +23,7 @@ boolean fileCache = true;
 aq.id(R.id.image1).image("http://www.vikispot.com/z/images/vikispot/android-w.png", memCache, fileCache);
 }}}
 
-===Down Sampling===
+===Down Sampling (Handling Huge Images)===
 {{{
 
 //we are loading a huge image from the network, but we only need the image to be bigger than 200 pixels wide

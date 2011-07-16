@@ -124,6 +124,7 @@ Note: AQuery just get started! Do expect this list of methods to expand as time 
   * isExist
   * itemClicked
   * setLayerType11
+  * setOverScrollMode9
 
 === TextView===
 

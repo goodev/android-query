@@ -80,7 +80,7 @@ aq.id(R.id.image1).image(imageUrl, true, true, 0, 0, new BitmapAjaxCallback(){
 
 === File (Async) ===
 
-Load image from a file asynchronously with down sampling. Down sampling is recommended when loading huge images from camera to avoid out of memory errors.
+Load image from a file asynchronously. Down sampling is recommended when loading huge images from camera or gallery to avoid out of memory errors.
 
 =====Simple=====
 {{{

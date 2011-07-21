@@ -10,12 +10,12 @@ Updated method:
 
   * image(String url, boolean memCache, boolean fileCache, int targetWidth, int resId)
 
-Add fallback options to make image view invisible or gone.
+Added fallback options to make image view invisible or gone.
 
   * image(File file, int targetWidth)
   * image(File file, boolean memCache, int targetWidth, BitmapAjaxCallback callback)
 
-Add image loading from file with down sampling
+Added image loading from file with down sampling.
 
 == 0.5.1 ==
 

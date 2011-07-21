@@ -35,7 +35,7 @@ String imageUrl = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.j
 aq.id(R.id.image1).image(imageUrl, true, true, 200, 0);
 }}}
 
-===Default Image===
+===Fallback Image===
 
 {{{
 

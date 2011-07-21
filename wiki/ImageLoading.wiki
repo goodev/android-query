@@ -78,6 +78,18 @@ aq.id(R.id.image1).image(imageUrl, true, true, 0, 0, new BitmapAjaxCallback(){
 
 }}}
 
+=== File (Async) ===
+{{{
+
+//load image from a file asynchronously with down sampling.
+//down sampling is recommended when loading huge images from camera
+
+File file = new File(path);        
+aq.id(R.id.avatar).image(file, 300);
+
+}}}
+
+
 === Duplicated URL ===
 {{{
 

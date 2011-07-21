@@ -46,11 +46,11 @@ aq.id(R.id.image1).image(imageUrl, true, true, 0, R.drawable.default_image);
 
 //make image view "invisible" if image failed to load
 imageUrl = "http://a.b.com/invalid.jpg";		
-aq.id(R.id.image1).image(imageUrl, true, true, 200, AQuery.INVISIBLE);
+aq.id(R.id.image1).image(imageUrl, true, true, 0, AQuery.INVISIBLE);
 
 
 //make image view "gone" if image failed to load
-aq.id(R.id.image1).image(imageUrl, true, true, 200, AQuery.GONE);
+aq.id(R.id.image1).image(imageUrl, true, true, 0, AQuery.GONE);
 
 
 }}}

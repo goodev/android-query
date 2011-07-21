@@ -12,6 +12,11 @@ Updated method:
 
 Add fallback options to make image view invisible or gone.
 
+  * image(File file, int targetWidth)
+  * image(File file, boolean memCache, int targetWidth, BitmapAjaxCallback callback)
+
+Add image loading from file with down sampling
+
 == 0.5.1 ==
 
 7/16/2011

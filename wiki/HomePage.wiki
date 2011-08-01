@@ -219,6 +219,7 @@ Features:
 
 
 See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
+
 Related Blog: [http://blog.androidquery.com/2011/05/down-sample-images-to-avoid-out-of.html Downsampling]
 
 ===Chaining===

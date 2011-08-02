@@ -1,5 +1,7 @@
 #Asynchronous Image Loading with AndroidQuery
 
+<wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/twitter.xml?v=13" height="25" width="450" border="0" /> 
+
 == Code ==
 
 Asynchronous image loading is easy with AQuery.

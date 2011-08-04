@@ -1,6 +1,6 @@
-#AQuery API Quick Start
+#AQuery Android Query Quick Start
 
-= AQuery API=
+= AQuery=
 
 
 ==Core Concept ==
@@ -93,8 +93,8 @@ public class TestActivity extends Activity {
 
 AQuery usage:
 
-  # Create an AQuery object with an activity, the root view of a fragment (or any view container), or a context (for background ajax requests)
-  # Use the id() or find() methods to set the current "view"
+  # Create an AQuery object with an activity, the root view of a fragment, a list item view (or any view container), or a context (for background ajax requests)
+  # Use the id() or find() methods to pick the current "view"
   # Call the appropriate methods to update the view
   # Repeats #2
 

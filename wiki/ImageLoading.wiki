@@ -191,7 +191,7 @@ public void onDestroy(){
 
 If you use file cache for images, regularly clean the cache dir when the application exits.
 
-Simple:
+====Simple====
 
 {{{
 protected void onDestroy(){
@@ -206,7 +206,7 @@ protected void onDestroy(){
 
 }}}
 
-Advance:
+====Advance====
 {{{
 protected void onDestroy(){
 	

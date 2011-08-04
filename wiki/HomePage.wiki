@@ -97,40 +97,7 @@ public void renderContent(Content content, View view) {
 
 Asynchronous AJAX or RPC calls are simple.
 
-==== JSON ====
-{{{
-
-
-public void asyncJson(){
-	
-	//perform a Google search in just a few lines of code
-	
-	String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
-	
-	aq.ajax(url, JSONObject.class, new AjaxCallback<JSONObject>() {
-
-		@Override
-		public void callback(String url, JSONObject json, AjaxStatus status) {
-			
-			
-			if(json != null){
-				
-				//successful ajax call, show status code and json content
-				Toast.makeText(aq.getContext(), status.getCode() + ":" + json.toString(), Toast.LENGTH_LONG).show();
-			
-			}else{
-				
-				//ajax error, show error code
-				Toast.makeText(aq.getContext(), "Error:" + status.getCode(), Toast.LENGTH_LONG).show();
-			}
-		}
-	});
-	
-}
-
-}}}
-
-====JSON (activity as callback) ====
+====JSON Example ====
 {{{
 public void asyncJson(){
 	
@@ -153,43 +120,13 @@ public void jsonCallback(String url, JSONObject json, AjaxStatus status){
 
 }}}
 
-Note that AQuery uses a weak reference to hold the handler for this method. This is to make sure an activity won't be memory leaked when it's terminated before the AJAX request finishes.
+Features:
+  * JSON
+  * HTML/XML
+  * byte[]
+  * Http POST
 
-==== HTML/XML ====
-
-{{{
-//fetch Google's homepage in html
-
-String url = "http://www.google.com";
-
-aq.ajax(url, String.class, new AjaxCallback<String>() {
-
-	@Override
-	public void callback(String url, String html, AjaxStatus status) {
-		
-	}
-	
-});
-}}}
-
-==== bytes ====
-
-{{{
-//fetch a remote resource in raw bytes
-
-String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
-
-aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
-
-	@Override
-	public void callback(String url, byte[] object, AjaxStatus status) {
-		Toast.makeText(aq.getContext(), "bytes array:" + object.length, Toast.LENGTH_LONG).show();
-	}
-});
-}}}
-
-
-See [http://code.google.com/p/android-query/wiki/ImageLoading more...]
+See [http://code.google.com/p/android-query/wiki/AsyncAPI more...]
 
 
 === Image Loading ===

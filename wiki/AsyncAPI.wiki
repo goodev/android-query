@@ -13,7 +13,7 @@ AQuery transform the data automatically base on the class type passed in the aja
 Supported types:
   * JSONObject
   * String (HTML, XML)
-  * byte[]
+  * byte array
   * [http://code.google.com/p/android-query/wiki/ImageLoading Bitmap]
 
 If there are more data types you want to be supported, please send us feedback.

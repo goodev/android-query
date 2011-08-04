@@ -234,6 +234,17 @@ protected void onCreate(Bundle savedInstanceState){
 }
 }}}
 
+*Invoke any method safely:*
+{{{
+
+//here we invoke the getTag method of a view
+
+String tag1 = (String) aq.invoke("getTag", null);
+
+String tag2 = (String) aq.invoke("getTag", new Class[]{int.class}, R.id.tag);		
+
+}}}
+
 Related Blog:
 [http://android-query.blogspot.com/2011/05/android-fragmentation-and-buildtarget.html Android Fragmentation & Target Build Level]
 

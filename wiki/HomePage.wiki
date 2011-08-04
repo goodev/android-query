@@ -22,6 +22,7 @@ Android-Query (AQuery) is a light-weight library for manipulating UI elements in
   * [#Extendable Extendable]
   * [#Light_Weight Light Weight]
   * Open Source
+  * [#Non-intrusive Non-intrusive]
 
 
 ===Less Code===
@@ -303,10 +304,14 @@ If you like to give back to the community, open a ticket and submit your custom 
 
 ===Light Weight===
 
-Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small and optimized with proguard (~20k for 0.2.3). The actual increase in apk size will be even smaller.
+Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small and optimized with proguard (~25k for 0.8.2). The actual increase in apk size will be even smaller.
 
 Related Blog:
 [http://android-query.blogspot.com/2011/06/android-optimization-with-proper.html Android ProGuard Optimization]
+
+===Non-intrusive===
+
+AQuery has no dependency and does not require developers to inherit specialized views or activities. Developers are free to use AQuery along with any other library without any conflict.
 
 ==Philosophy==
 

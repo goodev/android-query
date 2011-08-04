@@ -1,13 +1,98 @@
-#summary One-sentence summary of this page.
+#summary Asynchronous network calls with Android Query
 
-= Introduction =
+<wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/twitter.xml?v=16" height="25" width="450" border="0" /> 
 
-Add your content here.
+== Code ==
+
+Asynchronous AJAX or RPC calls are simple.
+
+==== JSON ====
+{{{
 
 
-= Details =
+public void asyncJson(){
+	
+	//perform a Google search in just a few lines of code
+	
+	String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+	
+	aq.ajax(url, JSONObject.class, new AjaxCallback<JSONObject>() {
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+		@Override
+		public void callback(String url, JSONObject json, AjaxStatus status) {
+			
+			
+			if(json != null){
+				
+				//successful ajax call, show status code and json content
+				Toast.makeText(aq.getContext(), status.getCode() + ":" + json.toString(), Toast.LENGTH_LONG).show();
+			
+			}else{
+				
+				//ajax error, show error code
+				Toast.makeText(aq.getContext(), "Error:" + status.getCode(), Toast.LENGTH_LONG).show();
+			}
+		}
+	});
+	
+}
+
+}}}
+
+====JSON (activity as callback) ====
+{{{
+public void asyncJson(){
+	
+	//perform a Google search in just a few lines of code
+	
+	String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";		
+	aq.ajax(url, JSONObject.class, this, "jsonCallback");
+	
+}
+
+public void jsonCallback(String url, JSONObject json, AjaxStatus status){
+	
+	if(json != null){		
+		//successful ajax call		
+	}else{		
+		//ajax error
+	}
+	
+}
+
+}}}
+
+Note that AQuery uses a weak reference to hold the handler for this method. This is to make sure an activity won't be memory leaked when it's terminated before the AJAX request finishes.
+
+==== HTML/XML ====
+
+{{{
+//fetch Google's homepage in html
+
+String url = "http://www.google.com";
+
+aq.ajax(url, String.class, new AjaxCallback<String>() {
+
+	@Override
+	public void callback(String url, String html, AjaxStatus status) {
+		
+	}
+	
+});
+}}}
+
+==== bytes ====
+
+{{{
+//fetch a remote resource in raw bytes
+
+String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+
+aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
+
+	@Override
+	public void callback(String url, byte[] object, AjaxStatus status) {
+		Toast.makeText(aq.getContext(), "bytes array:" + object.length, Toast.LENGTH_LONG).show();
+	}
+});
+}}}

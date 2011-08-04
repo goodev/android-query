@@ -21,8 +21,8 @@ Android-Query (AQuery) is a light-weight library for manipulating UI elements in
   * [#Multiple_UI,_One_Piece_of_Code Multiple UI, One Piece of Code]
   * [#Extendable Extendable]
   * [#Light_Weight Light Weight]
-  * Open Source
   * [#Non-intrusive Non-intrusive]
+  * Open Source
 
 
 ===Less Code===

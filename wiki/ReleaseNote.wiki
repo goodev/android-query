@@ -1,6 +1,18 @@
-#Release note.
+#summary Release note.
 
 = Release Notes =
+
+== 0.8.2 ==
+
+8/4/2011
+
+Added method:
+
+  * ajax(AjaxCallback<K> callback)
+  * ajax(String url, Map<String, Object> params, Class<K> type, AjaxCallback<K> callback)
+  * ajax(String url, Map<String, Object> params, Class<K> type, Object handler, String callback)
+
+New ajax methods using the http post method.
 
 == 0.6.1 ==
 

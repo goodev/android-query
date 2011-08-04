@@ -1,4 +1,4 @@
-#Asynchronous Image Loading with AndroidQuery
+#summary Asynchronous Image Loading with AndroidQuery
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/twitter.xml?v=16" height="25" width="450" border="0" /> 
 

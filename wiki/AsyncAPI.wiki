@@ -114,12 +114,12 @@ aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 {{{
 public void async_post(){
 	
-	//do a twiiter search with a http post
+    //do a twiiter search with a http post
 	
     String url = "http://search.twitter.com/search.json";
 	
-	Map<String, Object> params = new HashMap<String, Object>();
-	params.put("q", "androidquery");
+    Map<String, Object> params = new HashMap<String, Object>();
+    params.put("q", "androidquery");
 	
     aq.ajax(url, params, JSONObject.class, new AjaxCallback<JSONObject>() {
 

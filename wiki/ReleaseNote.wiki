@@ -8,9 +8,9 @@
 
 Added method:
 
-  * ajax(AjaxCallback<K> callback)
-  * ajax(String url, Map<String, Object> params, Class<K> type, AjaxCallback<K> callback)
-  * ajax(String url, Map<String, Object> params, Class<K> type, Object handler, String callback)
+  * ajax(AjaxCallback callback)
+  * ajax(String url, Map<String, Object> params, Class type, AjaxCallback callback)
+  * ajax(String url, Map<String, Object> params, Class type, Object handler, String callback)
 
 New ajax methods using the http post method.
 

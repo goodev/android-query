@@ -1,6 +1,6 @@
 #summary Asynchronous network calls with Android Query
 
-<wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/twitter.xml?v=16" height="105" width="450" border="0" /> 
+<wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/twitter.xml?v=19" height="105" width="450" border="0" /> 
 
 == Code ==
 

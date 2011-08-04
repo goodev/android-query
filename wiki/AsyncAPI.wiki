@@ -11,9 +11,9 @@ Asynchronous AJAX or RPC calls are simple.
 AQuery transform the data automatically base on the class type passed in the ajax method.
 
 Supported types:
-  * JSONObject.class
-  * String.class (HTML, XML)
-  * byte[].class
+  * JSONObject
+  * String (HTML, XML)
+  * byte[]
   * [http://code.google.com/p/android-query/wiki/ImageLoading Bitmap]
 
 If there are more data types you want to be supported, please send us feedback.

@@ -240,8 +240,10 @@ protected void onCreate(Bundle savedInstanceState){
 
 //here we invoke the getTag method of a view
 
+//same as calling public Object getTag()
 String tag1 = (String) aq.invoke("getTag", null);
 
+//same as calling public Object getTag(int key)
 String tag2 = (String) aq.invoke("getTag", new Class[]{int.class}, R.id.tag);		
 
 }}}

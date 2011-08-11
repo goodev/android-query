@@ -175,7 +175,6 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 	}
 };
 
-aq.id(R.id.list).adapter(aa);
 
 }}}
 

@@ -344,9 +344,9 @@ Subscribe to join the AQuery discussion.
 
 ==Support==
 
-If you like AQuery's approach to simplify Android development, help us spread the words to other Android developers! 
+If you like AQuery's approach to simplify Android development, please spread the words to other Android developers.
 
-Help us by staring this project and share us on Twitter!
+Help us by staring this project and share us on Twitter.
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/twitter.xml?v=13" height="25" width="450" border="0" /> 
 

@@ -323,6 +323,12 @@ AQuery's philosophy is to make common tasks as simple as possible in a non-intru
 
 AQuery is inspired by jQuery, a javascript framework for web, hence the name "Query". 
 
+==API Demo App==
+
+Demo with AQuery code snippets is available on [https://market.android.com/details?id=com.androidquery Android Market].
+
+https://market.android.com/details?id=com.androidquery
+
 ==Demo App==
 
 Try out our [https://market.android.com/details?id=com.pekca.vikispot.android VikiSpot Reader] written with AQuery.

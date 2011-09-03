@@ -2,6 +2,18 @@
 
 = Release Notes =
 
+== 0.9.1 ==
+
+9/3/2011
+
+Added method:
+
+  * width(int dip)
+  * height(int dip)
+  * image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId)
+
+Add image loading function with "preloaded" image option and image animation.
+
 == 0.8.2 ==
 
 8/4/2011

@@ -11,6 +11,8 @@ Added method:
   * width(int dip)
   * height(int dip)
   * image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId)
+  * getCachedImage(String url)
+  * getCachedImage(String url, int targetWidth)
 
 Add image loading function with "preloaded" image option and image animation.
 

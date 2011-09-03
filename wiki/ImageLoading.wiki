@@ -59,6 +59,19 @@ aq.id(R.id.image1).image(imageUrl, true, true, 0, AQuery.GONE);
 
 }}}
 
+===Preloading===
+{{{
+
+//get the bitmap for a previously fetched thumbnail
+String thumbnail = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_s.jpg";	
+Bitmap preset = aq.getCachedImage(thumbnail);
+
+//set the image view with a thumbnail, and fetch the high resolution image asynchronously
+String imageUrl = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg";		
+aq.id(R.id.image).image(imageUrl, false, false, 0, 0, preset, AQuery.FADE_IN);
+
+}}}
+
 ===Custom Callback===
 
 {{{

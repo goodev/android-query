@@ -72,6 +72,15 @@ aq.id(R.id.image).image(imageUrl, false, false, 0, 0, preset, AQuery.FADE_IN);
 
 }}}
 
+===Animation===
+{{{
+
+//display the image with a predefined fade in animation
+String imageUrl = "http://www.vikispot.com/z/images/vikispot/android-w.png";		
+aq.id(R.id.image).image(imageUrl, true, true, 0, null, 0, AQuery.FADE_IN);
+
+
+}}}
 ===Custom Callback===
 
 {{{

@@ -74,8 +74,38 @@ public class AQueryTest extends ActivityInstrumentationTestCase2<AQueryTestActiv
 		
 	}
 	
-	//@UiThreadTest
+	//public <K> T ajax(AjaxCallback<K> callback)
 	public void testAjax1() {
+		
+		String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+        
+		AjaxCallback<JSONObject> cb = new AjaxCallback<JSONObject>(){
+			
+			@Override
+			public void callback(String url, JSONObject jo, AjaxStatus status) {
+				
+				done(url, jo, status);
+				
+			}
+			
+		};
+		
+		cb.url(url).type(JSONObject.class);		
+        aq.ajax(cb);
+        
+        waitDone();
+        
+        JSONObject jo = (JSONObject) result;
+        
+        assertNotNull(jo);       
+        assertNotNull(jo.opt("responseData"));
+        
+    }
+	
+	
+	//@UiThreadTest
+	//public <K> T ajax(String url, Class<K> type, Object handler, String callback)
+	public void testAjax3() {
 		
 		String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
         

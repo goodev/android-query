@@ -20,6 +20,7 @@ import android.graphics.drawable.Drawable;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -79,20 +80,275 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 	}
 	
 	private String ICON_URL = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+	private String LAND_URL = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg";
+	private String INVALID_URL = "http://www.vikispot.com/z/images/vikispot/xyz.png";
 	
-	//Test: public T image(String url)
-	/*
-	@UiThreadTest
+	//@UiThreadTest
+	
+	//Test: public T image(String url)	
 	public void testImage4() {
 		
 		clearCache();
 		
-		aq.id(R.id.image).image(ICON_URL);
-        
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				aq.id(R.id.image).image(ICON_URL);
+			}
+		});
+		
 		waitAsync();
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
+		Bitmap bm = aq.getCachedImage(ICON_URL);
+		
+		assertNotNull(bm);
+		
     }
-	*/
+	
+	//Test: public T image(String url, boolean memCache, boolean fileCache)	
+	public void testImage5() {
+		
+		clearCache();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				aq.id(R.id.image).image(ICON_URL, false, false);
+			}
+		});
+		
+		waitAsync();
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+		Bitmap bm = aq.getCachedImage(ICON_URL);		
+		assertNull(bm);
+		
+    }
+	
+	//Test: public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId)
+	public void testImage6() {
+		
+		clearCache();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				aq.id(R.id.image).image(LAND_URL, true, true, 200, 0);
+			}
+		});
+		
+		waitAsync();
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+		Bitmap bm = aq.getCachedImage(LAND_URL, 200);		
+		assertNotNull(bm);
+		
+    }
+	
+	public void testImage6a() {
+		
+		clearCache();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				aq.id(R.id.image).image(INVALID_URL, true, true, 200, R.drawable.icon);
+			}
+		});
+		
+		waitAsync();
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+		
+		
+    }
+	
+	//Test: public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId)
+	public void testImage7() {
+		
+		clearCache();
+		
+		final Bitmap thumb = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.icon);	
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+							
+				aq.id(R.id.image).image(ICON_URL, true, true, 0, 0, thumb, 0);
+				assertNotNull(aq.getImageView().getDrawable());
+			}
+		});
+		
+		
+		waitAsync();
+		
+		Bitmap bm = aq.getCachedImage(ICON_URL);		
+		assertNotNull(bm);
+		
+    }	
+	
+	//Test: public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId)
+	public void testImage7a() {
+		
+		clearCache();
+		
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+							
+				aq.id(R.id.image).image(ICON_URL, true, true, 0, 0, null, AQuery.FADE_IN);
+			}
+		});
+		
+		
+		waitAsync();
+		
+		Bitmap bm = aq.getCachedImage(ICON_URL);		
+		assertNotNull(bm);
+		
+    }	
+	
+	//Test: public T image(BitmapAjaxCallback callback)
+	public void testImage8() {
+		
+		clearCache();
+		
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+							
+				//aq.id(R.id.image).image(ICON_URL, true, true, 0, 0, null, AQuery.FADE_IN);
+				BitmapAjaxCallback cb = new BitmapAjaxCallback();
+				cb.url(ICON_URL);
+				
+				aq.id(R.id.image).image(cb);
+			}
+		});
+		
+		
+		waitAsync();
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+		
+		Bitmap bm = aq.getCachedImage(ICON_URL);		
+		assertNotNull(bm);
+		
+    }	
+	
+	//Test: public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int resId, BitmapAjaxCallback callback)
+	public void testImage9() {
+		
+		clearCache();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+							
+				BitmapAjaxCallback cb = new BitmapAjaxCallback(){
+				
+					protected void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status) {
+					
+						iv.setImageBitmap(bm);
+						
+					}
+					
+				};
+				
+				aq.id(R.id.image).image(ICON_URL, true, true, 0, 0, cb);
+			}
+		});
+		
+		
+		waitAsync();
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+		
+		Bitmap bm = aq.getCachedImage(ICON_URL);		
+		assertNotNull(bm);
+		
+    }		
+	
+	private void prefetchFile(){
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				aq.id(R.id.image).image(LAND_URL, true, true, 200, 0);
+			}
+		});
+		
+		waitAsync();
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+		waitSec();
+		
+		File file = aq.getCachedFile(LAND_URL);
+		
+		assertNotNull(file);
+	}
+	
+	//Test: public T image(File file, int targetWidth)
+	public void testImage10() {
+		
+		clearCache();
+		
+		prefetchFile();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				File file = aq.getCachedFile(LAND_URL);
+				aq.id(R.id.image2).image(file, 200);
+			}
+		});
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+    }	
+	
+	//Test: public T image(File file, boolean memCache, int targetWidth, BitmapAjaxCallback callback)
+	public void testImage11() {
+		
+		clearCache();
+		
+		prefetchFile();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				File file = aq.getCachedFile(LAND_URL);
+				aq.id(R.id.image2).image(file, true, 200, new BitmapAjaxCallback(){
+					@Override
+					protected void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status) {
+						iv.setImageBitmap(bm);
+					}
+				});
+			}
+		});
+		
+		assertNotNull(aq.getImageView().getDrawable());
+		
+    }	
 }

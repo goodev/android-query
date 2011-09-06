@@ -30,19 +30,21 @@ public abstract class AbstractTest<T extends Activity> extends ActivityInstrumen
 	
 	protected void waitAsync(){
 		
-		/*
-		synchronized(aq) {
-			try {
-				aq.wait();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}*/
-		
 		AQUtility.debugWait();
 		
 	}
 	
+	protected void waitSec(){
+		
+		synchronized(this){
+			try {
+				wait(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	protected void done(){
 		

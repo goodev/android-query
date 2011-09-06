@@ -152,6 +152,9 @@ Features:
   * Memory & File Caching
   * Down Sampling
   * Default Image
+  * Preloading
+  * Animation
+  * Dynamic Aspect Ratio
   * Avoid Duplicated Simultaneous Fetches
   * Custom Callback
 

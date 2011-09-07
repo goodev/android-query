@@ -172,6 +172,25 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		
     }
 	
+	public void testImage6b() {
+		
+		clearCache();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				aq.id(R.id.image).image(INVALID_URL, true, true, 200, 0);
+			}
+		});
+		
+		waitAsync();
+		
+		
+		
+		
+    }	
+	
 	//Test: public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId)
 	public void testImage7() {
 		

@@ -151,7 +151,7 @@ Features:
   * Simple
   * Memory & File Caching
   * Down Sampling
-  * Default Image
+  * Fallback Image
   * Preloading
   * Animation
   * Dynamic Aspect Ratio

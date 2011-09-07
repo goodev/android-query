@@ -351,4 +351,27 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		assertNotNull(aq.getImageView().getDrawable());
 		
     }	
+	
+	
+	//Test: public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId, float ratio)
+	public void testImage12() {
+		
+		clearCache();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				aq.id(R.id.image).image(ICON_URL, true, true, 0, 0, null, 0, AQuery.RATIO_PRESERVE);
+			}
+		});
+		
+		
+		waitAsync();
+		
+		Bitmap bm = aq.getCachedImage(ICON_URL);		
+		assertNotNull(bm);
+		
+    }	
 }

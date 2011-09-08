@@ -79,8 +79,34 @@ aq.id(R.id.image).image(imageUrl, false, false, 0, 0, preset, AQuery.FADE_IN);
 String imageUrl = "http://www.vikispot.com/z/images/vikispot/android-w.png";		
 aq.id(R.id.image).image(imageUrl, true, true, 0, null, 0, AQuery.FADE_IN);
 
+}}}
+
+===Aspect Ratio===
+
+=====Preserve Image Aspect Ratio=====
+
+{{{
+String imageUrl = "http://farm3.static.flickr.com/2199/2218403922_062bc3bcf2.jpg";	
+aq.id(R.id.image).image(imageUrl, true, true, 0, 0, null, AQuery.FADE_IN, AQuery.RATIO_PRESERVE);
 
 }}}
+
+=====Fixed Predefined Aspect Ratio=====
+
+{{{
+
+String imageUrl = "http://farm3.static.flickr.com/2199/2218403922_062bc3bcf2.jpg";	
+
+aq.id(R.id.image1).image(imageUrl, true, true, 0, 0, null, 0, AQuery.RATIO_PRESERVE);	
+
+//1:1, a square	
+aq.id(R.id.image2).image(imageUrl, true, true, 0, 0, null, 0, 1.0f / 1.0f);		
+aq.id(R.id.image3).image(imageUrl, true, true, 0, 0, null, 0, 1.5f / 1.0f);		
+//16:9
+aq.id(R.id.image4).image(imageUrl, true, true, 0, 0, null, 0, 9.0f / 16.0f);	
+aq.id(R.id.image5).image(imageUrl, true, true, 0, 0, null, 0, 3.0f / 4.0f);
+}}}
+
 ===Custom Callback===
 
 {{{

@@ -101,8 +101,9 @@ aq.id(R.id.image1).image(imageUrl, true, true, 0, 0, null, 0, AQuery.RATIO_PRESE
 
 //1:1, a square	
 aq.id(R.id.image2).image(imageUrl, true, true, 0, 0, null, 0, 1.0f / 1.0f);		
-aq.id(R.id.image3).image(imageUrl, true, true, 0, 0, null, 0, 1.5f / 1.0f);		
-//16:9
+aq.id(R.id.image3).image(imageUrl, true, true, 0, 0, null, 0, 1.5f / 1.0f);	
+	
+//16:9, a video thumbnail
 aq.id(R.id.image4).image(imageUrl, true, true, 0, 0, null, 0, 9.0f / 16.0f);	
 aq.id(R.id.image5).image(imageUrl, true, true, 0, 0, null, 0, 3.0f / 4.0f);
 }}}

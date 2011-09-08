@@ -2,6 +2,16 @@
 
 = Release Notes =
 
+== 0.10.3 ==
+
+9/8/2011
+
+Added method:
+
+  * image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId, float ratio)
+
+Added dynamic or predefined aspect ratio feature for image loading.
+
 == 0.9.2 ==
 
 9/6/2011

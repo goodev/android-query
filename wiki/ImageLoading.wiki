@@ -108,6 +108,34 @@ aq.id(R.id.image4).image(imageUrl, true, true, 0, 0, null, 0, 9.0f / 16.0f);
 aq.id(R.id.image5).image(imageUrl, true, true, 0, 0, null, 0, 3.0f / 4.0f);
 }}}
 
+=====Note=====
+
+AQuery inspect the width of the image view at runtime and configure its height. If possible, you should always set the image view to a desired width in dip in xml layout. If its width is FILL_PARENT/MATCH_PARENT and the width is unknown, AQuery will attempt to wait asynchronously for the view to be layout by the UI thread.
+
+If the image view width will be changed dynamically, you will have to create a custom image view and overwrite the onMeasure method like this:
+
+{{{
+
+@Override
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    
+	Drawable draw = getDrawable();
+	
+	int vwidth = MeasureSpec.getSize(widthMeasureSpec);
+	int vheight = MeasureSpec.getSize(heightMeasureSpec);
+    
+	
+	if(draw != null){
+		double r = getRatio();
+		vheight = (int) Math.ceil(vwidth * r);
+	}   
+	
+	setMeasuredDimension(vwidth, vheight);   
+    
+}
+
+}}}
+
 ===Custom Callback===
 
 {{{

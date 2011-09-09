@@ -163,6 +163,49 @@ public class AQueryAsyncTest extends AbstractTest<AQueryTestActivity> {
         
 	}
 	
+	//Test: public <K> T ajax(String url, Class<K> type, long expire, AjaxCallback<K> callback)
+	public void testAjax6() {
+		
+		String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+        
+		AjaxCallback<JSONObject> cb = new AjaxCallback<JSONObject>(){
+			
+			@Override
+			public void callback(String url, JSONObject jo, AjaxStatus status) {
+				
+				done(url, jo, status);
+				
+			}
+			
+		};
+		
+			
+        aq.ajax(url, JSONObject.class, 15 * 60 * 1000, cb);
+        
+        waitAsync();
+        
+        JSONObject jo = (JSONObject) result;
+        
+        assertNotNull(jo);       
+        assertNotNull(jo.opt("responseData"));
+        
+    }
+	
+	//Test: public <K> T ajax(String url, Class<K> type, long expire, Object handler, String callback)
+	public void testAjax7() {
+		
+		String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+        
+        aq.ajax(url, JSONObject.class, 15 * 60 * 1000, this, "jsonCb");
+        
+        waitAsync();
+        
+        JSONObject jo = (JSONObject) result;
+        
+        assertNotNull(jo);       
+        assertNotNull(jo.opt("responseData"));
+        
+    }
 	
 	public void jsonCb(String url, JSONObject jo, AjaxStatus status){
 				

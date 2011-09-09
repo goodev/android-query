@@ -343,7 +343,7 @@ AQuery is originally written along the way of the development of the VikiSpot Re
 
 AQuery is a new library and need nourishment from the community. The initial version is only covering a small set (but frequently used) of the Android UI framework. 
 
-Currently SVN at GoogleCode is the master. For GitHub lovers, fork [https://github.com/androidquery/androidquery androidquery] at GitHub!
+Git lovers: fork [https://github.com/androidquery/androidquery androidquery] at GitHub!
 
 ==Subscribe AQuery News==
 

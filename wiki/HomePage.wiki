@@ -341,7 +341,9 @@ AQuery is originally written along the way of the development of the VikiSpot Re
 
 ==Contribute!==
 
-AQuery is a new library and need nourishment from the community. The initial version is only covering a small set (but frequently used) of the Android UI framework. If you have requests or want to contribute code, go to the [http://groups.google.com/group/android-query discussion group].
+AQuery is a new library and need nourishment from the community. The initial version is only covering a small set (but frequently used) of the Android UI framework. 
+
+Currently SVN at GoogleCode is the master. For GitHub lovers, fork [https://github.com/androidquery/androidquery androidquery] at GitHub!
 
 ==Subscribe AQuery News==
 

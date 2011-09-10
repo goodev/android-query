@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+   
+    <string-array name="top_names">
+        <item>Async network demo</item>
+        <item>Image loading demo</item>  
+        <item>javadoc</item>        
+    </string-array>
+    
+    <string-array name="top_values">
+        <item>com.androidquery.test.IntentListActivity:async</item>
+        <item>com.androidquery.test.IntentListActivity:image</item>
+        <item>com.androidquery.test.IntentListActivity</item>
+    </string-array>
+  
+  	<string-array name="async_names">
+        <item>JSON</item>
+        <item>HTML/XML</item>   
+        <item>byte[]</item>  
+        <item>Http POST</item> 
+        <item>Activity Method as Callback</item> 
+        <item>Caching</item> 
+        <item>AjaxCallback</item>      
+    </string-array>
+  
+  	<string-array name="async_values">
+        <item>com.androidquery.test.async.AjaxLoadingActivity:async_json</item>
+        <item>com.androidquery.test.async.AjaxLoadingActivity:async_html</item>   
+        <item>com.androidquery.test.async.AjaxLoadingActivity:async_bytes</item>
+        <item>com.androidquery.test.async.AjaxLoadingActivity:async_post</item> 
+        <item>com.androidquery.test.async.AjaxLoadingActivity:async_method_cb</item>
+        <item>com.androidquery.test.async.AjaxLoadingActivity:async_cached</item> 
+        <item>com.androidquery.test.async.AjaxLoadingActivity:async_advance</item>    
+    </string-array>
+    
+    <string-array name="image_names">
+        <item>Simple</item>
+        <item>Cache Control</item>   
+        <item>Down Sampling</item>   
+        <item>Fallback</item>
+        
+        <item>Preload</item>
+        <item>Animation (Default Fade In)</item>
+        <item>Animation (Custom)</item>
+        
+        <item>Aspect Ratio (Dynamic)</item>          
+        <item>Aspect Ratio (Fixed)</item>  
+        
+        <item>List Items</item>         
+        
+        <item>Custom Callback</item>        
+        <item>File (Async)</item>
+        <item>File Custom Callback</item>
+        <item>Duplicated URL</item>    
+        
+        <item>BitmapAjaxCallback (Advance)</item> 
+        
+        <item>Access Cached Images (File)</item> 
+        <item>Access Cached Images (Memory)</item> 
+        
+    </string-array>
+    
+    <string-array name="image_values">
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_simple</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_cache</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_down</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_fallback</item>
+        
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_preload</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_animation</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_animation2</item>
+        
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_ratio</item>
+        <item>com.androidquery.test.image.ImageLoadingAspectRatioActivity:image_ratio_fixed</item>
+        
+        
+        <item>com.androidquery.test.image.ImageLoadingListActivity:image_list</item>
+        
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_custom</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_file</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_file_custom</item>
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_dup</item>
+        
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_advance</item>
+          
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_access_file</item> 
+        <item>com.androidquery.test.image.ImageLoadingActivity:image_access_memory</item>    
+    </string-array>
+    
+    
+    <string-array name="source_keys">
+        
+        <item>async_json</item>
+        <item>async_html</item>   
+        <item>async_bytes</item>  
+        <item>async_post</item> 
+        <item>async_method_cb</item>  
+        <item>async_cached</item>
+        <item>async_advance</item>
+        
+        <item>image_simple</item>
+        <item>image_cache</item>
+        <item>image_down</item>
+        <item>image_fallback</item>
+        
+        <item>image_preload</item>
+        <item>image_animation</item>
+        <item>image_animation2</item>
+        
+        <item>image_ratio</item>
+        <item>image_ratio_fixed</item>
+        
+        <item>image_list</item>
+        <item>image_custom</item>
+        <item>image_file</item>
+        <item>image_file_custom</item>
+        <item>image_dup</item>
+        
+        <item>image_advance</item>
+        
+        <item>image_access_file</item>
+        <item>image_access_memory</item>
+              
+    </string-array>
+    
+    <string-array name="source_title">
+        <item>Asynchronous HTTP Get JSON Object</item>
+        <item>Asynchronous HTTP Get HTML/XML</item>   
+        <item>Asynchronous HTTP Get as Bytes Array</item>
+        <item>Asynchronous HTTP Post</item> 
+        <item>Use Activity Method as Callback</item> 
+        <item>Asynchronous HTTP Get with Cache Control</item>
+        <item>Using AjaxCallback Directly</item>
+        
+        <item>Asynchronous HTTP Image Load</item>
+        <item>Async Image Load with Cache Control</item>
+        <item>Async Image Load with Down-sampling (1024 -> 256)</item>
+        <item>Async Image Load with Fallback Image</item>
+        
+        <item>Preload a placement image before loading real image</item>
+        <item>Async Image Load with Predefined Fade-In Animation</item>
+        <item>Async Image Load with Custom Animation</item>
+        
+        <item>Preserve Image Aspect Ratio Dynamically</item>
+        <item>Predefined Image Aspect Ratio</item>
+        
+        <item>Loading Image in List View Items</item>   
+        
+        <item>Async Image Load with Custom Callback</item>
+        <item>Async Image Load from File with Down-sampling (1024 -> 512)</item>
+        <item>Async Image Load from File with Custom Callback</item>
+        <item>Auto Detect Duplicated Request</item>
+        
+        <item>Using BitmapAjaxCallback Directly</item>
+        
+        <item>Access Cached Images (Raw File)</item>
+        <item>Access Cached Images (Memory cached Bitmap)</item>     
+               
+            
+    </string-array>
+    
+</resources>

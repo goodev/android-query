@@ -269,8 +269,8 @@ public void renderContent(Content content, View view) {
 	//this view exists
 	aq.id(R.id.textInMobileLayoutOnly).text("Welcome to my Mobile App!");
 	
-	//this button exist in tablet layout only, but it's ok!
-	//AQuery will ignore all the operations on this view!
+	//this button exist in tablet layout only, but it's ok
+	//AQuery will ignore all the operations on this view
 	aq.id(R.id.butttonInTabletOnly).text("Open a new tab!");	
 
 }

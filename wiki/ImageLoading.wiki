@@ -273,6 +273,21 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 
 }}}
 
+=== Cache Busting ===
+
+Images on the web usually doesn't change. If your image changes with identical url and would like to refresh the image, simply set file and mem cache to false and it will force the image to be refetched.
+
+{{{
+String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+
+//force a network refetch without any caching
+aq.id(R.id.image).image(url, false, false);
+
+//force no proxy cache by appending a random number to url 
+String url2 = url + "?t=" + System.currentTimeMillis();
+aq.id(R.id.image2).image(url2, false, false);
+}}}
+
 == Configuration ==
 
 More fine tuning can be done when an application starts. A good place to set the configuration is in the onCreate() method of the application.

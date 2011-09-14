@@ -2,6 +2,16 @@
 
 = Release Notes =
 
+== 0.11.5 ==
+
+9/14/2011
+
+Added method:
+ajax(String url, Class<K> type, long expire, AjaxCallback<K> callback)
+ajax(String url, Class<K> type, long expire, Object handler, String callback)
+
+Added file caching capability to ajax requests.
+
 == 0.10.3 ==
 
 9/8/2011

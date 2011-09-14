@@ -7,8 +7,8 @@
 9/14/2011
 
 Added method:
-ajax(String url, Class type, long expire, AjaxCallback callback)
-ajax(String url, Class type, long expire, Object handler, String callback)
+  * ajax(String url, Class type, long expire, AjaxCallback callback)
+  * ajax(String url, Class type, long expire, Object handler, String callback)
 
 Added file caching capability to ajax requests.
 

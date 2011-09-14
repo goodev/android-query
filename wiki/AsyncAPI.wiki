@@ -160,8 +160,7 @@ aq.ajax(url, String.class, expire, new AjaxCallback<String>() {
 
 === Advance ===
 
-The AQuery object provide various common used "ajax" methods. For advanced (but less commonly used) features such as http header,  
-AjaxCallback and be used directly to customize the requests.
+The AQuery object provide various commonly used "ajax" methods. For more advanced (but less commonly used) features such as http header and authentication, AjaxCallback and be used directly to customize the requests.
 
 {{{
 

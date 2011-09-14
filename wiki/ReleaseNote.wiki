@@ -12,6 +12,8 @@ Added method:
 
 Added file caching capability to ajax requests.
 
+Added Google Service authentication method (BETA).
+
 == 0.10.3 ==
 
 9/8/2011

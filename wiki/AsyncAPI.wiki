@@ -158,6 +158,30 @@ aq.ajax(url, String.class, expire, new AjaxCallback<String>() {
 
 }}}
 
+=== Advance ===
+
+The AQuery object provide various common used "ajax" methods. For advanced (but less commonly used) features such as http header,  
+AjaxCallback and be used directly to customize the requests.
+
+{{{
+
+public void async_advance(){
+    
+    String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+    
+    showProgress(true);
+    
+    AjaxCallback<JSONObject> cb = new AjaxCallback<JSONObject>();        
+    cb.url(url).type(JSONObject.class).weakHandler(this, "jsonCb").fileCache(true).expire(0);
+    
+    aq.ajax(cb);
+        
+}	
+
+
+}}}
+
+
 == Maintenance==
 
 AQuery provides few utility functions to help you control ajax and caching behavior.

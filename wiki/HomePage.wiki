@@ -135,6 +135,8 @@ Features:
 
 === Image Loading ===
 
+[http://code.google.com/p/android-query/wiki/ImageLoading ImageLoading Doc...]
+
 AQuery supports easy asynchronous image loading from network, with automatic file and memory caching.
 
 {{{
@@ -162,7 +164,7 @@ Features:
   * Custom Callback
 
 
-[http://code.google.com/p/android-query/wiki/ImageLoading SEE MORE...]
+[http://code.google.com/p/android-query/wiki/ImageLoading ImageLoading Doc...]
 
 Related Blog: [http://blog.androidquery.com/2011/05/down-sample-images-to-avoid-out-of.html Downsampling]
 

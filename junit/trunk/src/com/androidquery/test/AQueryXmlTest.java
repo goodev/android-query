@@ -131,9 +131,25 @@ public class AQueryXmlTest extends AbstractTest<AQueryTestActivity> {
 		assertEquals("application/atom+xml", xml.child("link").attr("type"));
 	}
 	
-	public void testToString(){
+	public void testToString() throws SAXException{
 		
-		assertTrue(xml.toString().length() > 500);
+		InputStream is = this.getActivity().getResources().openRawResource(R.raw.colors);
+		xml = new XmlDom(is);
+		
+		assertTrue(xml.toString().length() > 300);
+		
 	}
+	
+	public void testToString2() throws SAXException{
+		
+		InputStream is = this.getActivity().getResources().openRawResource(R.raw.colors);
+		xml = new XmlDom(is);
+		
+		String str = xml.toString(4);
+		assertTrue(str.length() > 300);
+		
+		System.err.println(str);
+		
+	}	
 	
 }

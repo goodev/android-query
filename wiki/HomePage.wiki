@@ -97,7 +97,7 @@ public void renderContent(Content content, View view) {
 
 ===AJAX Callback===
 
-[http://code.google.com/p/android-query/wiki/AsyncAPI Ajax Doc]
+[http://code.google.com/p/android-query/wiki/AsyncAPI See Ajax Doc]
 
 Asynchronous AJAX or RPC calls are simple.
 
@@ -132,12 +132,12 @@ Features:
   * Caching with expiration
   * Google Service Authentication (Beta)
 
-[http://code.google.com/p/android-query/wiki/AsyncAPI Ajax Doc]
+[http://code.google.com/p/android-query/wiki/AsyncAPI See Ajax Doc]
 
 
 === Image Loading ===
 
-[http://code.google.com/p/android-query/wiki/ImageLoading ImageLoading Doc]
+[http://code.google.com/p/android-query/wiki/ImageLoading See ImageLoading Doc]
 
 AQuery supports easy asynchronous image loading from network, with automatic file and memory caching.
 
@@ -166,7 +166,7 @@ Features:
   * Custom Callback
 
 
-[http://code.google.com/p/android-query/wiki/ImageLoading ImageLoading Doc]
+[http://code.google.com/p/android-query/wiki/ImageLoading See ImageLoading Doc]
 
 Related Blog: [http://blog.androidquery.com/2011/05/down-sample-images-to-avoid-out-of.html Downsampling]
 

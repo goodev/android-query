@@ -134,7 +134,8 @@ Features:
   * Google Service Authentication (Beta)
 
 [http://code.google.com/p/android-query/wiki/AsyncAPI See Ajax Doc]
-Related doc: [http://blog.androidquery.com/2011/09/simpler-and-easier-xml-parsing-in.html XML Parsing]
+
+Related blog: [http://blog.androidquery.com/2011/09/simpler-and-easier-xml-parsing-in.html XML Parsing]
 
 === Image Loading ===
 

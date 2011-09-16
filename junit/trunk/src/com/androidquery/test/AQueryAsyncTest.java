@@ -1,5 +1,6 @@
 package com.androidquery.test;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -212,5 +213,28 @@ public class AQueryAsyncTest extends AbstractTest<AQueryTestActivity> {
 		done(url, jo, status);
 	}
 	
-	
+	//Test: public T cache(String url, long expire)
+	public void testCache(){
+		
+		
+		AQUtility.cleanCache(AQUtility.getCacheDir(getActivity()), 0, 0);
+		
+		String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+		
+		File file = aq.getCachedFile(url);
+		
+		assertNull(file);
+		
+		aq.cache(url, 0);
+		
+		waitAsync();
+		
+		AQUtility.debugWait(2000);
+		
+		file = aq.getCachedFile(url);
+		
+		assertNotNull(file);
+		
+		
+	}
 }

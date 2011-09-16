@@ -108,6 +108,25 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		
     }
 	
+	public void testImage4a() {
+		
+		clearCache();
+		
+		AQUtility.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				aq.id(R.id.code).image(ICON_URL);
+			}
+		});
+		
+		//assertNull(aq.getImageView().getDrawable());
+		
+		Bitmap bm = aq.getCachedImage(ICON_URL);		
+		assertNull(bm);
+		
+    }
+	
 	//Test: public T image(String url, boolean memCache, boolean fileCache)	
 	public void testImage5() {
 		

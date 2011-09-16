@@ -148,8 +148,26 @@ public class AQueryXmlTest extends AbstractTest<AQueryTestActivity> {
 		String str = xml.toString(4);
 		assertTrue(str.length() > 300);
 		
-		System.err.println(str);
-		
+		String str2 = xml.tag("entry").toString(4);
+		assertTrue(str2.length() > 10);
+	
+		AQUtility.debug("script", str2);
 	}	
+	
+	public void testText3() throws Exception{
+		
+		InputStream is = this.getActivity().getResources().openRawResource(R.raw.colors);
+		xml = new XmlDom(is);
+		
+		String text = xml.tag("resources").text();
+		
+		assertEquals(0, text.length());
+		
+		String text2 = xml.tag("script").text();
+		assertTrue(text2.length() > 20);
+		
+		AQUtility.debug("script", text2);
+		
+	}
 	
 }

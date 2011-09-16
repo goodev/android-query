@@ -16,6 +16,7 @@ Android-Query (AQuery) is a light-weight library for doing asynchronous tasks an
   * [#Less_Code Less Code]
   * [#AJAX_Callback AJAX Callback]
   * [#Image_Loading Image Loading]
+  * [http://code.google.com/p/android-query/wiki/AsyncAPI#XML XML Parsing]
   * [#Chaining Chaining]
   * [#Binding Binding]
   * [#Handle_Fragmentation Handle Fragmentation]

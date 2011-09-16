@@ -96,7 +96,7 @@ aq.ajax(url, String.class, new AjaxCallback<String>() {
 
 ==== XML ====
 
-AQuery provide a light weight XML parser called XmlDom. 
+AQuery provide a light weight XML parser called XmlDom. [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/util/XmlDom.html javadoc] 
 
 XmlDom is a specialized class for simple and easy XML parsing. It's designed to be used in basic Android api 4+ runtime without any dependency.
 

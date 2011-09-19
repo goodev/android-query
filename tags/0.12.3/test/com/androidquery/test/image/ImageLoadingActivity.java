@@ -151,6 +151,8 @@ public class ImageLoadingActivity extends RunSourceActivity {
 	        @Override
 	        public void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status){
 	           
+	        	AQUtility.debug("image_custom cb");
+	        	
                 iv.setImageBitmap(bm);
                 iv.setColorFilter(tint, PorterDuff.Mode.SRC_ATOP);
 	                
@@ -167,11 +169,15 @@ public class ImageLoadingActivity extends RunSourceActivity {
 		
 		if(file != null){
 			
+			AQUtility.debug("init image_file_custom");
+			
 			aq.id(R.id.image).visible().image(file, true, 300, new BitmapAjaxCallback(){
 
 		        @Override
 		        public void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status){
 		           
+		        	AQUtility.debug("image_file_custom cb");
+		        	
 	                iv.setImageBitmap(bm);
 	                iv.setColorFilter(tint, PorterDuff.Mode.SRC_ATOP);
 		                

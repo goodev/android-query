@@ -200,8 +200,6 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		}else{		
 			callback(url, result, status);
 		}
-		
-		AQUtility.debugNotify();
 	}
 	
 	
@@ -323,6 +321,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		if(file != null && expire != 0){
 			long diff = System.currentTimeMillis() - file.lastModified();
 			if(diff > expire){
+				AQUtility.debug("expired", diff +":" + url);
 				return null;
 			}
 			

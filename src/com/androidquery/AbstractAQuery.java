@@ -427,9 +427,12 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	
 	public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId, float ratio){
 		
-		/*
 		if(view instanceof ImageView){
 			ImageView iv = (ImageView) view;	
+			
+			/*
+			BitmapAjaxCallback.async(iv, url, memCache, fileCache, targetWidth, fallbackId, preset, animId, ratio);
+			*/
 			
 			BitmapAjaxCallback cb = new BitmapAjaxCallback();		
 			cb.url(url).memCache(memCache).fileCache(fileCache).imageView(iv).targetWidth(targetWidth).fallback(fallbackId).preset(preset).animation(animId).ratio(ratio);			
@@ -437,12 +440,6 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		}
 		
 		return self();
-		*/
-		
-		BitmapAjaxCallback cb = new BitmapAjaxCallback();		
-		cb.url(url).memCache(memCache).fileCache(fileCache).targetWidth(targetWidth).fallback(fallbackId).preset(preset).animation(animId).ratio(ratio);	
-		
-		return image(cb);
 	}
 	
 	
@@ -457,8 +454,11 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	
 	public T image(BitmapAjaxCallback callback){
 		
-		if(view instanceof ImageView || view instanceof TextView){			
-			callback.view(view).async(getContext());			
+		if(view instanceof ImageView){
+			
+			ImageView iv = (ImageView) view;			
+			callback.imageView(iv).async(getContext());
+			
 		}
 		
 		return self();
@@ -481,7 +481,6 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	 */
 	public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int resId, BitmapAjaxCallback callback){
 		
-		/*
 		if(view instanceof ImageView){
 			
 			ImageView iv = (ImageView) view;
@@ -492,12 +491,7 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		}
 		
 		return self();
-		*/
 		
-		callback.targetWidth(targetWidth).fallback(resId)
-		.url(url).memCache(memCache).fileCache(fileCache);
-		
-		return image(callback);
 	}
 	
 	/**
@@ -1185,7 +1179,7 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	
 	
 	/**
-	 * Advanced Ajax callback. User must manually prepare the callback object settings (url, type, etc...) by using its methods.
+	 * Advanced Ajax callback. User must prepare the callback object settings (url, type, etc...) by using it's methods.
 	 *
 	 * @param callback callback handler
 	 * @return self
@@ -1339,21 +1333,6 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		
 		return ajax(url, params, type, cb);
 		
-	}
-	
-	/**
-	 * Cache the url to file cache without any callback.
-	 *
-	 *
-	 * @param url url to cache
-	 * @param expire duration in millseconds, 0 = never consider cached data as expired
-	 * 
-	 * @return self
-	 * 
-	 * @see testCache
-	 */
-	public T cache(String url, long expire){		
-		return ajax(url, byte[].class, expire, null, null);		
 	}
 	
 	

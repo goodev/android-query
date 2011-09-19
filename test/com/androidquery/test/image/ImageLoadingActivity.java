@@ -17,6 +17,7 @@ import com.androidquery.util.AQUtility;
 
 public class ImageLoadingActivity extends RunSourceActivity {
 
+	private String type;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,8 @@ public class ImageLoadingActivity extends RunSourceActivity {
 		super.onCreate(savedInstanceState);
 		
 		aq.id(R.id.result).gone();
+		
+		type = getIntent().getStringExtra("type");
 		
 		
 		if("image_access_file".equals(type) || "image_access_memory".equals(type)){
@@ -35,20 +38,10 @@ public class ImageLoadingActivity extends RunSourceActivity {
 			image_prepreload();
 		}else if("image_ratio".equals(type)){
 			aq.id(R.id.image).width(250);
-		}else if("image_pre_cache".equals(type)){
-			pre_cache();
-		}else if("image_button".equals(type)){
-			aq.id(R.id.button).visible();
-			aq.id(R.id.go_run).gone();
-			image_button();
 		}
 			
 		
 			
-	}
-	
-	private void pre_cache(){
-		aq.cache("http://farm3.static.flickr.com/2199/2218403922_062bc3bcf2.jpg", 0);
 	}
 	
 	@Override
@@ -99,8 +92,7 @@ public class ImageLoadingActivity extends RunSourceActivity {
 	}
 	
 	private void load(String url){
-		//aq.id(R.id.hidden).image(url);
-		aq.cache(url, 0);
+		aq.id(R.id.hidden).image(url);
 	}
 	
 	public void image_preload(){
@@ -202,13 +194,6 @@ public class ImageLoadingActivity extends RunSourceActivity {
 		
 	}
 	
-	public void image_button(){
-		
-		String tb = "http://www.vikispot.com/z/images/vikispot/android-w.png";	
-		aq.id(R.id.button).image(tb);
-		
-	}
-	
 	public void image_advance(){
 		
 		aq.id(R.id.image).width(LayoutParams.FILL_PARENT);
@@ -241,20 +226,6 @@ public class ImageLoadingActivity extends RunSourceActivity {
 		if(bm != null){
 			showResult("Dimension:" + bm.getWidth() + "x" + bm.getHeight());
 		}
-		
-	}
-	
-	public void image_pre_cache(){
-		
-		String imageUrl = "http://farm3.static.flickr.com/2199/2218403922_062bc3bcf2.jpg";
-		
-		File file = aq.getCachedFile(imageUrl);
-		
-		if(file != null){
-			showTextResult("File cached:" + file.getAbsolutePath() + " Length:" + file.length());
-		}
-		
-		aq.id(R.id.image).image(imageUrl);
 		
 	}
 	

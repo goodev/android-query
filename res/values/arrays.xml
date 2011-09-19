@@ -7,8 +7,7 @@
         <item>Async Network</item>
         <item>Image Loading</item> 
         <item>Google Service (Beta)</item> 
-        <item>XML Parsing</item>
-        <item>AQuery Service (Beta)</item> 
+        <item>XML Parsing</item> 
         <item>Home @AndroidQuery</item>
         <item>Javadoc</item>              
     </string-array>
@@ -18,7 +17,6 @@
         <item>com.androidquery.test.IntentListActivity:image</item>
         <item>com.androidquery.test.IntentListActivity:auth</item>
         <item>com.androidquery.test.IntentListActivity:xml</item>
-        <item>com.androidquery.test.IntentListActivity:service</item>
         <item>http://code.google.com/p/android-query/</item>
         <item>http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html</item>       
     </string-array>
@@ -63,8 +61,6 @@
         <item>List Items</item>  
         <item>List Items (Aspect Ratio)</item>        
         
-        <item>Button with Icon</item>  
-        
         <item>Custom Callback</item>        
         <item>File (Async)</item>
         <item>File Custom Callback</item>
@@ -74,8 +70,6 @@
         
         <item>Access Cached Images (File)</item> 
         <item>Access Cached Images (Memory)</item> 
-        
-        <item>Pre-Caching</item> 
         
         <item>Refetch and Cache Busting</item> 
         <item>Doc @ AndroidQuery</item>
@@ -98,7 +92,6 @@
         <item>com.androidquery.test.image.ImageLoadingListActivity:image_list</item>
         <item>com.androidquery.test.image.ImageLoadingList2Activity:image_list2</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_button</item>
         
         <item>com.androidquery.test.image.ImageLoadingActivity:image_custom</item>
         <item>com.androidquery.test.image.ImageLoadingActivity:image_file</item>
@@ -109,8 +102,6 @@
           
         <item>com.androidquery.test.image.ImageLoadingActivity:image_access_file</item> 
         <item>com.androidquery.test.image.ImageLoadingActivity:image_access_memory</item>  
-        
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_pre_cache</item>
         
         <item>com.androidquery.test.image.ImageLoadingActivity:image_nocache</item>    
         
@@ -161,8 +152,6 @@
         <item>image_list</item>
         <item>image_list2</item>
         
-        <item>image_button</item>
-        
         <item>image_custom</item>
         <item>image_file</item>
         <item>image_file_custom</item>
@@ -172,8 +161,6 @@
         
         <item>image_access_file</item>
         <item>image_access_memory</item>
-        
-        <item>image_pre_cache</item>
         
         <item>image_nocache</item>
               
@@ -188,9 +175,6 @@
         
         <item>xml_ajax</item>
         <item>xml_resource</item>
-        
-        <item>service_version</item>
-        <item>service_version2</item>
     </string-array>
     
     <string-array name="source_title">
@@ -218,7 +202,6 @@
         <item>Loading Image in List View Items</item>   
         <item>Loading Image in List View with Aspect Ratio</item>   
         
-        <item>Loading Remote Button Icon as Left Drawable</item>   
         
         <item>Async Image Load with Custom Callback</item>
         <item>Async Image Load from File with Down-sampling (1024 -> 512)</item>
@@ -230,7 +213,6 @@
         <item>Access Cached Images (Raw File)</item>
         <item>Access Cached Images (Memory cached Bitmap)</item>     
            
-        <item>Prefetch an Image without Displaying</item>        
         <item>Force Refetch and Cache Busting</item>     
            
         <item>Google Reader (user select account, if multiple)</item> 
@@ -243,10 +225,6 @@
         
         <item>Ajax Request with XmlDom Type - Get a list of featured images on Picasa.</item>
         <item>Parse XML Resource in Raw Resource Folder</item>
-        
-        
-        <item>Check App Version Show Update Dialog</item> 
-        <item>Check App Version Show Update Dialog</item> 
     </string-array>
     
     
@@ -261,16 +239,5 @@
         <item>com.androidquery.test.async.XmlActivity:xml_resource</item>
         <item>http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/util/XmlDom.html</item>  
     </string-array>
-    
-    <string-array name="service_names">
-        <item>Version Check</item>
-        <item>Version Check (Other Locale)</item> 
-    </string-array>
-  
-  	<string-array name="service_values">
-        <item>com.androidquery.test.async.ServiceActivity:service_version</item>
-        <item>com.androidquery.test.async.ServiceActivity:service_version2</item>
-    </string-array>
-    
     
 </resources>

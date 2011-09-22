@@ -36,5 +36,15 @@
 			<type>2</type>
 			<location>C:/workspace/AndroidQuery/src</location>
 		</link>
+		<link>
+			<name>beta</name>
+			<type>2</type>
+			<location>C:/workspace/AndroidQuery/beta</location>
+		</link>
+		<link>
+			<name>test</name>
+			<type>2</type>
+			<location>C:/workspace/AndroidQuery/test</location>
+		</link>
 	</linkedResources>
 </projectDescription>

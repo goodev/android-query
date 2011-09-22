@@ -11,7 +11,7 @@ public abstract class AbstractTest<T extends Activity> extends ActivityInstrumen
 	protected AQuery aq;
 	
 	public AbstractTest(Class cls){
-		super("com.pekca.vikispot.android", cls);
+		super("com.androidquery.test", cls);
 		AQUtility.setDebug(true);
 	}
 

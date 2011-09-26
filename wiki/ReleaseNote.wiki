@@ -8,6 +8,7 @@
 
 Added methods:
   * getSpinner
+  * Object getSelectedItem()
 
 == 0.12.5 ==
 

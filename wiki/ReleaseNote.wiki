@@ -9,6 +9,8 @@
 Added methods:
   * getSpinner
   * Object getSelectedItem()
+  * itemSelected(Object handler, String method)
+  * itemSelected(OnItemSelectedListener listener){
 
 == 0.12.5 ==
 

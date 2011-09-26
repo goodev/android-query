@@ -2,6 +2,13 @@
 
 = Release Notes =
 
+== 0.13.3 ==
+
+??
+
+Added methods:
+  * getSpinner
+
 == 0.12.5 ==
 
 9/20/2011

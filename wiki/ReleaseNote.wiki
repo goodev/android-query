@@ -10,7 +10,10 @@ Added methods:
   * getSpinner
   * Object getSelectedItem()
   * itemSelected(Object handler, String method)
-  * itemSelected(OnItemSelectedListener listener){
+  * itemSelected(OnItemSelectedListener listener)
+  * cache(String url, long expire)
+
+
 
 == 0.12.5 ==
 

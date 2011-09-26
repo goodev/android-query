@@ -2,6 +2,7 @@ package com.androidquery.test;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Locale;
@@ -10,6 +11,8 @@ import java.util.Map;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
+import org.json.JSONTokener;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -50,15 +53,6 @@ public class AQueryServiceTest extends AbstractTest<AQueryTestActivity> {
 	
 
 	
-	private void debug(String stuff){
-		byte[] data = stuff.getBytes();
-		System.err.println(stuff + ":");
-		System.err.println("data");
-		for(int i = 0; i < data.length; i++){
-			System.err.println(data[i] + "|");
-		}
-	}
-	
 	public void testMarketSubmit() throws IOException{
 		
 		AQUtility.debug("start");
@@ -68,24 +62,6 @@ public class AQueryServiceTest extends AbstractTest<AQueryTestActivity> {
 		byte[] data = IOUtility.openBytes(gurl);
 		
 		String html = new String(data, "UTF-8");
-		
-		AQUtility.debug("len", html.length());
-		AQUtility.debug("html", html);
-		
-		int index = html.indexOf("AndroidQuery");
-		String html3 = html.substring(index + 12, index + 14);
-		debug(html3);
-		
-		JSONObject j = new JSONObject();
-		try {
-			j.putOpt("aa", html3);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		AQUtility.debug("jo", j.quote(j.toString()));
-		
 		
 		String url = "http://192.168.107.130/api/market?app=com.androidquery&locale=zh-TW";
 		
@@ -103,11 +79,15 @@ public class AQueryServiceTest extends AbstractTest<AQueryTestActivity> {
 		String pub = jo.optString("published");
 		
 		AQUtility.debug("pub", pub);
+		
+		assertNotNull(pub);
 	}
 	
 	public void jsonCb(String url, JSONObject jo, AjaxStatus status){
 		done(url, jo, status);
 	}
+	
+	
 	
 	
 }

@@ -2,18 +2,19 @@
 
 = Release Notes =
 
-== 0.13.3 ==
+== 0.13.5 ==
 
-??
+9/27/2011
 
 Added methods:
+  * progress
   * getSpinner
   * Object getSelectedItem()
   * itemSelected(Object handler, String method)
   * itemSelected(OnItemSelectedListener listener)
   * cache(String url, long expire)
 
-
+Added progress method to show loading progress. Added cache method to recache an url. Added various methods to support Spinner operations.
 
 == 0.12.5 ==
 

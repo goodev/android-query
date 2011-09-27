@@ -96,7 +96,7 @@ Sample grid item layout:
 	/>
     
     <ImageView
-        android:id="@+id/tb"       
+        android:id="@+id/image"       
         android:layout_width="fill_parent"       
         android:layout_height="75dip"
         />

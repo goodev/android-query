@@ -2,6 +2,10 @@
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/gadget/social.xml?v=2" height="115" width="700" border="0" /> 
 
+== Demo ==
+
+All image loading features and code examples are available with our live [https://market.android.com/details?id=com.androidquery demo app].
+
 == Code ==
 
 Asynchronous image loading is easy with AQuery.

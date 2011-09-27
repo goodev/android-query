@@ -72,6 +72,39 @@ aq.id(R.id.image).image(imageUrl, false, false, 0, 0, preset, AQuery.FADE_IN);
 
 }}}
 
+===Progress===
+
+We can show the image loading progress by using the progress() method. Pass in the progress bar id, or any other view id to the progress method, and the view will be shown or hide to display ajax progress.
+
+{{{
+String imageUrl = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg";		
+aq.id(R.id.image).progress(R.id.progress).image(imageUrl, false, false);
+}}}
+
+Sample grid item layout:
+{{{
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dip" 
+    >
+    
+    <ProgressBar 		
+	android:layout_width="15dip"       
+        android:layout_height="15dip"
+	android:id="@+id/progress" 
+	android:layout_centerInParent="true"
+	/>
+    
+    <ImageView
+        android:id="@+id/tb"       
+        android:layout_width="fill_parent"       
+        android:layout_height="75dip"
+        />
+
+</RelativeLayout>
+}}}
+
+
 ===Animation===
 {{{
 

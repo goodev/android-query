@@ -74,7 +74,7 @@ aq.id(R.id.image).image(imageUrl, false, false, 0, 0, preset, AQuery.FADE_IN);
 
 ===Progress===
 
-We can show the image loading progress by using the progress() method. Pass in the progress bar id, or any other view id to the progress method, and the view will be shown or hide to display ajax progress.
+We can show the image loading progress by using the progress() method. Pass in the progress bar id, or any other view id to the progress method, and the view will be shown or hide to display loading progress.
 
 {{{
 String imageUrl = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg";		

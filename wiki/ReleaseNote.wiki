@@ -8,6 +8,9 @@
 
 Added methods:
   * setSelection(int position)
+  * invalidate(String url)
+
+Added support for JSONArray.class as ajax response type.
 
 == 0.13.5 ==
 

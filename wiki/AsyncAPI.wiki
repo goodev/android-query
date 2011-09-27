@@ -195,7 +195,7 @@ aq.ajax(url, String.class, expire, new AjaxCallback<String>() {
 
 === Progress ===
 
-
+We can show the loading progress by using the progress() method. Pass in the progress bar id, or any other view id to the progress method, and the view will be shown or hide to display ajax progress.
 
 {{{
 

@@ -193,6 +193,18 @@ aq.ajax(url, String.class, expire, new AjaxCallback<String>() {
 
 }}}
 
+=== Progress ===
+
+
+
+{{{
+
+String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";                
+aq.progress(R.id.progress).ajax(url, JSONObject.class, this, "jsonCb");
+
+}}}
+
+
 === Advance ===
 
 The AQuery object provide various commonly used "ajax" methods. For more advanced (but less commonly used) features such as http header and authentication, AjaxCallback can be used directly to customize the requests.

@@ -41,10 +41,30 @@ public class AQueryAsyncTest extends AbstractTest<AQueryTestActivity> {
 
 		log("done", result);
 		
+		checkStatus(status);
+		
 		done();
 	}
 	
-
+	private void checkStatus(AjaxStatus status){
+		
+		assertNotNull(status);
+		
+		assertNotNull(status.getRedirect());
+		
+		if(status.getSource() == AjaxStatus.NETWORK){
+			assertNotNull(status.getClient());
+		}
+		
+		assertNotNull(status.getTime());
+		assertNotNull(status.getMessage());
+		
+		AQUtility.debug("redirect", status.getRedirect());
+		AQUtility.debug("time", status.getTime());
+		AQUtility.debug("response", status.getCode());
+		
+		
+	}
 	
 
 	

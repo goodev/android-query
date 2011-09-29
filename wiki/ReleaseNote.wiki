@@ -10,8 +10,10 @@ Added methods:
   * setSelection(int position)
   * invalidate(String url)
   * AQUtility.setCacheDir(cacheDir);
+  * progress(View view)
+  * id(View view)
 
-Added support for JSONArray.class as ajax response type.
+Added support for JSONArray.class as ajax response type. Added methods to support easier coding with ViewHolder pattern. Added way to specify cache directory (can be on SDCard). Added way to invalidate a cached url.
 
 == 0.13.5 ==
 

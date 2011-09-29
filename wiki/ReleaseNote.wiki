@@ -9,6 +9,7 @@
 Added methods:
   * setSelection(int position)
   * invalidate(String url)
+  * AQUtility.setCacheDir(cacheDir);
 
 Added support for JSONArray.class as ajax response type.
 

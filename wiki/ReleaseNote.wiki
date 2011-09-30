@@ -21,7 +21,7 @@ Added methods:
 Added support for JSONArray.class as ajax response type. Added methods to support easier coding with ViewHolder pattern. Added way to specify cache directory (can be on SDCard). Added way to invalidate a cached url.
 
 Thanks contribution from:
-marcosbeirigo
+marcosbeirigo,
 Sangmin Ryu
 
 == 0.13.5 ==

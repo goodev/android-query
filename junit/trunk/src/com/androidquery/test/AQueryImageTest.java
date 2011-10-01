@@ -70,18 +70,8 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		
     }
 	
-	private void clearCache(){
-		
-		BitmapAjaxCallback.clearCache();
-		
-		File cacheDir = AQUtility.getCacheDir(getActivity());
-		AQUtility.cleanCache(cacheDir, 0, 0);
-		
-	}
 	
-	private String ICON_URL = "http://www.vikispot.com/z/images/vikispot/android-w.png";
-	private String LAND_URL = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg";
-	private String INVALID_URL = "http://www.vikispot.com/z/images/vikispot/xyz.png";
+	
 	
 	//@UiThreadTest
 	
@@ -98,7 +88,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 			}
 		});
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
@@ -140,7 +130,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 			}
 		});
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
@@ -162,7 +152,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 			}
 		});
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
@@ -183,7 +173,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 			}
 		});
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
@@ -203,7 +193,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 			}
 		});
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		
 		
@@ -229,7 +219,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		});
 		
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		Bitmap bm = aq.getCachedImage(ICON_URL);		
 		assertNotNull(bm);
@@ -252,7 +242,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		});
 		
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		Bitmap bm = aq.getCachedImage(ICON_URL);		
 		assertNotNull(bm);
@@ -279,7 +269,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		});
 		
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
@@ -314,7 +304,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		});
 		
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
@@ -334,7 +324,7 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 			}
 		});
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		assertNotNull(aq.getImageView().getDrawable());
 		
@@ -406,10 +396,13 @@ public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 		});
 		
 		
-		waitAsync();
+		waitAsync(2000);
 		
 		Bitmap bm = aq.getCachedImage(ICON_URL);		
 		assertNotNull(bm);
 		
     }	
+	
+	
+	
 }

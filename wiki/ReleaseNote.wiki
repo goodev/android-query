@@ -18,9 +18,11 @@ Added methods:
   * animate(Animation anim)
   * getCachedImage(int resId)
   * image(Bitmap bm, float ratio)
+  * shouldDelay(View convertView, ViewGroup parent, String url, float velocity)
+  * makeCachedFile(String url, String filename)
   
 
-Added support for JSONArray.class as ajax response type. Added methods to support easier coding with ViewHolder pattern. Added way to specify cache directory (can be on SDCard). Added way to invalidate a cached url.
+Added support for JSONArray.class as ajax response type. Added methods to support easier coding with ViewHolder pattern. Added way to specify cache directory (can be on SDCard). Added way to invalidate a cached url. Added method to detect list scroll speed to delay loading an list item resources.
 
 Thanks contribution from:
 marcosbeirigo,

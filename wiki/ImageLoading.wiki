@@ -317,7 +317,7 @@ ArrayAdapter<Photo> aa = new ArrayAdapter<Photo>(this, R.layout.photo_item, entr
 
 *NOTE* 
 
-This method uses the *setOnScrollListener()* method and will override any previously non-aquery assigned scroll listener. If a scrolled listener is required, use the aquery method *scrolled(OnScrollListener listener)* to set the listener instead of directly calling setOnScrollListener().
+This method uses the *setOnScrollListener()* method and will override any previously non-aquery assigned scroll listener. If a scrolled listener is required, use the aquery method *scrolled(OnScrollListener listener)* to register your listener instead.
 
 
 ==== ViewHolder Pattern====

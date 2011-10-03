@@ -204,6 +204,26 @@ aq.progress(R.id.progress).ajax(url, JSONObject.class, this, "jsonCb");
 
 }}}
 
+=== Ajax Status ===
+
+An AjaxStatus object is returned with any callback. This object holds some meta information regarding the aync task performed.
+
+{{{
+public void callback(String url, JSONObject json, AjaxStatus status) {
+    
+    int source = status.getSource();
+    int responseCode = status.getCode();
+    long duration = status.getDuration();
+    Date fetchedTime = status.getTime();
+    String message = status.getMessage();
+    String redirect = status.getRedirect();
+    DefaultHttpClient client = status.getClient();
+	
+}
+
+}}}
+
+[http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc]
 
 === Advance ===
 

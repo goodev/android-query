@@ -193,6 +193,27 @@ aq.ajax(url, String.class, expire, new AjaxCallback<String>() {
 
 }}}
 
+=== Invalidating Cache ===
+
+Calling the invalidate method of the AjaxStatus object will invalidate the url content so that it will not be cached. It's useful when http status is 200 but the object returned is invalid.
+
+{{{
+
+public void callback(String url, JSONObject json, AjaxStatus status) {
+    
+	if(json != null){
+		if("1".equals(json.optString("status"))){
+			//do something
+		}else{
+			//we believe the request is a failure, don't cache it
+			status.invalidate();
+		}
+	}
+}
+
+}}}
+
+
 === Progress ===
 
 We can show the loading progress by using the progress() method. Pass in the progress bar id, or any other view id to the progress method, and the view will be shown or hide to display ajax progress.

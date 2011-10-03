@@ -325,7 +325,7 @@ aq.id(R.id.list).adapter(aa);
 
 *NOTE* 
 
-This method uses the *setOnScrollListener()* method and will override any previously non-aquery assigned scroll listener. If a scrolled listener is required, use the aquery method *scrolled(OnScrollListener listener)* to register your listener instead.
+The shouldDelay() method uses the *setOnScrollListener()* method and will override any previously non-aquery assigned scroll listener. If a scrolled listener is required, use the aquery method *scrolled(OnScrollListener listener)* to register your listener instead.
 
 
 ==== ViewHolder Pattern====

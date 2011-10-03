@@ -276,7 +276,7 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 
 }}}
 
-=== ViewHolder Pattern===
+==== ViewHolder Pattern====
 
 ViewHolder pattern optimize performance by caching the views returned by findViewById().
 
@@ -294,7 +294,7 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 			holder.imageview = (ImageView) convertView.findViewById(R.id.tb);
 			holder.progress = (ProgressBar) convertView.findViewById(R.id.progress);
 			convertView.setTag(holder);
-        }else{
+		}else{
         	holder = (ViewHolder) convertView.getTag();
         }
 		

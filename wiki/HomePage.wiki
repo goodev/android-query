@@ -19,7 +19,7 @@ Android-Query (AQuery) is a light-weight library for doing asynchronous tasks an
   * [http://code.google.com/p/android-query/wiki/AsyncAPI#XML XML Parsing]
   * [#Chaining Chaining]
   * [#Binding Binding]
-  * [#Handle_Fragmentation Handle Fragmentation]
+  * [#Alleviate_Fragmentation Alleviate Fragmentation]
   * [#Multiple_UI,_One_Piece_of_Code Multiple UI, One Piece of Code]
   * [#Extendable Extendable]
   * [#Light_Weight Light Weight]
@@ -210,9 +210,9 @@ public void itemClicked(AdapterView<?> parent, View v, int pos, long id) {
 }
 }}}
 
-===Handle Fragmentation===
+===Alleviate Fragmentation===
 
-Fragmentation is annoying for Android. Features in new API are great, but majority of mobile devices are not updated with the latest API. See [http://developer.android.com/resources/dashboard/platform-versions.html Android Platform Versions Distribution]
+Features in new API are great, but majority of mobile devices are not updated with the latest API. See [http://developer.android.com/resources/dashboard/platform-versions.html Android Platform Versions Distribution]
 
 AQuery alleviate this issue by dynamically inspecting the Android framework, and make new API features available to code that are compiled for lower API. If the feature is not available, AQuery simply ignores the request.
 

@@ -371,7 +371,7 @@ String url2 = url + "?t=" + System.currentTimeMillis();
 aq.id(R.id.image2).image(url2, false, false);
 }}}
 
-== Cache Configuration ==
+=== Cache Configuration ===
 
 By default, AQuery uses the internal file system to cache files, which is only accessible to your app. If you want to use the external SDCard for storing your cached files, use the setCacheDir() function.
 

@@ -283,6 +283,7 @@ AQuery provide a shouldDelay() method to help you decide whether to load expensi
 Please see [http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html#shouldDelay(View%2C%20ViewGroup%2C%20java.lang.String%2C%20float) javadoc] for more detail.
 
 {{{
+
 ArrayAdapter<Photo> aa = new ArrayAdapter<Photo>(this, R.layout.photo_item, entries){
 	
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -313,6 +314,13 @@ ArrayAdapter<Photo> aa = new ArrayAdapter<Photo>(this, R.layout.photo_item, entr
 	}
 	
 };
+
+//apply any custom onScrollListener
+aq.id(R.id.list).scrolled(new OnScrollListener(){...});
+
+//apply the adapter
+aq.id(R.id.list).adapter(aa);
+
 }}}
 
 *NOTE* 

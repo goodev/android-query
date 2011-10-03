@@ -278,39 +278,46 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 
 ==== Delay Image Loading ====
 
-{{{
-		ArrayAdapter<Photo> aa = new ArrayAdapter<Photo>(this, R.layout.photo_item, entries){
-			
-			public View getView(int position, View convertView, ViewGroup parent) {
-				
-				if(convertView == null){
-					convertView = getLayoutInflater().inflate(R.layout.photo_item, parent, false);
-				}
-				
-				Photo photo = getItem(position);
-				
-				AQuery aq = new AQuery(convertView);
-				
-				aq.id(R.id.name).text(photo.title);
-				aq.id(R.id.meta).text(photo.author);
-				
-				String tbUrl = photo.tb;
-				
-				Bitmap placeholder = aq.getCachedImage(R.drawable.image_ph);
-				
-				if(aq.shouldDelay(convertView, parent, tbUrl, 0)){
-					aq.id(R.id.tb).image(placeholder, 0.75f);
-				}else{
-					aq.id(R.id.tb).image(tbUrl, true, true, 0, 0, placeholder, 0, 0.75f);
-				}
-				
-				return convertView;
-				
-			}
-			
-		};
+AQuery provide a method shouldDelay() to help you decide whether to load expensive resources when the list is scrolling (flinging) really fast. It's recommended to delay load large images and other resources over the internet.
 
+Please see [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc] for more detail.
+
+{{{
+ArrayAdapter<Photo> aa = new ArrayAdapter<Photo>(this, R.layout.photo_item, entries){
+	
+	public View getView(int position, View convertView, ViewGroup parent) {
+		
+		if(convertView == null){
+			convertView = getLayoutInflater().inflate(R.layout.photo_item, parent, false);
+		}
+		
+		Photo photo = getItem(position);
+		
+		AQuery aq = new AQuery(convertView);
+		
+		aq.id(R.id.name).text(photo.title);
+		aq.id(R.id.meta).text(photo.author);
+		
+		String tbUrl = photo.tb;
+		
+		Bitmap placeholder = aq.getCachedImage(R.drawable.image_ph);
+		
+		if(aq.shouldDelay(convertView, parent, tbUrl, 0)){
+			aq.id(R.id.tb).image(placeholder, 0.75f);
+		}else{
+			aq.id(R.id.tb).image(tbUrl, true, true, 0, 0, placeholder, 0, 0.75f);
+		}
+		
+		return convertView;
+		
+	}
+	
+};
 }}}
+
+NOTE:  
+
+This method uses the setOnScrollListener() method and will override any previously non-aquery assigned scroll listener. If a scrolled listener is required, use the aquery method scrolled(OnScrollListener listener) to set the listener instead of directly calling setOnScrollListener().
 
 
 ==== ViewHolder Pattern====

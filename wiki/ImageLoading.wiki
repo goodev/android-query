@@ -292,8 +292,8 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 			convertView = getLayoutInflater().inflate(R.layout.content_item_s, null);
 			holder = new ViewHolder();
 			holder.imageview = (ImageView) convertView.findViewById(R.id.tb);
-            holder.progress = (ProgressBar) convertView.findViewById(R.id.progress);
-            convertView.setTag(holder);
+			holder.progress = (ProgressBar) convertView.findViewById(R.id.progress);
+			convertView.setTag(holder);
         }else{
         	holder = (ViewHolder) convertView.getTag();
         }

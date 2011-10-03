@@ -280,7 +280,7 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 
 AQuery provide a method shouldDelay() to help you decide whether to load expensive resources when the list is scrolling (flinging) really fast. It's recommended to delay load large images and other resources over the internet.
 
-Please see [http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html#shouldDelay(View, ViewGroup, java.lang.String, float) javadoc] for more detail.
+Please see [http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html#shouldDelay(View%2C%20ViewGroup%2C%20java.lang.String%2C%20float) javadoc] for more detail.
 
 {{{
 ArrayAdapter<Photo> aa = new ArrayAdapter<Photo>(this, R.layout.photo_item, entries){

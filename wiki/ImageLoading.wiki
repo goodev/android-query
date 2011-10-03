@@ -355,6 +355,7 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 }}}
 
 
+
 === Cache Busting ===
 
 Images on the web usually doesn't change. If your image changes with identical url and would like to refresh the image, simply set file and mem cache to false and it will force the image to be refetched.
@@ -369,6 +370,39 @@ aq.id(R.id.image).image(url, false, false);
 String url2 = url + "?t=" + System.currentTimeMillis();
 aq.id(R.id.image2).image(url2, false, false);
 }}}
+
+== Cache Configuration ==
+
+By default, AQuery uses the internal file system to cache files, which is only accessible to your app. If you want to use the external SDCard for storing your cached files, use the setCacheDir() function.
+
+{{{
+	
+File ext = Environment.getExternalStorageDirectory();
+File cacheDir = new File(ext, "myapp");	
+AQUtility.setCacheDir(cacheDir);
+	
+
+}}}
+
+=== Sharing Image ===
+
+{{{
+
+public void image_send(){
+	
+	String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";		
+	File file = aq.makeSharedFile(url, "android.png");
+	
+	if(file != null){		
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("image/jpeg");
+		intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+		startActivityForResult(Intent.createChooser(intent, "Share via:"), SEND_REQUEST);
+	}
+}
+
+}}}
+
 
 == Configuration ==
 
@@ -404,26 +438,7 @@ public class MainApplication extends Application{
 }
 }}}
 
-=== Sharing Image ===
 
-
-
-{{{
-
-public void image_send(){
-	
-	String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";		
-	File file = aq.makeSharedFile(url, "android.png");
-	
-	if(file != null){		
-		Intent intent = new Intent(Intent.ACTION_SEND);
-		intent.setType("image/jpeg");
-		intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-		startActivityForResult(Intent.createChooser(intent, "Share via:"), SEND_REQUEST);
-	}
-}
-
-}}}
 
 
 == Maintenance==

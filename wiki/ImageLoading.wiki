@@ -247,9 +247,10 @@ File file = aq.getCachedFile(url);
 
 When working with AQuery, make sure the views you want to operate can be "findBy" the view or activity you created with the AQuery object. In the case for rendering list items, create an AQuery object with the item container view. 
 
-Here's an example.
+====Example====
 
 {{{
+
 ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.content_item_s, items){
 	
 	@Override
@@ -265,24 +266,50 @@ ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.conten
 		aq.id(R.id.name).text(jo.optString("titleNoFormatting", "No Title"));
 		aq.id(R.id.meta).text(jo.optString("publisher", ""));
 		
-		JSONObject image = jo.optJSONObject("image");
-		String tb = null;
-		if(image != null){
-			tb = image.optString("tbUrl");
-			aq.id(R.id.tb).visible().image(tb);
-		}else{
-			aq.id(R.id.tb).gone();
-		}
-		
-		
+		String tb = jo.optJSONObject("image").optString("tbUrl");
+		aq.id(R.id.tb).progress(R.id.progress).image(tb, true, true, 0, 0, null, AQuery.FADE_IN_NETWORK, 1.0f);
 		
 		return view;
 		
 	}
 };
 
+}}}
+
+=== ViewHolder Pattern===
+
+ViewHolder pattern optimize performance by caching the views returned by findViewById().
+
+{{{
+
+ArrayAdapter<JSONObject> aa = new ArrayAdapter<JSONObject>(this, R.layout.content_item_s, items){
+	
+	public View getView(int position, View convertView, ViewGroup parent) {
+		
+		ViewHolder holder;
+		
+		if(convertView == null){					
+			convertView = getLayoutInflater().inflate(R.layout.content_item_s, null);
+			holder = new ViewHolder();
+			holder.imageview = (ImageView) convertView.findViewById(R.id.tb);
+            holder.progress = (ProgressBar) convertView.findViewById(R.id.progress);
+            convertView.setTag(holder);
+        }else{
+        	holder = (ViewHolder) convertView.getTag();
+        }
+		
+		JSONObject jo = getItem(position);
+		String tb = jo.optJSONObject("image").optString("tbUrl");
+		
+		AQuery aq = new AQuery(convertView);
+		aq.id(holder.imageview).progress(holder.progress).image(tb, true, true, 0, 0, null, 0, 1.0f);
+		
+		return convertView;
+	}
+};
 
 }}}
+
 
 === Cache Busting ===
 

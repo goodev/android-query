@@ -145,7 +145,9 @@ aq.id(R.id.image4).image(imageUrl, true, true, 0, 0, null, 0, 9.0f / 16.0f);
 aq.id(R.id.image5).image(imageUrl, true, true, 0, 0, null, 0, 3.0f / 4.0f);
 }}}
 
+*Note*
 
+The aspect ratio feature will set the ImageView to use the [http://developer.android.com/reference/android/widget/ImageView.ScaleType.html ScaleType] MATRIX and adjust its height to the correct aspect ratio.
 
 ===Custom Callback===
 

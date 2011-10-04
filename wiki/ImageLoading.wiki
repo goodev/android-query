@@ -396,6 +396,8 @@ AQUtility.setCacheDir(cacheDir);
 
 === Sharing Image ===
 
+In order to share resources to other apps, the file must be on the external storage (SDCard). The makeSharedFile() method create a copy of a cached url to a temporary folder in SDCard. You can then pass the file as an URI and share it with other apps, like Gmail or Facebook.
+
 {{{
 
 public void image_send(){

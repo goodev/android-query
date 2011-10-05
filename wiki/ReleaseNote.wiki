@@ -28,7 +28,7 @@ Added support for JSONArray.class as ajax response type. Added methods to suppor
 
 Thanks contribution from:
 marcosbeirigo,
-Sangmin Ryu
+Sangmin Ryu, neocoin
 
 == 0.13.5 ==
 

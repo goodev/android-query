@@ -34,7 +34,6 @@ public class TQuery extends AbstractAQuery<TQuery>{
 		super(view);
 	}
 	
-	
 	public void dismissDialogs(Activity act){
 		
 		/*

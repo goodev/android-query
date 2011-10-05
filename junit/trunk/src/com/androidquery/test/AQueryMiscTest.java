@@ -49,7 +49,12 @@ public class AQueryMiscTest extends AbstractTest<AQueryTestActivity> {
 		assertNotNull(file);
 		
 		TQuery aq = new TQuery(getActivity());
-		File temp = aq.makeCachedFile(ICON_URL, "hello.png");
+		
+		AQUtility.time("move");
+		
+		File temp = aq.makeSharedFile(ICON_URL, "hello.png");
+		
+		AQUtility.timeEnd("move", 0);
 		
 		assertTrue(temp.exists());	
 		assertTrue(temp.length() > 1000);

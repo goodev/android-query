@@ -2,9 +2,9 @@
 
 = Release Notes =
 
-== 0.14.1 ==
+== 0.14.12 ==
 
-?
+10/5/2011
 
 Added methods:
   * setSelection(int position)
@@ -20,6 +20,8 @@ Added methods:
   * image(Bitmap bm, float ratio)
   * shouldDelay(View convertView, ViewGroup parent, String url, float velocity)
   * makeCachedFile(String url, String filename)
+  * click
+  * longClick
   
 
 Added support for JSONArray.class as ajax response type. Added methods to support easier coding with ViewHolder pattern. Added way to specify cache directory (can be on SDCard). Added way to invalidate a cached url. Added method to detect list scroll speed to delay loading an list item resources.

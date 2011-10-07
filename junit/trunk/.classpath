@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="beta"/>
-	<classpathentry kind="src" path="aquery"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="/AndroidQuery/dist/android-query.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

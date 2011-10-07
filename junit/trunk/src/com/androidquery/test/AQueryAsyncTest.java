@@ -44,6 +44,7 @@ public class AQueryAsyncTest extends AbstractTest<AQueryTestActivity> {
 		checkStatus(status);
 		
 		done();
+		
 	}
 	
 	private void checkStatus(AjaxStatus status){

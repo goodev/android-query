@@ -30,16 +30,4 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>beta</name>
-			<type>2</type>
-			<location>C:/git/androidquery.git/beta</location>
-		</link>
-		<link>
-			<name>test</name>
-			<type>2</type>
-			<location>C:/workspace/AndroidQuery/test</location>
-		</link>
-	</linkedResources>
 </projectDescription>

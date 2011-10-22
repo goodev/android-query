@@ -9,7 +9,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.androidquery.AQuery;
-import com.androidquery.TQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.util.AQUtility;
@@ -47,8 +46,6 @@ public class AQueryMiscTest extends AbstractTest<AQueryTestActivity> {
 		
 		File file = aq.getCachedFile(ICON_URL);
 		assertNotNull(file);
-		
-		TQuery aq = new TQuery(getActivity());
 		
 		AQUtility.time("move");
 		

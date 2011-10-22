@@ -17,7 +17,6 @@ import org.json.JSONTokener;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
-import com.androidquery.service.MarketService;
 import com.androidquery.util.AQUtility;
 
 import android.graphics.Bitmap;

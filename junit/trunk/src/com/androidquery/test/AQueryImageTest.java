@@ -26,6 +26,11 @@ import android.widget.TextView;
 
 public class AQueryImageTest extends AbstractTest<AQueryTestActivity> {
 
+	@Override
+	protected void setUp() throws Exception {
+        super.setUp();
+        waitSec();
+    }
 	
 	public AQueryImageTest() {		
 		super(AQueryTestActivity.class);

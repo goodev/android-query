@@ -6,11 +6,16 @@
 
 Changes:
 
-Remove support for image button.
-Optimize memory usage and speed when bitmap is memcached.
+  * Remove support for image button.
+  * Optimize memory usage and speed when bitmap is memcached.
+  * Invalidate memcache when network is restored from previous images fetch network errors
 
 Added methods:
   * recycle
+
+Fix:
+  * Issue where invalidate throws null pointer exception when url is not cached
+
   
 
 == 0.14.12 ==

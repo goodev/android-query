@@ -1,9 +1,0 @@
-#summary Feature road map for Android Query
-
-
-== Pending Features ==
-
-  * Preset Image (show a dummy image before image is loaded from network)
-  * Image Animation (show an animation, like fade in, when image is loaded)
-  * Simple XML parsing
-  * Simple no SQL Datastore

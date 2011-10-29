@@ -21,9 +21,12 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.nio.channels.FileChannel;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
@@ -57,6 +60,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.androidquery.auth.AccountHandle;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.BitmapAjaxCallback;
 import com.androidquery.util.AQUtility;
@@ -76,7 +80,8 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	private Context context;
 	
 	protected View view;
-	private View progress;
+	protected View progress;
+	protected AccountHandle ah;
 
 	private T create(View view){
 		
@@ -129,6 +134,8 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		this.view = root;
 	}
 	
+
+	
 	/**
 	 * Instantiates a new AQuery object.
 	 *
@@ -174,6 +181,25 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		return create(view);
 	}
 	
+	/**
+	 * Recycle this AQuery object. 
+	 * 
+	 * The method is designed to avoid recreating an AQuery object repeatedly, such as when in list adapter getView method.
+	 *
+	 * @param root The new root of the recycled AQuery.
+	 * @return self
+	 */
+	public T recycle(View root){
+		this.root = root;
+		this.view = null;
+		this.act = null;
+		this.progress = null;
+		this.ah = null;
+		this.context = null;
+		return self();
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	private T self(){
 		return (T) this;
@@ -197,18 +223,20 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	public T id(int id){
 		view = findView(id);	
 		progress = null;
+		ah = null;
 		return self();
 	}
 	
 	/**
 	 * Points the current operating view to the specified view.
 	 *
-	 * @param id the id
+	 * @param view
 	 * @return self
 	 */
 	public T id(View view){
 		this.view = view;	
 		progress = null;
+		ah = null;
 		return self();
 	}
 	
@@ -220,7 +248,8 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	 */
 	public T id(int... path){
 		view = findView(path);	
-		progress = null;		
+		progress = null;
+		ah = null;		
 		return self();
 	}
 	
@@ -258,12 +287,11 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		return self();
 	}
 	
-	//dequeue the progress, each progress bar only used once per ajax request
-	private View dqProgress(){
-		View result = progress;
-		progress = null;
-		return result;
+	public T auth(AccountHandle handle){
+		ah = handle;
+		return self();
 	}
+	
 	
 	/**
 	 * Set the text of a TextView.
@@ -281,6 +309,23 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	}
 	
 	/**
+	 * Set the text of a TextView with localized formatted string
+	 * from application's package's default string table
+	 *
+	 * @param resid the resid
+	 * @return self
+	 * @see Context#getString(int, Object...)
+	 */
+	public T text(int resid, Object... formatArgs) {
+		Context context = getContext();
+		if (context != null) {
+			CharSequence text = context.getString(resid, formatArgs);
+			text(text);
+		}
+		return self();
+	}
+	
+	/**
 	 * Set the text of a TextView.
 	 *
 	 * @param text the text
@@ -292,7 +337,28 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 			TextView tv = (TextView) view;
 			tv.setText(text);
 		}
-		
+				
+		return self();
+	}
+	
+	/**
+	 * Set the text of a TextView.
+	 *
+	 * @param text the text
+	 * @return self
+	 */
+	public T text(CharSequence text, boolean gone){
+			
+		if(view instanceof TextView){			
+			TextView tv = (TextView) view;
+			tv.setText(text);
+			if(gone && (text == null || text.length() == 0)){
+				tv.setVisibility(View.GONE);
+			}else{
+				tv.setVisibility(View.VISIBLE);
+			}
+		}
+				
 		return self();
 	}
 	
@@ -492,10 +558,18 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	
 	public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId, float ratio){
 		
+		/*
 		BitmapAjaxCallback cb = new BitmapAjaxCallback();		
-		cb.url(url).memCache(memCache).fileCache(fileCache).targetWidth(targetWidth).fallback(fallbackId).preset(preset).animation(animId).ratio(ratio);	
-		
+		cb.url(url).memCache(memCache).fileCache(fileCache).targetWidth(targetWidth).fallback(fallbackId).preset(preset).animation(animId).ratio(ratio);			
 		return image(cb);
+		*/
+		
+		if(view instanceof ImageView){		
+			BitmapAjaxCallback.async(getContext(), (ImageView) view, url, memCache, fileCache, targetWidth, fallbackId, preset, animId, ratio, progress);
+			progress = null;
+		}
+		
+		return self();
 	}
 	
 	
@@ -510,8 +584,13 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	
 	public T image(BitmapAjaxCallback callback){
 		
-		if(view instanceof ImageView || view instanceof TextView){			
-			callback.view(view).progress(dqProgress()).async(getContext());			
+		if(view instanceof ImageView){			
+			callback.imageView((ImageView) view);
+			if(progress != null){
+				callback.progress(progress);
+				progress = null;
+			}
+			callback.async(getContext());						
 		} 
 		
 		return self();
@@ -580,7 +659,7 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	}
 	
 	/**
-	 * Set the image of an ImageView from a file with a custom callback.
+	 * Set the image of an ImageView from a file with aspect ratio.
 	 *
 	 * @param bm The image bitmap.
 	 * @param ratio The desired aspect ratio of the imageview. Ratio is height / width, or AQuery.RATIO_PRESERVE to preserve the original aspect ratio of the image.
@@ -594,6 +673,36 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		return image(cb);
 	}
 	
+	/**
+	 * Set tag object of a view.
+	 *
+	 * @param tag 
+	 * @return self
+	 */
+	public T tag(Object tag){
+		
+		if(view != null){
+			view.setTag(tag);
+		}
+		
+		return self();
+	}
+	
+	/**
+	 * Set tag object of a view.
+	 *
+	 * @param key
+	 * @param tag 
+	 * @return self
+	 */
+	public T tag(int key, Object tag){
+		
+		if(view != null){
+			view.setTag(key, tag);
+		}
+		
+		return self();
+	}
 	
 	/**
 	 * Set a view to be transparent.
@@ -733,6 +842,21 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 				view.setBackgroundDrawable(null);
 			}
 		
+		}
+		
+		return self();
+	}
+	
+	/**
+	 * Set view background color.
+	 *
+	 * @param color
+	 * @return self
+	 */
+	public T backgroundColor(int color){
+		
+		if(view != null){		
+			view.setBackgroundColor(color);		
 		}
 		
 		return self();
@@ -1269,33 +1393,60 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	}
 	
 	/**
-	 * Set the width of a view. Notes all parameters are in DIP, not in pixel. 
-	 * Input can also be ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, or ViewGroup.LayoutParams.MATCH_PARENT.
+	 * Set the width of a view in dip. 
+	 * Can also be ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, or ViewGroup.LayoutParams.MATCH_PARENT.
 	 *
 	 * @param dip width in dip
 	 * @return self
 	 */
 	
 	public T width(int dip){		
-		size(true, dip);		
+		size(true, dip, true);		
 		return self();
 	}
 	
 	/**
-	 * Set the height of a view. Notes all parameters are in DIP, not in pixel. 
-	 * Input can also be ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, or ViewGroup.LayoutParams.MATCH_PARENT.
+	 * Set the height of a view in dip. 
+	 * Can also be ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, or ViewGroup.LayoutParams.MATCH_PARENT.
 	 *
 	 * @param dip height in dip
 	 * @return self
 	 */
 	
 	public T height(int dip){		
-		size(false, dip);
+		size(false, dip, true);
 		return self();
 	}
 	
+	/**
+	 * Set the width of a view in dip or pixel. 
+	 * Can also be ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, or ViewGroup.LayoutParams.MATCH_PARENT.
+	 *
+	 * @param width width
+	 * @param dip dip or pixel
+	 * @return self
+	 */
 	
-	private void size(boolean width, int dip){
+	public T width(int width, boolean dip){		
+		size(true, width, dip);		
+		return self();
+	}
+	
+	/**
+	 * Set the height of a view in dip or pixel. 
+	 * Can also be ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, or ViewGroup.LayoutParams.MATCH_PARENT.
+	 *
+	 * @param height height
+	 * @param dip dip or pixel
+	 * @return self
+	 */
+	
+	public T height(int height, boolean dip){		
+		size(false, height, dip);
+		return self();
+	}
+	
+	private void size(boolean width, int n, boolean dip){
 		
 		if(view != null){
 		
@@ -1303,14 +1454,14 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 			
 			Context context = getContext();
 				
-			if(dip > 0){
-				dip = AQUtility.dip2pixel(context, dip);
+			if(n > 0 && dip){
+				n = AQUtility.dip2pixel(context, n);
 			}
 			
 			if(width){
-				lp.width = dip;
+				lp.width = n;
 			}else{
-				lp.height = dip;
+				lp.height = n;
 			}
 			
 			view.setLayoutParams(lp);
@@ -1349,7 +1500,18 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	
 	public <K> T ajax(AjaxCallback<K> callback){
 				
-		callback.progress(dqProgress()).async(getContext());
+		
+		if(ah != null){
+			callback.auth(ah);
+			ah = null;
+		}
+		
+		if(progress != null){
+			callback.progress(progress);
+			progress = null;
+		}
+		
+		callback.async(getContext());
 		
 		return self();
 	}	
@@ -1542,9 +1704,10 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	 * @return self
 	 */
 	public T invalidate(String url){
-		
+
 		File file = getCachedFile(url);
-		file.delete();
+		if (file != null)
+			file.delete();
 		
 		return self();
 	}
@@ -1768,7 +1931,8 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	 * <br>
 	 * contributed by: neocoin
 	 * 
-	 * @return
+	 * @return self
+	 * 
 	 * @see View#performClick()
 	 */
 	public T click(){
@@ -1784,7 +1948,8 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	 * <br>
 	 * contributed by: neocoin
 	 * 
-	 * @return
+	 * @return self
+	 * 
 	 * @see View#performClick()
 	 */
 	public T longClick(){
@@ -1792,6 +1957,54 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 			view.performLongClick();
 		}
 		return self();
+	}
+	
+	
+	//weak hash map that holds the dialogs so they will never memory leaked
+	private static WeakHashMap<Dialog, Void> dialogs = new WeakHashMap<Dialog, Void>();
+	
+	public T show(Dialog dialog){
+		
+		try{
+			if(dialog != null){
+				dialog.show();
+				dialogs.put(dialog, null);
+			}
+		}catch(Exception e){			
+		}
+		
+		return self();
+	}
+	
+	public T dismiss(Dialog dialog){
+		
+		try{
+			if(dialog != null){			
+				dialogs.remove(dialog);
+				dialog.dismiss();
+			}
+		}catch(Exception e){			
+		}
+		
+		return self();
+	}
+	
+	public T dismiss(){
+		
+		Iterator<Dialog> keys = dialogs.keySet().iterator();
+		
+		while(keys.hasNext()){
+			
+			Dialog d = keys.next();
+			try{
+				d.dismiss();
+			}catch(Exception e){				
+			}
+			keys.remove();
+			
+		}
+		return self();
+		
 	}
 	
 }

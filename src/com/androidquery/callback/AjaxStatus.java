@@ -37,6 +37,11 @@ public class AjaxStatus {
 	/** Source MEMORY. */
 	public static final int MEMORY = 4;
 	
+	public static final int NETWORK_ERROR = -101;
+	public static final int AUTH_ERROR = -102;
+	public static final int TRANSFORM_ERROR = -103;
+	
+	
 	private int code = 200;
 	private String message = "OK";
 	private String redirect;
@@ -49,6 +54,14 @@ public class AjaxStatus {
 	private long start = System.currentTimeMillis();
 	private boolean done;
 	private boolean invalid;
+	
+	public AjaxStatus(){		
+	}
+	
+	public AjaxStatus(int code, String message){
+		this.code = code;
+		this.message = message;
+	}
 	
 	protected AjaxStatus source(int source){
 		this.source = source;
@@ -184,6 +197,26 @@ public class AjaxStatus {
 	 */
 	public int getSource() {
 		return source;
+	}
+	
+	/**
+	 * Test if the response is expired against current time, given the expire duration in milliseconds.
+	 * If the ajax source is NETWORK, it's never considered expired.
+	 *
+	 * @return expire Expire duration in milliseconds.
+	 */
+	
+	public boolean expired(long expire){
+		
+		long durr = time.getTime();
+		long now = System.currentTimeMillis();		
+		long diff = now - durr;
+		
+		if(diff > expire && getSource() != NETWORK){
+			return true;
+		}
+		
+		return false;
 	}
 	
 }

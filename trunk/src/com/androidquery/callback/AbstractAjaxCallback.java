@@ -39,7 +39,14 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.params.ConnManagerParams;
+import org.apache.http.conn.params.ConnPerRouteBean;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
@@ -58,8 +65,9 @@ import android.graphics.BitmapFactory;
 import android.view.View;
 
 import com.androidquery.AQuery;
+import com.androidquery.auth.AccountHandle;
+import com.androidquery.auth.GoogleHandle;
 import com.androidquery.util.AQUtility;
-import com.androidquery.util.AccountHandle;
 import com.androidquery.util.XmlDom;
 
 /**
@@ -94,6 +102,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	private boolean refresh;
 	
 	private long expire;
+	private String encoding = "UTF-8";
 	
 	
 	@SuppressWarnings("unchecked")
@@ -251,6 +260,20 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	}
 	
 	/**
+	 * Set the encoding used to parse the response.
+	 * 
+	 * Default is UTF-8.
+	 * 
+	 * @param encoding
+	 * @return self
+	 */
+	public K encoding(String encoding){
+		this.encoding = encoding;
+		return self();
+	}
+	
+	
+	/**
 	 * Set http POST params. If params are set, http POST method will be used. 
 	 * The UTF-8 encoded value.toString() will be sent with POST. 
 	 * 
@@ -294,9 +317,12 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	
 	private static final Class<?>[] DEFAULT_SIG = {String.class, Object.class, AjaxStatus.class};	
 	
+	private boolean completed;
 	private void callback(){
 		
 		showProgress(false);
+		
+		completed = true;
 		
 		if(callback != null){
 			Class<?>[] AJAX_SIG = {String.class, type, AjaxStatus.class};				
@@ -307,7 +333,41 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 		filePut();
 		
+		wake();
 		AQUtility.debugNotify();
+		
+	}
+	
+	private void wake(){
+		
+		if(!blocked) return;
+		
+		synchronized(this){
+			try{
+				notifyAll();
+			}catch(Exception e){				
+			}
+		}
+		
+	}
+	
+	private boolean blocked;
+	public void block() throws IllegalStateException{
+		
+		if(AQUtility.isUIThread()){
+			throw new IllegalStateException("Cannot block UI thread.");
+		}
+		
+		if(completed) return;
+		
+		try{
+			synchronized(this){
+				blocked = true;
+				this.wait();
+			}
+		}catch(Exception e){			
+		}
+		
 	}
 	
 	
@@ -344,6 +404,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			
 			View pb = progress.get();
 			if(pb != null){				
+				
 				if(show){
 					pb.setTag(AQuery.TAG_URL, url);
 					pb.setVisibility(View.VISIBLE);
@@ -371,7 +432,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			JSONObject result = null;
 	    	
 	    	try {    		
-	    		String str = new String(data, "UTF-8");
+	    		String str = new String(data, encoding);
 				result = (JSONObject) new JSONTokener(str).nextValue();
 			} catch (Exception e) {	  		
 				AQUtility.report(e);
@@ -384,7 +445,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			JSONArray result = null;
 	    	
 	    	try {    		
-	    		String str = new String(data, "UTF-8");
+	    		String str = new String(data, encoding);
 				result = (JSONArray) new JSONTokener(str).nextValue();
 			} catch (Exception e) {	  		
 				AQUtility.report(e);
@@ -396,7 +457,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			String result = null;
 	    	
 	    	try {    		
-	    		result = new String(data, "UTF-8");
+	    		result = new String(data, encoding);
 			} catch (Exception e) {	  		
 				AQUtility.report(e);
 			}
@@ -436,10 +497,6 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	protected void memPut(String url, T object){
 	}
 	
-	protected String getRefreshUrl(String url){
-		return url;
-	}
-	
 	protected void filePut(String url, T object, File file, byte[] data){
 		
 		if(file == null || data == null) return;
@@ -470,6 +527,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	 */
 	public void async(Context context){
 		
+		
 		if(status == null){
 			status = new AjaxStatus();
 			status.redirect(url).refresh(refresh);
@@ -479,22 +537,24 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 		if(ah != null){
 			
-			if(ah.needToken()){
-				ah.async(this);
-				return;
-			}
-			
-			if(ah.getToken() == null){
-				status.code(401).message("Auth failed.");
-				callback();
+			if(!ah.authenticated()){
+				ah.auth(this);
 				return;
 			}
 		}
 		
-		work(context, true);
+		work(context);
 	
 	}
 	
+	public void failure(int code, String message){
+		
+		if(status != null){
+			status.code(code).message(message);
+			callback();
+		}
+		
+	}
 	
 	protected void execute(){
 		
@@ -503,7 +563,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
-	private void work(Context context, boolean async){
+	private void work(Context context){
 		
 		T object = memGet(url);
 			
@@ -531,12 +591,15 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	@Override
 	public void run() {
 		
+		
 		try{
 			
 			if(!status.getDone()){
 				backgroundWork();
-				status.done();
-				AQUtility.post(this);
+				
+				if(status.getDone()){
+					AQUtility.post(this);
+				}
 			}else{
 				afterWork();
 				clear();
@@ -556,7 +619,6 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	
 	private void backgroundWork(){
 	
-		
 		background();
 		
 		if(!refresh){
@@ -564,9 +626,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			if(fileCache){	
 				fileWork();			
 			}
-		
 		}
-		
 		
 		if(result == null){
 			datastoreWork();			
@@ -579,9 +639,17 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
+	private String getCacheUrl(){
+		if(ah != null){
+			return ah.getCacheUrl(url);
+		}
+		return url;
+	}
+	
 	private void fileWork(){
 		
-		File file = accessFile(cacheDir, url);
+		//File file = accessFile(cacheDir, url);
+		File file = accessFile(cacheDir, getCacheUrl());
 				
 		//if file exist
 		if(file != null){
@@ -589,7 +657,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			result = fileGet(url, file, status);
 			//if result is ok
 			if(result != null){				
-				status.source(AjaxStatus.FILE).time(new Date(file.lastModified()));
+				status.source(AjaxStatus.FILE).time(new Date(file.lastModified())).done();
 			}
 		}
 	}
@@ -603,6 +671,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		}
 	}
 	
+	private boolean reauth;
 	private void networkWork(){
 		
 		if(url == null) return;
@@ -613,15 +682,22 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			
 			network();
 			
-			if(ah != null && (status.getCode() == 401 || status.getCode() == 403)){
-				AQUtility.debug("reauth needed!");				
-				authToken(ah.getType(), ah.reauth());
-				network();
+			if(ah != null && ah.expired(status.getCode()) && !reauth){
+				AQUtility.debug("reauth needed");	
+				reauth = true;
+				if(ah.reauth(this)){
+					network();
+				}else{
+					//skip work until reauth and retry					
+					return;
+				}
 			}
-								
+										
 			data = status.getData();
+			
 		}catch(Exception e){
 			AQUtility.report(e);
+			status.code(AjaxStatus.NETWORK_ERROR).message("network error");
 		}
 		
 		
@@ -631,7 +707,12 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			AQUtility.report(e);
 		}
 		
+		if(result == null && data != null){
+			status.code(AjaxStatus.TRANSFORM_ERROR).message("transform error");			
+		}
 		
+		lastStatus = status.getCode();
+		status.done();
 	}
 	
 	private void filePut(){
@@ -643,12 +724,11 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			try{
 				if(data != null && status.getSource() == AjaxStatus.NETWORK){
 				
-					File file = AQUtility.getCacheFile(cacheDir, url);
-					if(!status.getInvalid()){				
-						//AQUtility.debug("file put", url);
+					//File file = AQUtility.getCacheFile(cacheDir, url);
+					File file = AQUtility.getCacheFile(cacheDir, getCacheUrl());
+					if(!status.getInvalid()){	
 						filePut(url, result, file, data);
 					}else{
-						//AQUtility.debug("file delete", url);
 						if(file.exists()){
 							file.delete();
 						}
@@ -665,8 +745,11 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	
 	private void network() throws IOException{
 		
+		
 		String networkUrl = url;
-		if(refresh) networkUrl = getRefreshUrl(url);
+		if(ah != null){
+			networkUrl = ah.getNetworkUrl(url);
+		}
 		
 		if(params == null){
 			httpGet(networkUrl, headers, status);	
@@ -729,9 +812,9 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		return url;
 	}
 	
-	private static void httpGet(String url, Map<String, String> headers, AjaxStatus status) throws IOException{
+	private void httpGet(String url, Map<String, String> headers, AjaxStatus status) throws IOException{
 		
-		AQUtility.debug("net", url);
+		AQUtility.debug("get", url);
 		url = patchUrl(url);
 		
 		HttpGet get = new HttpGet(url);
@@ -740,7 +823,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
-	private static void httpPost(String url, Map<String, String> headers, Map<String, Object> params, AjaxStatus status) throws ClientProtocolException, IOException{
+	private void httpPost(String url, Map<String, String> headers, Map<String, Object> params, AjaxStatus status) throws ClientProtocolException, IOException{
 		
 		AQUtility.debug("post", url);
 		
@@ -751,8 +834,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		for(Map.Entry<String, Object> e: params.entrySet()){
 			Object value = e.getValue();
 			if(value != null){
-				pairs.add(new BasicNameValuePair(e.getKey(), value.toString()));
-				
+				pairs.add(new BasicNameValuePair(e.getKey(), value.toString()));				
 			}
 		}
 		
@@ -768,7 +850,54 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
-	private static void httpDo(HttpUriRequest hr, String url, Map<String, String> headers, AjaxStatus status) throws ClientProtocolException, IOException{
+	/*
+	private static DefaultHttpClient getClient(){
+		
+		AQUtility.debug("b");
+		
+		
+		HttpParams httpParams = new BasicHttpParams();
+		HttpConnectionParams.setConnectionTimeout(httpParams, NET_TIMEOUT);
+		HttpConnectionParams.setSoTimeout(httpParams, NET_TIMEOUT);
+		
+		//Added this line to avoid issue at: http://stackoverflow.com/questions/5358014/android-httpclient-oom-on-4g-lte-htc-thunderbolt
+		HttpConnectionParams.setSocketBufferSize(httpParams, 8192);
+		
+		DefaultHttpClient client = new DefaultHttpClient(httpParams);
+		
+		return client;
+	}
+	*/
+	
+	
+	private static DefaultHttpClient client;
+	private static DefaultHttpClient getClient(){
+		
+		if(client == null){
+		
+			HttpParams httpParams = new BasicHttpParams();
+			HttpConnectionParams.setConnectionTimeout(httpParams, NET_TIMEOUT);
+			HttpConnectionParams.setSoTimeout(httpParams, NET_TIMEOUT);
+			
+			ConnManagerParams.setMaxConnectionsPerRoute(httpParams, new ConnPerRouteBean(NETWORK_POOL));
+			
+			//Added this line to avoid issue at: http://stackoverflow.com/questions/5358014/android-httpclient-oom-on-4g-lte-htc-thunderbolt
+			HttpConnectionParams.setSocketBufferSize(httpParams, 8192);
+			
+			SchemeRegistry registry = new SchemeRegistry();
+			registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+			registry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
+
+			
+			ThreadSafeClientConnManager cm = new ThreadSafeClientConnManager(httpParams, registry);			
+			client = new DefaultHttpClient(cm, httpParams);
+			
+		}
+		return client;
+	}
+	
+	
+	private void httpDo(HttpUriRequest hr, String url, Map<String, String> headers, AjaxStatus status) throws ClientProtocolException, IOException{
 		
 		if(AGENT != null){
 			hr.addHeader("User-Agent", AGENT);
@@ -780,16 +909,15 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
         	}
         }
 		
+		if(ah != null){
+			ah.applyToken(this, hr);
+		}
 		
-		HttpParams httpParams = new BasicHttpParams();
-		HttpConnectionParams.setConnectionTimeout(httpParams, NET_TIMEOUT);
-		HttpConnectionParams.setSoTimeout(httpParams, NET_TIMEOUT);
-		
-		DefaultHttpClient client = new DefaultHttpClient(httpParams);
+		DefaultHttpClient client = getClient();
 		
 		HttpContext context = new BasicHttpContext(); 	
-		HttpResponse response = client.execute(hr, context);
 		
+		HttpResponse response = client.execute(hr, context);
 		
         byte[] data = null;
         
@@ -798,7 +926,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
         int code = response.getStatusLine().getStatusCode();
         String message = response.getStatusLine().getReasonPhrase();
         
-        if(code == -1 || code < 200 || code >= 300){        	
+        if(code < 200 || code >= 300){        	
         	//throw new IOException();
         }else{
         	
@@ -814,7 +942,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
         
         AQUtility.debug("response", code);
         
-        status.code(code).message(message).redirect(redirect).time(new Date()).data(data).client(client).done();
+        status.code(code).message(message).redirect(redirect).time(new Date()).data(data).client(client);
 		
 	}
 	
@@ -828,28 +956,18 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	 */
 	public K auth(Activity act, String type, String account){
 		
-		if(android.os.Build.VERSION.SDK_INT >= 5){		
-			ah = new AccountHandle(act, type, account);
+		if(android.os.Build.VERSION.SDK_INT >= 5 && type.startsWith("g.")){		
+			ah = new GoogleHandle(act, type, account);
 		}
+		
 		return self();
 		
 	}
 	
-
-	/**
-	 * Set the auth token directly. Note: Currently only support GoogleLogin auth.
-	 *
-	 * @param type the type
-	 * @param token the token
-	 * @return the k
-	 */
-	public K authToken(String type, String token){
-		if(token != null){
-			header("Authorization", "GoogleLogin auth=" + token);
-		}
+	public K auth(AccountHandle handle){		
+		ah = handle;
 		return self();
 	}
-	
 	
 	/**
 	 * Gets the url.
@@ -881,6 +999,10 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	}
 
 	
+	private static int lastStatus = 200;
+	protected static int getLastStatus(){
+		return lastStatus;
+	}
 	
 }
 

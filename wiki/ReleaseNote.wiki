@@ -2,16 +2,18 @@
 
 = Release Notes =
 
-== 0.15.3==
+== 0.15.7==
 
 Changes:
 
   * Remove support for image button.
-  * Optimize memory usage and speed when bitmap is memcached.
+  * Optimize memory usage and speed when bitmap is memory cached
   * Invalidate memcache when network is restored from previous images fetch network errors
+  * Optimize memory usage for ajax requests
 
 Added methods:
   * recycle
+  * encoding (AjaxCallback)
 
 Fix:
   * Issue where invalidate throws null pointer exception when url is not cached

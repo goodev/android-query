@@ -5,7 +5,7 @@ Android-Query (AQuery) is a light-weight library for doing asynchronous tasks an
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=3" height="115" width="750" border="0" /> 
 
   * See [http://code.google.com/p/android-query/wiki/API Basic Concept]
-  * See [https://market.android.com/details?id=com.androidquery API Demo App], [https://market.android.com/details?id=com.androidquery.facebook Sample App 1 (Facebook Feed)], [https://market.android.com/details?id=com.pekca.vikispot.android Sample App 2 (Google Reader)].
+  * See [https://market.android.com/details?id=com.androidquery API Demo App], [https://market.android.com/details?id=com.androidquery.facebook Sample App (Facebook Feed)].
   * See [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc]
   * See [http://android-query.blogspot.com/ Android Development Blog]
   * Download [http://code.google.com/p/android-query/downloads/list jar]  (~40k), [http://code.google.com/p/android-query/wiki/ReleaseNote Release Notes]

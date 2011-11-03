@@ -343,15 +343,14 @@ https://market.android.com/details?id=com.androidquery
 
 ==Demo App==
 
-Try out our [https://market.android.com/details?id=com.pekca.vikispot.android VikiSpot Reader] written with AQuery.
+Try out our [https://market.android.com/details?id=com.androidquery.facebook SimpleFB (Facebook)] written with AQuery.
 
-AQuery is originally written along the way of the development of the VikiSpot Reader. It's now independent and open source.
 
 ==Contribute!==
 
 AQuery is a new library and need nourishment from the community. The initial version is only covering a small set (but frequently used) of the Android UI framework. 
 
-Git lovers: fork [https://github.com/androidquery/androidquery androidquery] at GitHub!
+Git users: fork [https://github.com/androidquery/androidquery androidquery] at GitHub!
 
 ==Subscribe AQuery News==
 

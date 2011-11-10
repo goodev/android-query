@@ -12,6 +12,7 @@ AQuery transform the data automatically base on the class type passed in the aja
 
 Supported types:
   * JSONObject
+  * JSONArray
   * String (HTML, XML)
   * XmlDom (XML parsing)
   * byte array

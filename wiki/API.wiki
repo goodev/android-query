@@ -1,6 +1,6 @@
-#AQuery Android Query Quick Start
+#summary AndroidQuery core concepts
 
-= AQuery=
+=AQuery=
 
 
 ==Core Concept ==

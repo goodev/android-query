@@ -4,7 +4,7 @@
 
 == Demo ==
 
-All image loading features and code examples are available with our live [https://market.android.com/details?id=com.androidquery demo app].
+All image loading features and code examples are available with our live [https://market.android.com/details?id=com.androidquery demo app] on Android Market. We highly recommended that you try the demo app to get a feel of AQuery's image loading features.
 
 == Code ==
 

@@ -1,1 +1,1 @@
-  * [AsyncI AsyncAPI]
+  * [AsyncAPI AJAX]

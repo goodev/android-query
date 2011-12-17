@@ -256,6 +256,21 @@ aq.progress(R.id.progress).ajax(url, JSONObject.class, this, "jsonCb");
 
 }}}
 
+=== Activity Stop Detection===
+
+AQuery will examine the initialization context and skip the ajax callback if an activity is already stopped before the aync task is completed. This behavior avoid unnecessary processing and avoid modifying view elements.
+
+{{{
+
+//using the activity as context will ensure no callback is called when activity is finished
+AQuery aq = new AQuery(activity);
+
+//using the application context will ensure the callback to be called as long as the application is running
+AQuery aq = new AQuery(getApplicationContext());
+
+}}}
+
+
 === Ajax Status ===
 
 An AjaxStatus object is returned with any callback. This object holds some meta information regarding the aync task performed.

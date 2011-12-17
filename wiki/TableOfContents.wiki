@@ -1,1 +1,2 @@
-  * [AsyncAPI AJAX]
+  * [AsyncAPI Asynchronous HTTP]
+  * [ImageLoading Image Loading]

@@ -256,7 +256,7 @@ aq.progress(R.id.progress).ajax(url, JSONObject.class, this, "jsonCb");
 
 }}}
 
-=== Activity Stop Detection===
+=== Activity Finished Detection===
 
 AQuery will examine the initialization context and skip the ajax callback if an activity is already stopped before the aync task is completed. This behavior avoid unnecessary processing and avoid modifying view elements.
 

@@ -1,4 +1,4 @@
-#summary Asynchronous network calls with Android Query
+#summary Asynchronous network calls with AndroidQuery
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=2" height="115" width="700" border="0" /> 
 

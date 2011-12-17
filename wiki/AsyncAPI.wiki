@@ -18,9 +18,10 @@ Supported types:
   * String (HTML, XML)
   * XmlDom (XML parsing)
   * byte array
+  * User defined custom type (Transformer) 
   * [http://code.google.com/p/android-query/wiki/ImageLoading Bitmap]
 
-If there are more data types you want to be supported, please send us feedback.
+If there are native Android data types (without third party dependency) you want AQuery to support, please send us feedback.
 
 ==== JSON ====
 {{{

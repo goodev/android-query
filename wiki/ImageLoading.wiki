@@ -245,6 +245,19 @@ aq.id(R.id.image).image(cb);
 File file = aq.getCachedFile(url);
 }}}
 
+=== Zoomable Web Image ===
+
+In addition to ImageView, a WebView can be used to display an image along with Android build in zoom support for WebView. Image will be centered and fill the width or height of the webview depending on it's orientation.
+
+{{{
+private void image_zoom(){
+
+	String url = "http://farm4.static.flickr.com/3531/3769416703_b76406f9de.jpg";   	
+	aq.id(R.id.web).progress(R.id.progress).webImage(url);
+	
+}
+}}}
+
 === List View Example ===
 
 When working with AQuery, make sure the views you want to operate can be "findBy" the view or activity you created with the AQuery object. In the case for rendering list items, create an AQuery object with the item container view. 

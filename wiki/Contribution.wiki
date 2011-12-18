@@ -1,4 +1,4 @@
-#summary Notes and hints to contribute to AQuery source.
+#summary Notes and ways to contribute to AQuery source.
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=2" height="115" width="700" border="0" /> 
 

@@ -8,9 +8,12 @@ AQuery is open sourced and welcome any contribution.
 
 The easiest way to contribute is to fork AQuery source at [https://github.com/androidquery/androidquery GitHub] and send us a pull request.
 
-==Pull Request==
+==Pull Requests==
+
+AQuery is designed to use as a single jar file. Pull requests that required us to break this rule will not be accepted.
 
 There are couple criteria for us to merge a pull request:
 
-  * No Dependency - It must not dependent on any 3rd party library. AQuery is designed to use as a single jar file.
-  * 
+  * No Dependency - It must not dependent on any 3rd party library. 
+  * No Resource - It must not require any additional resource (/res).
+  * General Usage - The method or functionality must be generic to the pubic with multiple use cases.

@@ -5,6 +5,8 @@
   * [XML XML Parsing]
   * [Location Location Callback]
   * [Service AQuery Service API]
-  * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html JavaDoc]
   * [Contribution Extension + Contribution]
   * [ReleaseNote Release Note]
+  * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html JavaDoc]
+  * Resources
+    * [http://groups.google.com/group/android-query Discussion Group]

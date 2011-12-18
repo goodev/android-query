@@ -160,6 +160,7 @@ Features:
   * Simple
   * Memory & File Caching
   * Down Sampling
+  * Zoomable (WebView)
   * Fallback Image
   * Preloading
   * Animation

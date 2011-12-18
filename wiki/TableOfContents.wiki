@@ -6,5 +6,5 @@
   * [Location Location Callback]
   * [Service AQuery Service API]
   * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html JavaDoc]
-  * [Contribution Contribution]
+  * [Contribution Extension & Contribution]
   * [ReleaseNote Release Note]

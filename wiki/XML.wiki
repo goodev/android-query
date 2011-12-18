@@ -1,5 +1,7 @@
 #summary XML parsing with AndroidQuery XmlDom
 
+<wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=2" height="115" width="700" border="0" /> 
+
 =XML Parsing=
 
 One of the key feature of AQuery is asynchronous http fetch, which often is used to invoke REST type of services over the internet. These types of API/services, such as Facebook, Twitter, or Picasa (example provided in this post) usually serves results in XML and/or JSON formats for apps to consume.

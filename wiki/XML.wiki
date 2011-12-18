@@ -1,3 +1,29 @@
-#summary One-sentence summary of this page.
+#summary XML parsing with AndroidQuery XmlDom
 
-Pending Documentation
+=XML Parsing=
+
+== Methods == 
+
+tag(), tags()
+
+//return a list of "entry" nodes
+List<XmlDom> entries = xml.tags("entry");  
+ 
+child(), children()
+ 
+//child is similar to tag, except it only return child nodes immediately under the parent
+XmlDom title = entry.child("title");
+ 
+text()
+ 
+//extract the text value of the title tag
+String text = title.text();
+ 
+attr()
+ 
+//extract the src attribute of a content tag
+String image = content.attr("src");
+Serialization (beta)
+
+//Convert a XmlDom object to a XML string
+String rawXml = xml.toString();

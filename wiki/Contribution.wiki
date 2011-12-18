@@ -17,3 +17,7 @@ There are couple criteria for us to merge a pull request:
   * No Dependency - It must not dependent on any 3rd party library. 
   * No Resource - It must not require any additional resource (/res).
   * General Usage - The method or functionality must be generic to the pubic with at least 3 use cases.
+
+==Questions & Help==
+
+Post your question at our [http://groups.google.com/group/android-query group]. Also subscribe to AQuery [http://www.facebook.com/pages/Android-Query/205050232863343 Facebook Page] or [http://twitter.com/#!/AndroidQuery Twitter] for our latest news and updates.

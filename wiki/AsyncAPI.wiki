@@ -148,6 +148,44 @@ aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 });
 }}}
 
+====Custom Type====
+
+AQuery by default supports types that are native to Android. For app specific data types, you can assign a custom Transformer to the ajax call and convert the raw data to a desired type. The benefit of transforming outside of the callback is that it's run under the background thread, therefore minimizing CPU usage on the UI thread. 
+
+This example show how to use Gson to transform raw data to user defined types.
+
+{{{
+private static class Profile{
+	public String id;
+	public String name;		
+}
+
+private static class GsonTransformer implements Transformer{
+
+	public <T> T transform(String url, Class<T> type, String encoding, byte[] data, AjaxStatus status) {			
+		Gson g = new Gson();
+		return g.fromJson(new String(data), type);
+	}
+}
+
+public void async_transformer(){
+	
+	String url = "https://graph.facebook.com/205050232863343";		
+	GsonTransformer t = new GsonTransformer();
+	
+    aq.transformer(t).progress(R.id.progress).ajax(url, Profile.class, new AjaxCallback<Profile>(){			
+		public void callback(String url, Profile profile, AjaxStatus status) {	
+			Gson gson = new Gson();
+			showResult("GSON Object:" + gson.toJson(profile), status);		
+		}			
+	});
+    
+}
+
+
+}}}
+
+
 === Http POST ===
 
 {{{

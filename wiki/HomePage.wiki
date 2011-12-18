@@ -183,7 +183,7 @@ aq.id(R.id.name).text(name).background(R.color.red).textColor(R.color.black).ena
 
 ===Binding===
 
-Tired of creating and registering new listeners? AQuery makes binding listeners to views simple and easy.
+AQuery makes binding listeners to views simple and easy.
 
 {{{
 @Override

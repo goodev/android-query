@@ -10,3 +10,5 @@
   * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html JavaDoc]
   * Resources
     * [http://groups.google.com/group/android-query Discussion Group]
+    * [http://www.facebook.com/pages/Android-Query/205050232863343 Facebook]
+    * [http://twitter.com/#!/AndroidQuery Twitter]

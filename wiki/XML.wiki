@@ -42,6 +42,9 @@ public void picasaCb(String url, XmlDom xml, AjaxStatus status){
 
 === Methods === 
 
+XMLDom methods are simple and easy way to extract information from XML doc. The tags() and children() method allow us to navigate to the desired nodes, and the text() and attr() methods let us extract the XML values as a String.
+
+{{{
 tag(), tags()
 
 //return a list of "entry" nodes
@@ -65,3 +68,5 @@ Serialization (beta)
 
 //Convert a XmlDom object to a XML string
 String rawXml = xml.toString();
+
+}}}

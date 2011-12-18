@@ -8,7 +8,7 @@ For this purpose, AQuery wants to provide a simple, easy, and light-weight metho
 
 === XML Dom ===
 
-XmlDom is a specialized class for simple and easy XML parsing, designed to be used in basic Android api 4+ runtime without any dependency, and integrated directly with AQuery’s ajax method.
+XmlDom is a specialized class for simple and easy XML parsing, designed to be used in basic Android api 4+ runtime without any dependency, and integrated directly with AQuery’s ajax method. [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/util/XmlDom.html javadoc]
 
 === Example ===
 

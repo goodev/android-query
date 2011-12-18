@@ -18,6 +18,37 @@ There are couple criteria for us to merge a pull request:
   * No Resource - It must not require any additional resource (/res).
   * General Usage - The method or functionality must be generic to the pubic with at least 3 use cases.
 
+==Extension==
+
+It's recommended that developers extend the AQuery object and put their app specific logic in the custom class.
+
+{{{
+public class MyQuery extends AbstractAQuery<MyQuery>{
+
+        public MyQuery(View view) {
+                super(view);
+        }
+
+        public MyQuery(Activity act) {
+                super(act);
+        }
+        
+        public MyQuery myMethod(String text){
+                
+                if(view != null){               
+                        //do something to the view              
+                }
+                return this;
+        }
+        
+}
+
+}}}
+
+Extending the AQuery object is an excellent way to add custom functionality without change the AQuery source code directly.
+
+When you feel a particular function is ready and want to contribute back to AQuery main source, "promote" the method to the AbstractAQuery main class and send us a pull request for review!
+
 ==Questions & Help==
 
 Post your question at our [http://groups.google.com/group/android-query group]. Also subscribe to AQuery [http://www.facebook.com/pages/Android-Query/205050232863343 Facebook Page] or [http://twitter.com/#!/AndroidQuery Twitter] for our latest news and updates.

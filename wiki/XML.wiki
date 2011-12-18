@@ -70,3 +70,8 @@ Serialization (beta)
 String rawXml = xml.toString();
 
 }}}
+
+
+=== Advance Usage ===
+
+XmlDom is a simple parser, if more advance features are required, you can use the getElement() method to retrieve the underlying org.w3c.dom.Element for each node. 

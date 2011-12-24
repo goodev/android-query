@@ -47,7 +47,7 @@ public class MyQuery extends AbstractAQuery<MyQuery>{
 
 }}}
 
-Extending the AQuery object is an excellent way to add custom functionality without change the AQuery source code directly.
+Extending the AQuery object is an excellent way to add custom functionality without changing the AQuery source code directly.
 
 When you feel a particular function is ready and want to contribute back to AQuery main source, "promote" the method to the AbstractAQuery main class and send us a pull request for review!
 

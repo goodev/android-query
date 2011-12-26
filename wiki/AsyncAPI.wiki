@@ -185,6 +185,23 @@ public void async_transformer(){
 
 }}}
 
+====Custom Type (Static Transformer)====
+
+A stateless static default transformer can also be set with AjaxCallback.setTransformer().
+
+Transformers are selected in the following priority:
+  # Native
+  # instance transformer()
+  # static setTransformer()
+
+{{{
+
+String url = "https://graph.facebook.com/205050232863343";
+GsonTransformer t = new GsonTransformer();
+AjaxCallback.setTransformer(t);
+aq.ajax(url, Profile.class, this, "callback");
+
+}}}
 
 === Http POST ===
 

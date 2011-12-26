@@ -308,6 +308,27 @@ AQuery aq = new AQuery(getApplicationContext());
 
 }}}
 
+=== Synchronous Call (Block)===
+
+If the ajax call is run outside of main thread, the sync() method can be used to block the calling thread until the ajax call is completed (or until it's timed out).
+
+Fetch result synchronously:
+
+{{{
+
+String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+        
+AjaxCallback<JSONObject> cb = new AjaxCallback<JSONObject>();		
+cb.url(url).type(JSONObject.class);		
+        
+aq.sync(cb);
+        
+JSONObject jo = cb.getResult();
+AjaxStatus status = cb.getStatus();
+
+}}}
+
+Note that this will block the thread until the result is returned. The actual work will be done in another thread pool. Calling this method in Main/UI thread will caused an exception.
 
 === Ajax Status ===
 

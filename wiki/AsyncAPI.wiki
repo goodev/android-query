@@ -196,9 +196,12 @@ Transformers are selected in the following priority:
 
 {{{
 
-String url = "https://graph.facebook.com/205050232863343";
+//set the static transformer when application starts
 GsonTransformer t = new GsonTransformer();
 AjaxCallback.setTransformer(t);
+
+//any subsequent ajax calls will use the static transformer for custom types
+String url = "https://graph.facebook.com/205050232863343";
 aq.ajax(url, Profile.class, this, "callback");
 
 }}}

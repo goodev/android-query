@@ -48,7 +48,7 @@ The following Google Service is supported, with their corresponding token types:
 || Spreadsheets ||AQuery. AUTH_SPREADSHEETS || 32 ||
 || Youtube || AQuery.AUTH_YOUTUBE || _N/A_ ||
 || Analytics || AQuery.AUTH_ANALYTICS || 40 ||
-|| Blogger|| AQuery.AUTH_BLOGGER || 40 ||
+|| Blogger|| AQuery.AUTH_BLOGGER || [http://code.google.com/apis/blogger/docs/2.0/json/using.html doc] ||
 || Calendar || AQuery.AUTH_CALENDAR || 40 ||
 || Contacts|| AQuery.AUTH_CONTACTS || 40 ||
 || Finance || AQuery.AUTH_FINANCE || 40 ||

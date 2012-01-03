@@ -63,7 +63,7 @@ Twitter authentication is in beta. Documentation pending.
 
 ==Extension==
 
-Developers can extend the authentication for other services by extending AccountHandle.
+Developers can extend the authentication framework for other web services by extending AccountHandle.
 
 Documentation pending.
 

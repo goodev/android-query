@@ -31,3 +31,33 @@ public void onCreate(Bundle savedInstanceState) {
 }
 }}}
 
+===Recent Changes===
+
+The recent changes information is fetched directly from the app's main page on the Android market.
+
+Make sure to fill in the "Recent Changes" box when an app is published. The AQuery api will do the rest.
+
+
+===Granularity===
+
+AQuery provide 3 levels of granularity for promoting the user for updates. 
+
+{{{
+ms.level(MarketService.MINOR)
+}}}
+
+For example, when a new feature or a bug fix is released, we might want to prompt the user for update. However, if the release only contains a minor bug fix or optimization, we might not want to interrupt the users.
+
+For this feature to work, the version number of the app must be in the following format:
+
+MAJOR.MINOR.REVISION
+
+For example, the user app version:
+3.11.4
+
+Latest version:
+3.11.6
+
+A prompt level of MINOR will not prompt the user, because the minor version code (11) is equals or higher.
+
+A prompt level of REVISION will triggers a prompt, because the revision code (4) is lower than the latest's (6).

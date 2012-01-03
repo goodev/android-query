@@ -78,17 +78,25 @@ Simplified Chinese (zh-CN) is supported with text taken from the zh-TW locale.
 
 ===Non Android Market App===
 
-Currently the service only supports Android Market and not for other market such as Amazon. Since apps can have different version codes and apk across different markets, there's no guarantee that all markets will have the latest code.
+Currently the service only supports Google's Android Market and not for other markets such as Amazon. Since apps can have different version codes and apk across different markets, there's no guarantee that all markets will have the same version.
+
+{{{
+   if(isGoogleMarketApp()){
+       MarketService ms = new MarketService(this);
+       ms.level(MarketService.MINOR).checkVersion();
+   }
+
+}}}
 
 ===Customizing Buttons===
 
 You can override the the default url of "Update" and "Review" with the updateUrl() and rateUrl() methods.
 
-Note that Amazon app store will reject your app if it contains links to the Google Android Market.
+Note: Amazon app store will reject your app if it contains links to the Google Android Market.
 
 ===Caching===
 
-By default, the version information is cached on the device for a few hours. There will be at most 2-3 version checks per day per user to conserve battery. 
+By default, the version information is cached on the device for a few hours. There can be at most 2-3 version checks per day per user to conserve battery. Each version check takes about ~500 bytes of bandwidth.
 
 ===Dismiss Dialogs===
 

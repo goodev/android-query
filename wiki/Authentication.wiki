@@ -54,6 +54,19 @@ The following Google Service is supported, with their corresponding token types:
 || Finance || AQuery.AUTH_FINANCE || 40 ||
 || Maps || AQuery.AUTH_MAPS || 40 ||
 
+==Facebook==
+
+Facebook support is in beta. Documentation pending.
+
+==Twitter==
+
+Facebook support is in beta. Documentation pending.
+
+==Extension==
+
+Developers can extend the authentication for other services by extending AccountHandle.
+
+Documentation pending.
 
 ===Dismiss Dialogs===
 

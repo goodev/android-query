@@ -35,10 +35,10 @@ The recent changes information is fetched directly from the app's main page on t
 
 Make sure to fill in the "Recent Changes" box when an app is published. The AQuery api will do the rest.
 
-Android Market Console:
+====Android Market Console====
 [http://www.androidquery.com/z/images/androidquery/market-info.png]
 
-App dialog:
+====App dialog====
 [http://www.androidquery.com/z/images/androidquery/app-info.png]
 
 ===Granularity===
@@ -73,7 +73,7 @@ English (en) | 日本語 (ja) | français (fr) | suomi (fi) | čeština (cs) | n
 
 Simplified Chinese (zh-CN) is supported with text taken from the zh-TW locale.
 
-App dialog in other locales:
+====App dialog in other locales====
 [http://www.androidquery.com/z/images/androidquery/app-info2.png]
 
 ===Non Android Market App===

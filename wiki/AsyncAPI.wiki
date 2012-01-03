@@ -259,6 +259,36 @@ private void aync_multipart(){
 
 }}}
 
+=== Http POST (Custom Entity)===
+
+If a custom entity is required, you can use the special AQuery.POST_ENTITY key name to pass in an HttpEntity object.
+
+{{{
+
+public void async_post_entity() throws UnsupportedEncodingException{
+	
+    String url = "http://search.twitter.com/search.json";
+	
+    List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+	pairs.add(new BasicNameValuePair("q", "androidquery"));				
+	HttpEntity entity = new UrlEncodedFormEntity(pairs, "UTF-8");
+    
+	Map<String, Object> params = new HashMap<String, Object>();
+	params.put(AQuery.POST_ENTITY, entity);
+    
+    aq.progress(R.id.progress).ajax(url, params, JSONObject.class, new AjaxCallback<JSONObject>() {
+
+        @Override
+        public void callback(String url, JSONObject json, AjaxStatus status) {
+            
+            showResult(json, status);
+           
+        }
+    });
+}
+
+}}}
+
 === Caching ===
 
 Caching is easy with ajax requests. Just pass in an expire time as a parameter, and if the data is available, it will be served from the file cache instead of fetching over the network.

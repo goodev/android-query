@@ -89,3 +89,11 @@ Note that Amazon app store will reject your app if it contains links to the Goog
 ===Caching===
 
 By default, the version information is cached on the device for a few hours. There will be at most 2-3 version checks per day per user to conserve battery. 
+
+===Dismiss Dialogs===
+
+Call AndroidQuery.dismiss() to dismiss any showing dialogs. 
+
+{{{
+aq.dismiss();
+}}}

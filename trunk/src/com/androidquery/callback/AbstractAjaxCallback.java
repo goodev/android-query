@@ -48,6 +48,7 @@ import org.apache.http.conn.params.ConnPerRouteBean;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.scheme.SocketFactory;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
@@ -141,6 +142,22 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	public static void setAgent(String agent){
 		AGENT = agent;
 	}
+	
+	/**
+	 * Sets the default static transformer. This transformer should be stateless.
+	 * If state is required, use the AjaxCallback.transformer() or AQuery.transformer().
+	 * 
+	 * Transformers are selected in the following priority:
+	 * 1. Native 2. instance transformer() 3. static setTransformer()
+	 *
+	 * @param agent the default transformer to transform raw data to specified type
+	 */
+	
+	private static Transformer st;
+	public static void setTransformer(Transformer transformer){
+		st = transformer;
+	}
+	
 	
 	/**
 	 * Gets the ajax response type.
@@ -390,7 +407,15 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
+	
 	private boolean blocked;
+	
+	/**
+	 * Block the current thread until the ajax call is completed. Returns immediately if ajax is already completed.
+	 * Exception will be thrown if this method is called in main thread.
+	 *
+	 */
+	
 	public void block(){
 		
 		if(AQUtility.isUIThread()){
@@ -467,8 +492,6 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			return null;
 		}
 		
-		
-		
 		if(type.equals(JSONObject.class)){
 			
 			JSONObject result = null;
@@ -532,8 +555,15 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			return transformer.transform(url, type, encoding, data, status);
 		}
 		
+		if(st != null){
+			return st.transform(url, type, encoding, data, status);
+		}
+		
 		return null;
 	}
+	
+
+	
 	
 	protected T memGet(String url){
 		return null;
@@ -635,12 +665,12 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
-	protected void execute(){
+	//protected void execute(){
 		
-		ExecutorService exe = getExecutor();	
-		exe.execute(this);
+		//ExecutorService exe = getExecutor();	
+		//exe.execute(this);
 		
-	}
+	//}
 	
 	private void work(Context context){
 		
@@ -653,8 +683,8 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		}else{
 		
 			if(fileCache) cacheDir = AQUtility.getCacheDir(context);				
-			execute();			
-			
+			//execute();			
+			execute(this);
 		}
 	}
 	
@@ -798,6 +828,11 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		status.done();
 	}
 	
+	protected File getCacheFile(){
+		return AQUtility.getCacheFile(cacheDir, getCacheUrl());
+	}
+	
+	
 	private void filePut(){
 				
 		if(result != null && fileCache){
@@ -807,8 +842,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			try{
 				if(data != null && status.getSource() == AjaxStatus.NETWORK){
 				
-					//File file = AQUtility.getCacheFile(cacheDir, url);
-					File file = AQUtility.getCacheFile(cacheDir, getCacheUrl());
+					File file = getCacheFile();
 					if(!status.getInvalid()){	
 						filePut(url, result, file, data);
 					}else{
@@ -860,13 +894,13 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	
 	
 	private static ExecutorService fetchExe;
-	private static ExecutorService getExecutor(){
+	public static void execute(Runnable job){
 		
 		if(fetchExe == null){
 			fetchExe = Executors.newFixedThreadPool(NETWORK_POOL);			
 		}
 		
-		return fetchExe;
+		fetchExe.execute(job);
 	}
 	
 	/**
@@ -911,22 +945,35 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
+	
 	private void httpPost(String url, Map<String, String> headers, Map<String, Object> params, AjaxStatus status) throws ClientProtocolException, IOException{
 		
 		AQUtility.debug("post", url);
 		
+		
 		HttpPost post = new HttpPost(url);
 		
-		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+		HttpEntity entity = null;
 		
-		for(Map.Entry<String, Object> e: params.entrySet()){
-			Object value = e.getValue();
-			if(value != null){
-				pairs.add(new BasicNameValuePair(e.getKey(), value.toString()));				
+		Object value = params.get(AQuery.POST_ENTITY);
+		
+		if(value instanceof HttpEntity){			
+			entity = (HttpEntity) value;			
+		}else{
+			
+			List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+			
+			for(Map.Entry<String, Object> e: params.entrySet()){
+				value = e.getValue();
+				if(value != null){
+					pairs.add(new BasicNameValuePair(e.getKey(), value.toString()));				
+				}
 			}
+			
+			entity = new UrlEncodedFormEntity(pairs, "UTF-8");
+			
 		}
 		
-		UrlEncodedFormEntity entity = new UrlEncodedFormEntity(pairs, "UTF-8");
 		
 		if(headers != null  && !headers.containsKey("Content-Type")){
 			headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
@@ -938,6 +985,11 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
+	private static SocketFactory ssf;
+	public static void setSSF(SocketFactory sf){
+		ssf = sf;
+		client = null;
+	}
 	
 	private static DefaultHttpClient client;
 	private static DefaultHttpClient getClient(){
@@ -950,13 +1002,13 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			
 			ConnManagerParams.setMaxConnectionsPerRoute(httpParams, new ConnPerRouteBean(NETWORK_POOL));
 			
+			
 			//Added this line to avoid issue at: http://stackoverflow.com/questions/5358014/android-httpclient-oom-on-4g-lte-htc-thunderbolt
 			HttpConnectionParams.setSocketBufferSize(httpParams, 8192);
 			
 			SchemeRegistry registry = new SchemeRegistry();
 			registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-			registry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-
+			registry.register(new Scheme("https", ssf == null ? SSLSocketFactory.getSocketFactory() : ssf, 443));
 			
 			ThreadSafeClientConnManager cm = new ThreadSafeClientConnManager(httpParams, registry);			
 			client = new DefaultHttpClient(cm, httpParams);
@@ -1053,6 +1105,13 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		
 	}
 	
+	/**
+	 * Set the authentication account handle.
+	 *
+	 * @param handle the account handle
+	 * @return self
+	 */
+	
 	public K auth(AccountHandle handle){		
 		ah = handle;
 		return self();
@@ -1093,15 +1152,32 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		return lastStatus;
 	}
 	
-	
+	/**
+	 * Gets the result. Can be null if ajax is not completed or the ajax call failed.
+	 * This method should only be used after the block() method.
+	 *
+	 * @return the result
+	 */
 	public T getResult(){
 		return result;
 	}
+	
+	/**
+	 * Gets the ajax status.
+	 * This method should only be used after the block() method.
+	 *
+	 * @return the status
+	 */
 	
 	public AjaxStatus getStatus(){
 		return status;
 	}
 	
+	/**
+	 * Gets the encoding. Default is UTF-8.
+	 *
+	 * @return the encoding
+	 */
 	public String getEncoding(){
 		return encoding;
 	}

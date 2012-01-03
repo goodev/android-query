@@ -33,11 +33,13 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.Spanned;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
+import android.view.ViewParent;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -53,10 +55,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Gallery;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -190,12 +194,39 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	 * Return a new AQuery object that uses the found view as a root.
 	 *
 	 * @param id the id
-	 * @return self
+	 * @return new AQuery object
 	 */
 	public T find(int id){
 		View view = findView(id);
 		return create(view);
 	}
+	
+	/**
+	 * Return a new AQuery object that uses the found parent as a root.
+	 * If no parent with matching id is found, operating view will be null and isExist() will return false.
+	 * 
+	 *
+	 * @param id the parent id
+	 * @return new AQuery object
+	 */
+	public T parent(int id){
+		
+		View node = view;
+		View result = null;
+		
+		while(node != null){			
+			if(node.getId() == id){
+				result = node;
+				break;
+			}
+			ViewParent p = node.getParent();
+			if(!(p instanceof View)) break;
+			node = (View) p;
+		}
+		
+		return create(result);
+	}
+	
 	
 	/**
 	 * Recycle this AQuery object. 
@@ -324,6 +355,21 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		trans = transformer;
 		return self();
 	}	
+	
+	/**
+	 * Set the rating of a RatingBar.
+	 *
+	 * @param rating the rating
+	 * @return self
+	 */
+	public T rating(float rating){
+		
+		if(view instanceof RatingBar){			
+			RatingBar rb = (RatingBar) view;
+			rb.setRating(rating);
+		}
+		return self();
+	}
 	
 	
 	/**
@@ -576,7 +622,7 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	public T image(String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animId, float ratio){
 		
 		if(view instanceof ImageView){		
-			BitmapAjaxCallback.async(act, getContext(), (ImageView) view, url, memCache, fileCache, targetWidth, fallbackId, preset, animId, ratio, progress);
+			BitmapAjaxCallback.async(act, getContext(), (ImageView) view, url, memCache, fileCache, targetWidth, fallbackId, preset, animId, ratio, AQuery.ANCHOR_DYNAMIC, progress);
 			progress = null;
 		}
 		
@@ -941,6 +987,17 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	}
 	
 	/**
+	 * Gets the current view as an Gallery.
+	 *
+	 * @return Gallery
+	 */
+	public Gallery getGallery(){
+		return (Gallery) view;
+	}
+	
+	
+	
+	/**
 	 * Gets the current view as a text view.
 	 *
 	 * @return TextView
@@ -1001,6 +1058,15 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	 */
 	public GridView getGridView(){
 		return (GridView) view;
+	}
+	
+	/**
+	 * Gets the current view as a RatingBar.
+	 *
+	 * @return RatingBar
+	 */
+	public RatingBar getRatingBar(){
+		return (RatingBar) view;
 	}
 	
 	/**
@@ -1341,7 +1407,6 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 	public T hardwareAccelerated11(){
 		
 		if(act != null){
-			
 			act.getWindow().setFlags(AQuery.FLAG_HARDWARE_ACCELERATED, AQuery.FLAG_HARDWARE_ACCELERATED);
 		}
 		
@@ -1787,7 +1852,7 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		if(result == null){
 			File file = getCachedFile(url);
 			if(file != null){
-				result = BitmapAjaxCallback.getResizedImage(file.getAbsolutePath(), null, targetWidth, true);
+				result = BitmapAjaxCallback.getResizedImage(file.getAbsolutePath(), null, targetWidth, true, null);
 			}
 		}
 		
@@ -2058,6 +2123,12 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		return self();
 	}
 	
+	/**
+	 * Dismiss any AQuery dialogs.
+	 * 
+	 * @return self
+	 * 
+	 */
 	public T dismiss(){
 		
 		Iterator<Dialog> keys = dialogs.keySet().iterator();
@@ -2076,14 +2147,39 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		
 	}
 	
+	/**
+	 * Load the webview with an image with a url.
+	 * 
+	 * Zoom is enabled without zoom control. Default background color is solid black (0xFF000000).
+	 * 
+	 * @param url The image url
+	 * @return self
+	 * 
+	 */
 	public T webImage(String url){
 		return webImage(url, true, false, 0xFF000000);
 	}
 	
+	/**
+	 * Load the webview with an image with a url.
+	 * 
+	 * Zoom control can only be disabled for API level 14+. Lower level apis will always show zoom control if zoom is enabled.
+	 * 
+	 * Note that color is AARRGGBB, where AA is the alpha value. Solid color (0xFF??????) should be used for performance reason.
+	 * Transparent background is not well supported by WebView in most devices.
+	 * 
+	 * @param url The image url
+	 * @param zoom Image is zoomable
+	 * @param control Show zoom control (API level 14+)
+	 * @param color The background color 
+	 * @return self
+	 * 
+	 */
 	public T webImage(String url, boolean zoom, boolean control, int color){
 		
 		if(view instanceof WebView){
 			setLayerType11(AQuery.LAYER_TYPE_SOFTWARE, null);
+			
 			WebImage wi = new WebImage((WebView) view, url, progress, zoom, control, color);
 			wi.load();
 			progress = null;
@@ -2091,5 +2187,45 @@ public abstract class AbstractAQuery<T extends AbstractAQuery<T>> implements Con
 		
 		return self();
 	}
+	
+	/**
+	 * Inflate a view from xml layout.
+	 * 
+	 * This method is similar to LayoutInflater.inflate() but with sanity checks against the
+	 * layout type of the convert view. 
+	 * 
+	 * If the convertView is null or the convertView type doesn't matches layoutId type, a new view
+	 * is inflated. Otherwise the convertView will be returned for reuse. 
+	 * 
+	 * @param convertView the view to be reused
+	 * @param layoutId the desired view type
+	 * @param root the view root for layout params, can be null
+	 * @return self
+	 * 
+	 */
+	private static LayoutInflater inflater;
+	public View inflate(View convertView, int layoutId, ViewGroup root){
+		
+		if(convertView != null){
+			Integer layout = (Integer) convertView.getTag(AQuery.TAG_LAYOUT);
+			if(layout != null && layout.intValue() == layoutId){
+				return convertView;
+			}
+		}
+		
+		if(inflater == null){
+			inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		}
+			
+		
+		View view = inflater.inflate(layoutId, root, false);	
+		view.setTag(AQuery.TAG_LAYOUT, layoutId);
+		
+		return view;
+		
+	}
+	
+	
+
 	
 }

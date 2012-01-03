@@ -2,4 +2,38 @@
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=2" height="115" width="700" border="0" /> 
 
-Pending Documentation
+==Authentication==
+
+AQuery provides an easy and simple authentication mechanism for Google and other OAuth enabled services. The featured is designed for developers who prefer low level api access to Google API's, Facebook, and Twitter, etc...
+
+==Permission==
+
+For Google service, include these permissions:
+
+<uses-permission android:name="android.permission.GET_ACCOUNTS" />	
+<uses-permission android:name="android.permission.USE_CREDENTIALS" />		
+
+==Code==
+
+AQuery handles the authentication life cycle and token management automatically. Simply provide an "account handle" with the .auth() method. 
+
+Here's a complete authentication example using Google's PICASA service:
+
+{{{
+
+GoogleHandle handle = new GoogleHandle(this, AQuery.AUTH_PICASA, AQuery.ACTIVE_ACCOUNT);
+
+String url = "https://picasaweb.google.com/data/feed/api/user/default?alt=json";
+aq.auth(handle).ajax(url, JSONObject.class, new AjaxCallback<JSONObject>(){
+	@Override
+	public void callback(String url, JSONObject object, AjaxStatus status) {
+		System.out.println(object);
+	}
+});	
+
+
+}}}
+
+==Account Handle==
+
+Account handle holds the current authentication token which are cached on the device. Account handle should be shared by all ajax calls within an activity that requires the same type of authentication.

@@ -7,6 +7,11 @@
 New Feature:
   * [http://code.google.com/p/android-query/wiki/Authentication Google Service Authentication]
   * [http://code.google.com/p/android-query/wiki/Service In-App Version Checking]
+  * [http://code.google.com/p/android-query/wiki/AsyncAPI?ts=1325587598&updated=AsyncAPI#Http_POST_(Custom_Entity) Custom HttpEntity]
+
+Bug fix:
+  * Padding is now supported for image loading with aspect ratio.
+
 
 
 

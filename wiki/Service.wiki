@@ -22,11 +22,9 @@ Invoking a service is simple. Add these 3 lines in your launching activity. [[ht
 public void onCreate(Bundle savedInstanceState) {
 	
 	super.onCreate(savedInstanceState);
-	
-	if(isTaskRoot()){			
-		MarketService ms = new MarketService(this);
-		ms.level(MarketService.MINOR).checkVersion();
-	}
+				
+	MarketService ms = new MarketService(this);
+	ms.level(MarketService.MINOR).checkVersion();
 	
 }
 }}}

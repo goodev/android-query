@@ -14,7 +14,7 @@ AQuery offers a simple web service for any Android app to check against their ve
 
 ===Code===
 
-Invoking a service is simple. Add these 3 lines in your launching activity. [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc]
+Invoking a service is simple. Add these 3 lines in your launching activity. [[http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc]]
 
 {{{
 

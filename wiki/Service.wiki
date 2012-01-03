@@ -14,7 +14,7 @@ AQuery offers a simple web service for any Android app to check against their ve
 
 ===Code===
 
-Invoking a service is simple. Add these 3 lines in your launching activity. [javadoc http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html]
+Invoking a service is simple. Add these 3 lines in your launching activity. [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc]
 
 {{{
 
@@ -83,4 +83,3 @@ Note that Amazon app store will reject your app if it contains links to the Goog
 ===Caching===
 
 By default, the version information is cached on the device for a few hours. There will be at most 2-3 version checks per day per user to conserve battery. 
-

@@ -55,11 +55,11 @@ The following Google Service is supported, with their corresponding token types:
 
 ==Facebook==
 
-Facebook support is in beta. Documentation pending.
+Facebook Open-Graph authentication is in beta. Documentation pending.
 
 ==Twitter==
 
-Facebook support is in beta. Documentation pending.
+Twitter authentication is in beta. Documentation pending.
 
 ==Extension==
 

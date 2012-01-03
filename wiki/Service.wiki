@@ -1,5 +1,32 @@
-#summary One-sentence summary of this page.
+#summary Android app version checking service for Android Market.
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=2" height="115" width="700" border="0" /> 
 
-Pending Documentation
+==In-App Version Checking==
+
+When a new app version is released, developers often want to notify existing users that an update is available and also describe the content of the update. However, there's no market API to query the version and update information for Android apps. 
+
+A simple solution is to setup a web service for an app, and update the content when an app is uploaded to the market place.
+
+==AQuery Market API==
+
+AQuery offered a simple API for Android app to check against their most updated version, and prompt with recent changes and allow user to update if they prefer.
+
+==Code==
+
+Invoking a service is simple
+
+{{{
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+	
+	super.onCreate(savedInstanceState);
+	
+	if(isTaskRoot()){			
+		MarketService ms = new MarketService(this);
+		ms.level(MarketService.MINOR).checkVersion();
+	}
+	
+}
+}}}

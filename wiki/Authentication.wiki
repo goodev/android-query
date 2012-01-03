@@ -37,3 +37,28 @@ aq.auth(handle).ajax(url, JSONObject.class, new AjaxCallback<JSONObject>(){
 ==Account Handle==
 
 Account handle holds the current authentication token which are cached on the device. Account handle should be shared by all ajax calls within an activity that requires the same type of authentication.
+
+==Supported Google Service==
+
+The following Google Service is supported, with their corresponding token types:
+
+|| *Name* || *Type* || *Google's API* ||
+|| G Reader || AQuery.AUTH_READER || 25 ||
+|| Picasa || AQuery.AUTH_PICASA || 30 ||
+|| Spreadsheets ||AQuery. AUTH_SPREADSHEETS || 32 ||
+|| Youtube || AQuery.AUTH_YOUTUBE || _N/A_ ||
+|| Analytics || AQuery.AUTH_ANALYTICS || 40 ||
+|| Blogger|| AQuery.AUTH_BLOGGER || 40 ||
+|| Calendar || AQuery.AUTH_CALENDAR || 40 ||
+|| Contacts|| AQuery.AUTH_CONTACTS || 40 ||
+|| Finance || AQuery.AUTH_FINANCE || 40 ||
+|| Maps || AQuery.AUTH_MAPS || 40 ||
+
+
+===Dismiss Dialogs===
+
+Call AndroidQuery.dismiss() to dismiss any showing dialogs. 
+
+{{{
+aq.dismiss();
+}}}

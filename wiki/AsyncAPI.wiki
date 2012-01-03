@@ -150,7 +150,7 @@ aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 
 ====Custom Type====
 
-AQuery by default supports types that are native to Android. For app specific data types, you can assign a custom Transformer to the ajax call and convert the raw data to a desired type. The benefit of transformer is that it's run under the background thread (similar to the native supported types), therefore minimizing CPU usage on the UI thread.
+AQuery by default supports types that are native to Android. For app specific data types, you can assign a custom Transformer to the ajax call and convert the raw data to a desired type. The benefit of transformer is that it's run under the background thread (similar to the natively supported types), therefore minimizing CPU cycles and avoid blocking on the UI thread.
 
 This example show how to use Gson to transform raw data to user defined types.
 

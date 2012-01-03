@@ -43,16 +43,15 @@ Account handle holds the current authentication token which are cached on the de
 The following Google Service is supported, with their corresponding token types:
 
 || *Name* || *Type* || *Google's API* ||
-|| G Reader || AQuery.AUTH_READER || 25 ||
-|| Picasa || AQuery.AUTH_PICASA || 30 ||
-|| Spreadsheets ||AQuery. AUTH_SPREADSHEETS || 32 ||
-|| Youtube || AQuery.AUTH_YOUTUBE || _N/A_ ||
-|| Analytics || AQuery.AUTH_ANALYTICS || 40 ||
-|| Blogger|| AQuery.AUTH_BLOGGER || [http://code.google.com/apis/blogger/docs/2.0/json/using.html doc] ||
-|| Calendar || AQuery.AUTH_CALENDAR || 40 ||
-|| Contacts|| AQuery.AUTH_CONTACTS || 40 ||
-|| Finance || AQuery.AUTH_FINANCE || 40 ||
-|| Maps || AQuery.AUTH_MAPS || 40 ||
+|| G Reader || AQuery.AUTH_READER || [http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI API] ||
+|| Picasa || AQuery.AUTH_PICASA || [http://code.google.com/apis/picasaweb/docs/2.0/reference.html API] ||
+|| Spreadsheets ||AQuery. AUTH_SPREADSHEETS || [http://code.google.com/apis/spreadsheets/data/3.0/reference.html API] ||
+|| Youtube || AQuery.AUTH_YOUTUBE || [http://code.google.com/apis/youtube/2.0/developers_guide_protocol_audience.html API] ||
+|| Analytics || AQuery.AUTH_ANALYTICS || [http://code.google.com/apis/analytics/docs/mgmt/v3/mgmtReference.html API] ||
+|| Blogger|| AQuery.AUTH_BLOGGER || [http://code.google.com/apis/blogger/docs/2.0/json/using.html API] ||
+|| Calendar || AQuery.AUTH_CALENDAR || [http://code.google.com/apis/calendar/v3/getting_started.html API] ||
+|| Contacts|| AQuery.AUTH_CONTACTS || [http://code.google.com/apis/contacts/docs/3.0/reference.html API] ||
+|| Maps || AQuery.AUTH_MAPS || [http://code.google.com/apis/maps/ API] ||
 
 ==Facebook==
 

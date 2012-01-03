@@ -4,7 +4,7 @@
   * [Authentication Authentication]
   * [XML XML Parsing]
   * [Location Location Callback]
-  * [Service App Version Check]
+  * [Service In-App Version Check]
   * [Contribution Extension + Contribution]
   * [ReleaseNote Release Note]
   * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html JavaDoc]

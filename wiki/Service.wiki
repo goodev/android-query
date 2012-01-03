@@ -14,7 +14,7 @@ AQuery offers a simple web service for any Android app to check against their ve
 
 ===Code===
 
-Invoking a service is simple. Add these 3 lines in your launching activity.
+Invoking a service is simple. Add these 3 lines in your launching activity. [javadoc http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html]
 
 {{{
 
@@ -58,6 +58,29 @@ For example, the user app version:
 Latest version:
 3.11.6
 
-A prompt level of MINOR will not prompt the user, because the minor version code (11) is equals or higher.
+A prompt level of MINOR will not prompt the user, because the minor version code (11) is not lower than the latest's (11).
 
 A prompt level of REVISION will triggers a prompt, because the revision code (4) is lower than the latest's (6).
+
+===Internationalization===
+
+The service supports the locales that Android Market is currently supporting, which are:
+
+English (en) | 日本語 (ja) | français (fr) | suomi (fi) | čeština (cs) | norsk (no) | español (es) | русский (ru) | Deutsch (de) | 한국어 (ko) | italiano (it) | português (pt) | polski (pl) | svenska (sv) | Nederlands (nl) | dansk (da) | 中文（繁體） (zh-TW)
+
+Simplified Chinese (zh-CN) is supported with text taken from the zh-TW locale.
+
+===Non Android Market App===
+
+Currently the service only supports Android Market and not for other market such as Amazon. Since apps can have different version codes and apk across different markets, there's no guarantee that all markets will have the latest code.
+
+===Customizing Buttons===
+
+You can override the the default url of "Update" and "Review" with the updateUrl() and rateUrl() methods.
+
+Note that Amazon app store will reject your app if it contains links to the Google Android Market.
+
+===Caching===
+
+By default, the version information is cached on the device for a few hours. There will be at most 2-3 version checks per day per user to conserve battery. 
+

@@ -8,7 +8,7 @@ New Feature:
   * [http://code.google.com/p/android-query/wiki/Authentication Google Service Authentication]
   * [http://code.google.com/p/android-query/wiki/Service In-App Version Checking]
   * [http://code.google.com/p/android-query/wiki/AsyncAPI?ts=1325587598&updated=AsyncAPI#Http_POST_(Custom_Entity) Custom HttpEntity]
-  * [http://code.google.com/p/android-query/wiki/ImageLoading?ts=1325588160&updated=ImageLoading#Network_Failure_Recovery Image Loading Network Failure Recovery]
+  * [http://code.google.com/p/android-query/wiki/ImageLoading?ts=1325588160&updated=ImageLoading#Network_Failure_Recovery Image Loading - Network Failure Recovery]
 
 Added methods:
   * inflate

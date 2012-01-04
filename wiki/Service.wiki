@@ -2,7 +2,7 @@
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=2" height="115" width="700" border="0" /> 
 
-==In-App Version Checking==
+=In-App Version Checking=
 
 When a new app version is released, developers often want to notify existing users that an update is available. However, there's no market API to query the version and update information for Android. 
 

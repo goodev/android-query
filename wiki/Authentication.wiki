@@ -45,7 +45,7 @@ The following Google Service is supported, with their corresponding token types:
 || *Name* || *Type* || *Google's API* ||
 || G Reader || AQuery.AUTH_READER || [http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI API] ||
 || Picasa || AQuery.AUTH_PICASA || [http://code.google.com/apis/picasaweb/docs/2.0/reference.html API] ||
-|| Spreadsheets ||AQuery. AUTH_SPREADSHEETS || [http://code.google.com/apis/spreadsheets/data/3.0/reference.html API] ||
+|| Spreadsheets ||AQuery.AUTH_SPREADSHEETS || [http://code.google.com/apis/spreadsheets/data/3.0/reference.html API] ||
 || Youtube || AQuery.AUTH_YOUTUBE || [http://code.google.com/apis/youtube/2.0/developers_guide_protocol_audience.html API] ||
 || Analytics || AQuery.AUTH_ANALYTICS || [http://code.google.com/apis/analytics/docs/mgmt/v3/mgmtReference.html API] ||
 || Blogger|| AQuery.AUTH_BLOGGER || [http://code.google.com/apis/blogger/docs/2.0/json/using.html API] ||

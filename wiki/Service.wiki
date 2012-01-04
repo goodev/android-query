@@ -43,7 +43,7 @@ Make sure to fill in the "Recent Changes" box when an app is published. The AQue
 
 ===Granularity===
 
-AQuery provide 3 levels of granularity for promoting the user for updates. 
+AQuery provide 3 levels of granularity for prompting the user for updates. 
 
 {{{
 ms.level(MarketService.MINOR)

@@ -9,10 +9,10 @@ AQuery provides an easy and simple authentication mechanism for Google and other
 ==Permission==
 
 For Google service, include these permissions:
-
+{{{
 <uses-permission android:name="android.permission.GET_ACCOUNTS" />	
 <uses-permission android:name="android.permission.USE_CREDENTIALS" />		
-
+}}}
 ==Code==
 
 AQuery handles the authentication life cycle and token management automatically. Simply provide an "account handle" with the .auth() method. 

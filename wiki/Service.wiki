@@ -96,7 +96,7 @@ Note: Amazon app store will reject your app if it contains links to the Google A
 
 ===Caching===
 
-By default, the version information is cached on the device for a few hours. There can be at most 2-3 version checks per day per user to conserve battery. Each version check takes about ~500 bytes of bandwidth.
+By default, the version information is cached on the device for a few hours. There is at most 2 version checks per day per user to conserve battery. Each version check takes about ~10b (if up to date) to 4kb (depends on message size) of download bandwidth.
 
 ===Dismiss Dialogs===
 

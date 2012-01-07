@@ -1,0 +1,7 @@
+#Use aquery or androidquery tag on stackoverflow.com.
+
+= Stackoverflow =
+
+If you prefer to use [http://stackoverflow.com StackOverflow] as Q&A and discussion, use the "aquery" or "androidquery" tag.
+
+Developers are subscribed to these tags and will answer any questions quickly.

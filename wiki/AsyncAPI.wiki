@@ -457,3 +457,43 @@ cb.url(url).type(String.class).encoding("Big5").weakHandler(this, "encodingCb");
 aq.ajax(cb);
 
 }}}
+
+== Maintenance==
+
+AQuery provides few utility functions to help you control ajax and caching behavior.
+
+
+=== Clean Up ===
+
+If you use file cache for images, regularly clean the cache dir when the application exits.
+
+====Simple====
+
+{{{
+protected void onDestroy(){
+	
+	super.onDestroy();
+	
+	//clean the file cache when root activity exit
+	//the resulting total cache size will be less than 3M
+	AQUtility.cleanCacheAsync(this);
+	
+}
+
+}}}
+
+====Advance====
+{{{
+protected void onDestroy(){
+	
+	super.onDestroy();
+	
+	//clean the file cache with advance option
+	long triggerSize = 3000000; //starts cleaning when cache size is larger than 3M
+	long targetSize = 2000000;	//remove the least recently used files until cache size is less than 2M
+	AQUtility.cleanCacheAsync(this, triggerSize, targetSize);
+	
+	
+}
+
+}}}

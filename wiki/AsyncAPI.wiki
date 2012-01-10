@@ -457,18 +457,3 @@ cb.url(url).type(String.class).encoding("Big5").weakHandler(this, "encodingCb");
 aq.ajax(cb);
 
 }}}
-
-== Maintenance==
-
-AQuery provides few utility functions to help you control ajax and caching behavior.
-
-=== Cancel ===
-
-{{{
-public void onDestroy(){
-	
-	//stop all async calls when current activity is exiting
-	AjaxCallback.cancel();
-	
-}
-}}}

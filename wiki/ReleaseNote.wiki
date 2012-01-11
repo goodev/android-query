@@ -2,6 +2,10 @@
 
 = Release Notes =
 
+==0.18.5==
+
+Fixed fallback issue with AQuery.GONE and AQuery.INVISIBLE type.
+
 ==0.18.3==
 
 New Feature:

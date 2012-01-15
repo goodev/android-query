@@ -73,6 +73,11 @@ String rawXml = xml.toString();
 
 }}}
 
+=== DOM vs SAX & PullParser ===
+
+The XmlDom object, as implied, parse the XML into a Xml Document that entirely resides in memory.
+
+For parsing XML documents bigger than 1M, using XmlDom might not be suitable as memory is limited on mobile devices.
 
 === Advance Usage ===
 

@@ -131,9 +131,9 @@ Features:
   * JSON
   * HTML/XML
   * byte[]
-  * Http POST
-  * Caching with expiration
-  * Google Service Authentication (Beta)
+  * Http POST, Multipart POST
+  * Caching
+  * Google Service Authentication
 
 [http://code.google.com/p/android-query/wiki/AsyncAPI See Ajax Doc]
 

@@ -47,26 +47,27 @@ public void picasaCb(String url, XmlDom xml, AjaxStatus status){
 XMLDom methods are simple and easy way to extract information from XML doc. The tags() and children() method allow us to navigate to the desired nodes, and the text() and attr() methods let us extract the XML values as a String.
 
 {{{
-tag(), tags()
+//tag(), tags()
 
 //return a list of "entry" nodes
 List<XmlDom> entries = xml.tags("entry");  
  
-child(), children()
+//child(), children()
  
 //child is similar to tag, except it only return child nodes immediately under the parent
 XmlDom title = entry.child("title");
  
-text()
+//text()
  
 //extract the text value of the title tag
 String text = title.text();
  
-attr()
+//attr()
  
 //extract the src attribute of a content tag
 String image = content.attr("src");
-Serialization (beta)
+
+//Serialization (beta)
 
 //Convert a XmlDom object to a XML string
 String rawXml = xml.toString();

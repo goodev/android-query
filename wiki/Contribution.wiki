@@ -12,7 +12,7 @@ The easiest way to contribute is to fork AQuery source at [https://github.com/an
 
 ==Pull Requests==
 
-AQuery is designed to use as a single jar file. Pull requests that required us to break this rule will not be accepted.
+AQuery is designed to be used as a single jar file. Pull requests that required us to break this rule will not be accepted.
 
 There are couple criteria for us to merge a pull request:
 

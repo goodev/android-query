@@ -37,15 +37,17 @@ System exceptions are also handled with this method. For example, the device mig
 
 === Error Reporting (BugSense example) ===
 
+Error reporting is important for developers to get feedback and fix bugs. The uncaught exception handler can be used to report errors to error reporting service such as [http://www.bugsense.com/ Bugsense].
+
+Here's a complete example of setting up BugSense with AQuery.
+
 {{{
 
 public class MainApplication extends Application{
 
 	@Override
     public void onCreate() {     
-        
-        AQUtility.setDebug(true);
-        
+       
 	BugSenseHandler.setup(this, API_KEY);
 		
 	AQUtility.setExceptionHandler(new UncaughtExceptionHandler() {

@@ -83,6 +83,15 @@ public class MainApplication extends Application{
 
 }}}
 
+=== Reporting outside of AQuery scope ===
+
+{{{
+
+AQUtility.report(ex);
+
+}}}
+
+If you already setup some reporting mechanism and want to report an exception with the uncaught exception handler, use the AQUtility.report() method.
 
 == Debuging ==
 

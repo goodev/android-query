@@ -91,7 +91,7 @@ AQUtility.report(ex);
 
 }}}
 
-If you already setup some reporting mechanism and want to report an exception with the uncaught exception handler, use the AQUtility.report() method.
+If you already setup reporting mechanism and want to report an exception with the uncaught exception handler, use the AQUtility.report() method.
 
 == Debuging ==
 

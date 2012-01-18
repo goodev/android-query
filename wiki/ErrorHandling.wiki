@@ -2,7 +2,15 @@
 
 = Error Handling =
 
-AQuery handled the errors that will cause an application to exit.
+== Android Main Thread Exception ==
+
+Developer should make sure all exception are handled inside the main thread. If an exception is being thrown, it will prompt the user and force shutdown the current activity, resulting in bad user experience.
+
+== AQuery Error Handling ==
+
+It's recommended that for the app to handle as much exception as possible, however sometimes it's not  due to unexpected runtime exception.
+
+AQuery handles errors that will cause an application to exit. 
 
 
 == Debuging ==

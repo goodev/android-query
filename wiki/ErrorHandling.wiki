@@ -4,16 +4,34 @@
 
 == Android Main Thread Exception ==
 
-Developer should make sure all exception are handled inside the main thread. If an exception is being thrown, it will prompt the user and force shutdown the current activity, resulting in bad user experience.
+Developer should make sure all exception are handled properly in the main thread. If an exception is thrown in the main thread, Android OS will prompt the user and force shutdown the current activity, resulting in very bad user experience.
 
 == AQuery Error Handling ==
 
-It's recommended that for the app to handle as much exception as possible, however sometimes it's not  due to unexpected runtime exception.
+It's recommended to handle all exception occurs in the main thread, but unexpected runtime exceptions and errors do occur.
 
-AQuery handles errors that will cause an application to exit. 
+In order to avoid crashing, AQuery handles all the exceptions that could be thrown from registered ajax callback and listener methods. 
 
+=== Uncaught Exception Handler ===
 
-Should not use this to prompt the user.
+Uncaught exceptions can be handled by registering a handler.
+
+{{{
+AQUtility.setExceptionHandler(new UncaughtExceptionHandler() {
+	
+	@Override
+	public void uncaughtException(Thread thread, Throwable ex) {
+
+		//handler code
+		
+	}
+});
+
+}}}
+
+Any exception that would normally thrown in the main thread will be handled here. The default handler will simply log the error if debugging is on, and does nothing otherwise.
+
+Note that you *should not use this method to handle normal user exception.* 
 
 == Debuging ==
 

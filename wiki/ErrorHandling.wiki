@@ -48,7 +48,7 @@ public class MainApplication extends Application{
 	@Override
     public void onCreate() {     
        
-	BugSenseHandler.setup(this, API_KEY);
+	BugSenseHandler.setup(getApplicationContext(), API_KEY);
 		
 	AQUtility.setExceptionHandler(new UncaughtExceptionHandler() {
 			

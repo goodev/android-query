@@ -8,7 +8,7 @@ Developer should make sure all exceptions are handled properly in the main threa
 
 == AQuery Error Handling ==
 
-It is recommended to handle all exception that can occur in the main thread, but unexpected runtime exceptions and errors do occur.
+It is recommended to handle exceptions that can occur in the main thread, but unexpected runtime exceptions and errors do occur.
 
 In order to avoid crashing, AQuery handles all the exceptions that could be thrown from registered ajax callback and listener methods. 
 
@@ -33,7 +33,54 @@ Any exception that would normally thrown in the main thread will be handled here
 
 Note that you *should not use this method to handle normal user exception.*
 
-System exceptions are also handled with this method. For example, the device might run out of space for caching, and this method could be invoked many times with IO exceptions.
+System exceptions are also handled with this method. For example, the device might run out of space for caching, and this method could be invoked many times with IO exceptions for each ajax request.
+
+=== Error Reporting (BugSense example) ===
+
+{{{
+
+public class MainApplication extends Application{
+
+	@Override
+    public void onCreate() {     
+        
+        AQUtility.setDebug(true);
+        
+		BugSenseHandler.setup(this, API_KEY);
+		
+		AQUtility.setExceptionHandler(new UncaughtExceptionHandler() {
+			
+			@Override
+			public void uncaughtException(Thread thread, Throwable ex) {
+
+				
+				AsyncTask<Throwable, Void, Void> task = new AsyncTask<Throwable, Void, Void>() {
+
+					@Override
+					protected Void doInBackground(Throwable... ex) {
+						try {
+							BugSense.submitError(0, new Date(), Log.getStackTraceString(ex[0]));
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						return null;
+					}
+				};
+				
+				task.execute(ex);
+				
+			}
+		});
+        
+        super.onCreate();
+    }
+	
+	
+	
+}
+
+}}}
+
 
 == Debuging ==
 

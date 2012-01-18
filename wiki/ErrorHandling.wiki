@@ -45,4 +45,4 @@ AQUtility.setDebug(true);
 
 AQuery will log all the exceptions and important events such as an http request.
 
-Make sure debugging is not on in your production app. 
+Make sure debugging is off in your production app. 

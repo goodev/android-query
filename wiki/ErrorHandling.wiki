@@ -1,0 +1,18 @@
+#summary Error handling and reporting with AQuery.
+
+= Error Handling =
+
+AQuery handled the errors that will cause an application to exit.
+
+
+== Debuging ==
+
+Debug logging can be turned on:
+
+{{{
+AQUtility.setDebug(true);
+}}}
+
+AQuery will log all the exceptions and important events such as an http request.
+
+Make sure debugging is not on in your production app. 

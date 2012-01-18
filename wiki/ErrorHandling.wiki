@@ -86,12 +86,12 @@ public class MainApplication extends Application{
 
 == Debuging ==
 
-Debug logging can be turned on with setDebug(). Default is off.
+Debug logging can be turned on with setDebug(). 
 
 {{{
 AQUtility.setDebug(true);
 }}}
 
-AQuery will log all the exceptions and important events such as an http request.
+AQuery will log all the exceptions and important events such as an http request url and response, etc. When in doubt, turn on debug logging and see if there's exception happening behind the scene.
 
-Make sure debugging is off in your production app. 
+Note: Make sure debugging is off in your production app. 

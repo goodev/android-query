@@ -13,6 +13,8 @@ It's recommended that for the app to handle as much exception as possible, howev
 AQuery handles errors that will cause an application to exit. 
 
 
+Should not use this to prompt the user.
+
 == Debuging ==
 
 Debug logging can be turned on:

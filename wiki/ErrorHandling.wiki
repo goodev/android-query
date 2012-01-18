@@ -46,31 +46,31 @@ public class MainApplication extends Application{
         
         AQUtility.setDebug(true);
         
-		BugSenseHandler.setup(this, API_KEY);
+	BugSenseHandler.setup(this, API_KEY);
 		
-		AQUtility.setExceptionHandler(new UncaughtExceptionHandler() {
+	AQUtility.setExceptionHandler(new UncaughtExceptionHandler() {
 			
-			@Override
-			public void uncaughtException(Thread thread, Throwable ex) {
+		@Override
+		public void uncaughtException(Thread thread, Throwable ex) {
 
 				
-				AsyncTask<Throwable, Void, Void> task = new AsyncTask<Throwable, Void, Void>() {
+			AsyncTask<Throwable, Void, Void> task = new AsyncTask<Throwable, Void, Void>() {
 
-					@Override
-					protected Void doInBackground(Throwable... ex) {
-						try {
-							BugSense.submitError(0, new Date(), Log.getStackTraceString(ex[0]));
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-						return null;
+				@Override
+				protected Void doInBackground(Throwable... ex) {
+					try {
+						BugSense.submitError(0, new Date(), Log.getStackTraceString(ex[0]));
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
-				};
+					return null;
+				}
+			};
 				
-				task.execute(ex);
+			task.execute(ex);
 				
-			}
-		});
+		}
+	});
         
         super.onCreate();
     }

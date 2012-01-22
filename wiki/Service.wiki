@@ -98,6 +98,10 @@ Note: Amazon app store will reject your app if it contains links to the Google A
 
 By default, the version information is cached on the device for a few hours. There is at most 2 version checks per day per user to conserve battery. Each version check takes about ~10b (if up to date) to 4kb (depends on message size) of download bandwidth.
 
+===Delay===
+
+Due to various caching mechanism on server and devices, there could be a few hours delay between publishing your app on Android market and getting the latest in-app version check. 
+
 ===Dismiss Dialogs===
 
 Call AndroidQuery.dismiss() to dismiss any showing dialogs. 

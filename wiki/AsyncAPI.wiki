@@ -297,6 +297,10 @@ public void async_post_entity() throws UnsupportedEncodingException{
 
 }}}
 
+=== Long URL (2000+ length)===
+
+Url length shouldn't be longer than 2000 characters. [ [http://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url reference]]
+
 === Caching ===
 
 Caching is easy with ajax requests. Just pass in an expire time as a parameter, and if the data is available, it will be served from the file cache instead of fetching over the network.

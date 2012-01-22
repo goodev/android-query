@@ -299,7 +299,13 @@ public void async_post_entity() throws UnsupportedEncodingException{
 
 === Long URL (2000+ length)===
 
-Url length shouldn't be longer than 2000 characters. [ [http://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url reference]]
+Url length shouldn't be longer than 2000 characters. ( [http://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url reference])
+
+A POST method might be used to get around this limit. For example, [http://code.google.com/apis/chart/image/docs/post_requests.html Google Chart] allow a post method for requests that will run over 2000 characters long.
+
+AQuery automatically detects the url length and switch from GET to POST method if required.
+
+
 
 === Caching ===
 

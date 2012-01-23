@@ -337,7 +337,7 @@ AQuery's philosophy is to make common tasks as simple as possible in a non-intru
 
 ==History==
 
-AQuery is inspired by jQuery, a javascript framework for web, hence the name "Query". 
+AQuery is inspired by jQuery, a javascript framework for web site, hence the name "Query". 
 
 ==API Demo App==
 
@@ -352,7 +352,7 @@ Try out our [https://market.android.com/details?id=com.androidquery.facebook Sim
 
 ==Contribute!==
 
-AQuery is a new library and need nourishment from the community. The initial version is only covering a small set (but frequently used) of the Android UI framework. 
+AQuery is a new library and need nourishment from the community. 
 
 Git users: fork [https://github.com/androidquery/androidquery androidquery] at GitHub!
 

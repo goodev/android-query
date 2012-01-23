@@ -316,7 +316,9 @@ public class MyQuery extends AbstractAQuery<MyQuery>{
 
 }}}
 
-If you like to give back to the community, open a ticket and submit your custom methods. We will add the method to the library if it has no app specific dependency.
+If you like to give back to the community, fork AQuery at [https://github.com/androidquery/androidquery GitHub] and submit a pull request.
+
+See [http://code.google.com/p/android-query/wiki/Contribution Contribution]
 
 ===Light Weight===
 

@@ -14,10 +14,14 @@ For Google service, include these permissions:
 <uses-permission android:name="android.permission.USE_CREDENTIALS" />		
 }}}
 
-==Addon==
+==Dependency==
 
 BasicAuth, Facebook, and Twitter requires [http://code.google.com/p/android-query/downloads/list android-query-auth.jar].
 
+Twitter also depends on the [http://code.google.com/p/oauth-signpost/ SignPost] library:
+
+  * signpost-commonshttp4-1.2.1.1.jar
+  * signpost-core-1.2.1.1.jar
 
 
 ==Code==
@@ -174,14 +178,7 @@ public void auth_twitter(){
 
 Use the TwitterHandle to authenticate with OAuth1. Consumer key and consumer secret are provided from Twitter's app development console.
 
-===Dependency===
 
-The TwitterHandle depends on the [http://code.google.com/p/oauth-signpost/ SignPost] library:
-
-  * signpost-commonshttp4-1.2.1.1.jar
-  * signpost-core-1.2.1.1.jar
-
-You can download the 2 jars [http://code.google.com/p/android-query/downloads/list here].
 
 ==Basic Auth==
 

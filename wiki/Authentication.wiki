@@ -20,8 +20,8 @@ BasicAuth, Facebook, and Twitter requires [http://code.google.com/p/android-quer
 
 Twitter also depends on the [http://code.google.com/p/oauth-signpost/ SignPost] library:
 
-  * signpost-commonshttp4-1.2.1.1.jar
-  * signpost-core-1.2.1.1.jar
+  * [http://code.google.com/p/oauth-signpost/ signpost-commonshttp4-1.2.1.1.jar]
+  * [http://code.google.com/p/oauth-signpost/ signpost-core-1.2.1.1.jar]
 
 
 ==Code==

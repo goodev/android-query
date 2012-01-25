@@ -7,6 +7,7 @@
 New Feature:
   * [http://code.google.com/p/android-query/wiki/AsyncAPI#Long_URL_(2000+_length) Long URL (2000+ length)]
   * [http://code.google.com/p/android-query/wiki/Authentication Facebook, Twitter, BasicAuth]
+  * [http://code.google.com/p/android-query/wiki/ErrorHandling Uncaught Error Handler]
   * Better GoogleChart image url support
 
 

@@ -80,6 +80,33 @@ private static String PERMISSIONS = "read_stream,read_friendlists,manage_friendl
 
 Permission are Facebook open graph "scope", as described [http://developers.facebook.com/docs/reference/api/permissions/ here]. Each terms are separated by comma.
 
+Note that "offline_access" is needed or the token will expired in 2 hours.
+
+===Expire Check===
+
+{{{
+
+FacebookHandle handle = new FacebookHandle(this, APP_ID, PERMISSIONS){
+	
+	@Override
+	public boolean expired(AbstractAjaxCallback<?, ?> cb, AjaxStatus status) {
+		
+		//custom check if re-authentication is required
+		if(status.getCode() == 401){
+			return true;
+		}
+		
+		return super.expired(cb, status);
+	}
+	
+};
+
+
+}}}
+
+Facebook doesn't seem to have a standard to indicate re-authentication is required. Token can be expired by time or when user changed the app permissions on Facebook. Authentication is often required when the app configuration changed.
+
+The default FacebookHandle checks if the response code is 400, 401, or 403 along with some special cases handling. If further customization is required, extend the FacebookHandle and overwrite the expired method. If expired() returns true, the handle will request the user to re-authenticate if needed.
 
 ==Twitter==
 

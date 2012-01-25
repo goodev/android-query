@@ -55,6 +55,7 @@ The following Google Service is supported, with their corresponding token types:
 || Contacts|| AQuery.AUTH_CONTACTS || [http://code.google.com/apis/contacts/docs/3.0/reference.html API] ||
 || Maps || AQuery.AUTH_MAPS || [http://code.google.com/apis/maps/ API] ||
 
+
 ==Facebook==
 
 Facebook Open-Graph authentication is in beta. Documentation pending.
@@ -62,6 +63,24 @@ Facebook Open-Graph authentication is in beta. Documentation pending.
 ==Twitter==
 
 Twitter authentication is in beta. Documentation pending.
+
+==Basic Auth==
+
+{{{
+
+public void auth_basic(){
+	
+	BasicHandle handle = new BasicHandle("tinyeeliu@gmail.com", "password");
+	String url = "http://xpenser.com/api/v1.0/reports/";
+	aq.auth(handle).progress(R.id.progress).ajax(url, JSONArray.class, this, "basicCb");
+	
+}
+
+}}}
+
+Use the BasicHandle for basic authentication. The default implementation does not handle authentication error (user changed password, etc...). 
+
+Developer must check authentication error (ex. code == 401) and create a new BasicHandle for subsequent requests.
 
 ==Extension==
 

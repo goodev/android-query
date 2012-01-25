@@ -40,6 +40,8 @@ Account handle holds the current authentication token which are cached on the de
 
 ==Supported Google Service==
 
+Note: *Google Account Manager requires API 7+.*
+
 The following Google Service is supported, with their corresponding token types:
 
 || *Name* || *Type* || *Google's API* ||

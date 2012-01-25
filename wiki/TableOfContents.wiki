@@ -5,7 +5,7 @@
   * [XML XML Parsing]
   * [Location Location Callback]
   * [Service In-App Version Check]
-  * [ErrorHandling Error Handling (Beta)]
+  * [ErrorHandling Error Handling]
   * [Contribution Extension + Contribution]
   * [ReleaseNote Release Note]
   * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html JavaDoc]

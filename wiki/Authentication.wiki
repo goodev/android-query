@@ -101,10 +101,12 @@ Use the TwitterHandle to authenticate with OAuth1. Consumer key and consumer sec
 
 ===Dependency===
 
-signpost-commonshttp4-1.2.1.1.jar
-signpost-core-1.2.1.1.jar
+The TwitterHandle depends on the [http://code.google.com/p/oauth-signpost/ SignPost] library:
 
+  * signpost-commonshttp4-1.2.1.1.jar
+  * signpost-core-1.2.1.1.jar
 
+You can download the 2 jars [http://code.google.com/p/android-query/downloads/list here].
 
 ==Basic Auth==
 

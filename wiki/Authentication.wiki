@@ -80,6 +80,7 @@ Because SSO uses Facebook's login activity, a little more work is required:
 
 private FacebookHandle handle;
 private final int ACTIVITY_SSO = 1000;
+
 public void auth_facebook_sso(){
 	
 	handle = new FacebookHandle(this, APP_ID, PERMISSIONS);

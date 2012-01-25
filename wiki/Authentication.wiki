@@ -13,6 +13,13 @@ For Google service, include these permissions:
 <uses-permission android:name="android.permission.GET_ACCOUNTS" />	
 <uses-permission android:name="android.permission.USE_CREDENTIALS" />		
 }}}
+
+==Addon==
+
+BasicAuth, Facebook, and Twitter requires [http://code.google.com/p/android-query/downloads/list android-query-auth.jar].
+
+
+
 ==Code==
 
 AQuery handles the authentication life cycle and token management automatically. Simply provide an "account handle" with the .auth() method. 

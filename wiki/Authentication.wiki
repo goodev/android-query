@@ -58,11 +58,53 @@ The following Google Service is supported, with their corresponding token types:
 
 ==Facebook==
 
-Facebook Open-Graph authentication is in beta. Documentation pending.
+{{{
+public void auth_facebook(){
+	
+	FacebookHandle handle = new FacebookHandle(this, APP_ID, PERMISSIONS);
+	
+	String url = "https://graph.facebook.com/me/feed";
+	aq.auth(handle).progress(R.id.progress).ajax(url, JSONObject.class, this, "facebookCb");
+	
+}
+
+}}}
+
+
+===Permission===
+
+{{{
+private static String PERMISSIONS = "read_stream,read_friendlists,manage_friendlists,manage_notifications,publish_stream,publish_checkins,offline_access,user_photos,user_likes,user_groups,friends_photos";
+	
+}}}
+
+Permission are Facebook open graph "scope", as described [http://developers.facebook.com/docs/reference/api/permissions/ here]. Each terms are separated by comma.
+
 
 ==Twitter==
 
-Twitter authentication is in beta. Documentation pending.
+{{{
+
+public void auth_twitter(){
+	
+	TwitterHandle handle = new TwitterHandle(this, CONSUMER_KEY, CONSUMER_SECRET);
+	
+	String url = "http://twitter.com/statuses/mentions.json";
+	aq.auth(handle).progress(R.id.progress).ajax(url, JSONArray.class, this, "twitterCb");
+	
+	
+}
+
+}}}
+
+Use the TwitterHandle to authenticate with OAuth1. Consumer key and consumer secret are provided from Twitter's app development console.
+
+===Dependency===
+
+signpost-commonshttp4-1.2.1.1.jar
+signpost-core-1.2.1.1.jar
+
+
 
 ==Basic Auth==
 
@@ -80,7 +122,7 @@ public void auth_basic(){
 
 Use the BasicHandle for basic authentication. The default implementation does not handle authentication error (user changed password, etc...). 
 
-Developer must check authentication error (ex. code == 401) and create a new BasicHandle for subsequent requests.
+Developer must check for authentication error (ex. code == 401) and create a new BasicHandle for subsequent requests.
 
 ==Extension==
 

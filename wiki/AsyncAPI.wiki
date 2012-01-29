@@ -396,7 +396,7 @@ AjaxStatus status = cb.getStatus();
 
 }}}
 
-Note that this will block the thread until the result is returned. The actual work will be done in another thread pool. Calling this method in Main/UI thread will caused an exception.
+Note that this will block the thread until the result is returned. The actual work will be done in another thread pool. Calling this method in Main/UI thread will cause an exception.
 
 === Ajax Status ===
 

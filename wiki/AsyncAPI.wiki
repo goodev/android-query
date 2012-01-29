@@ -454,6 +454,22 @@ aq.ajax(cb);
 
 }}}
 
+=== Http Cookies ===
+
+Use the cookie method to set http cookies.
+
+{{{
+
+String url = "http://www.androidquery.com/p/doNothing";
+
+AjaxCallback<JSONObject> cb = new AjaxCallback<JSONObject>();		
+cb.url(url).type(JSONObject.class).weakHandler(this, "cookieCb");
+
+cb.cookie("hello", "world").cookie("foo", "bar");		
+aq.ajax(cb);
+
+}}}
+
 === Encoding ===
 
 The default ajax callback uses UTF-8 to transform the object. If custom encoding is needed, uses the encoding() method for the AkaxCallback.

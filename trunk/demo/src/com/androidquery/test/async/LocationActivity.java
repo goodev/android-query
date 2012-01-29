@@ -1,12 +1,5 @@
 package com.androidquery.test.async;
 
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.xml.sax.SAXException;
-
 import android.location.Location;
 import android.os.Bundle;
 
@@ -15,7 +8,6 @@ import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.LocationAjaxCallback;
 import com.androidquery.test.RunSourceActivity;
 import com.androidquery.util.AQUtility;
-import com.androidquery.util.XmlDom;
 
 public class LocationActivity extends RunSourceActivity {
 
@@ -38,14 +30,16 @@ public class LocationActivity extends RunSourceActivity {
 		AQUtility.invokeHandler(this, type, false, false, null);
 	}
 	
+	private LocationAjaxCallback cb;
 	public void location_ajax(){
 		
 		aq.id(R.id.result).text("");
     	
 		LocationAjaxCallback cb = new LocationAjaxCallback();
-    	cb.weakHandler(this, "locationCb").timeout(40 * 1000);   	
+    	cb.weakHandler(this, "locationCb").timeout(30 * 1000).accuracy(1000).iteration(3);   	
     	cb.async(this);
 		
+    	this.cb = cb;
 	}
 	
 	public void locationCb(String url, Location loc, AjaxStatus status){
@@ -53,6 +47,15 @@ public class LocationActivity extends RunSourceActivity {
 		if(loc != null){
 			appendResult(loc);
 		}
+		
+	}
+	
+	@Override
+	public void onStop(){
+		
+		super.onStop();
+		
+		if(cb != null) cb.stop();
 		
 	}
 	

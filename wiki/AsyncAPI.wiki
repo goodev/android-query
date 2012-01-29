@@ -412,7 +412,9 @@ public void callback(String url, JSONObject json, AjaxStatus status) {
     String message = status.getMessage();
     String redirect = status.getRedirect();
     DefaultHttpClient client = status.getClient();
-	
+
+    //returns the html response when response code is not 2xx
+    String errorResponse = status.getError();	
 }
 
 }}}

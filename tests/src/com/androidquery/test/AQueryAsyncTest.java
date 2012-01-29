@@ -26,6 +26,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
 import android.view.View;
@@ -570,6 +571,41 @@ public class AQueryAsyncTest extends AbstractTest<AQueryTestActivity> {
 		
     }
 	
+	public void testAjaxLongBitmapURL() {
+		
+		String dummy = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		
+		String title = "Very long title " + dummy + dummy + dummy + dummy + dummy;
+		
+		AQUtility.debug("title len", title.length());
+		
+		String url = "https://chart.googleapis.com/chart?chid=1234&cht=lc&chtt=" + title + "&chs=300x200&chxt=x&chd=t:40,20,50,20,100";
+		
+        
+		AjaxCallback<Bitmap> cb = new AjaxCallback<Bitmap>(){
+			
+			@Override
+			public void callback(String url, Bitmap bm, AjaxStatus status) {
+				
+				done(url, bm, status);
+				
+			}
+			
+		};
+		
+			
+        aq.ajax(url, Bitmap.class, 15 * 60 * 1000, cb);
+        
+        waitAsync(2000);
+        
+        assertNotNull(result);
+       
+		File cached = aq.getCachedFile(url);
+		assertTrue(cached.exists());
+		assertTrue(cached.length() > 100);
+		
+    }
+	
 	private static class Profile{
 
 		public String id;
@@ -684,5 +720,40 @@ public class AQueryAsyncTest extends AbstractTest<AQueryTestActivity> {
         assertNotNull(p.name);
 		
 	}
+	
+	public void testAjaxCookie() {
+		
+		String url = "http://www.androidquery.com/p/doNothing";
+        
+		AjaxCallback<JSONObject> cb = new AjaxCallback<JSONObject>(){
+			
+			@Override
+			public void callback(String url, JSONObject jo, AjaxStatus status) {
+				
+				done(url, jo, status);
+				
+			}
+			
+		};
+		
+		cb.url(url).type(JSONObject.class).cookie("hello", "world").cookie("foo", "bar");		
+        aq.ajax(cb);
+        
+        waitAsync();
+        
+        JSONObject jo = (JSONObject) result;
+        
+        AQUtility.debug(jo);
+        
+        assertNotNull(jo);       
+        
+        JSONObject cookies = (JSONObject) jo.optJSONObject("cookies");
+        assertNotNull(cookies); 
+        
+        assertEquals("world", cookies.optString("hello"));
+        assertEquals("bar", cookies.optString("foo"));
+        
+        
+    }
 	
 }

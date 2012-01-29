@@ -41,6 +41,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.androidquery.AQuery;
+import com.androidquery.auth.AccountHandle;
 import com.androidquery.util.AQUtility;
 import com.androidquery.util.BitmapCache;
 import com.androidquery.util.RatioDrawable;
@@ -346,7 +347,7 @@ public class BitmapAjaxCallback extends AbstractAjaxCallback<Bitmap, BitmapAjaxC
 			if(fallback > 0){			
 				bm = getFallback();		
 			}else if(fallback == AQuery.GONE || fallback == AQuery.INVISIBLE){
-				bm = getEmptyBitmap();
+				bm = dummy;
 			}
 			
 			if(status.getCode() != 200){
@@ -398,15 +399,13 @@ public class BitmapAjaxCallback extends AbstractAjaxCallback<Bitmap, BitmapAjaxC
 		return bm;
 	}
 	
-	private static Bitmap empty;
+	private static Bitmap empty = Bitmap.createBitmap(1, 1, Bitmap.Config.ALPHA_8);
 	public static Bitmap getEmptyBitmap(){
-		
-		if(empty == null){
-			empty = Bitmap.createBitmap(1, 1, Bitmap.Config.ALPHA_8);
-		}
-		
 		return empty;
 	}
+	
+	private static Bitmap dummy = Bitmap.createBitmap(1, 1, Bitmap.Config.ALPHA_8);
+
 	
 	
 	@Override
@@ -756,7 +755,7 @@ public class BitmapAjaxCallback extends AbstractAjaxCallback<Bitmap, BitmapAjaxC
 	 *
 	 */
 	
-	public static void async(Activity act, Context context, ImageView iv, String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animation, float ratio, float anchor, View progress){
+	public static void async(Activity act, Context context, ImageView iv, String url, boolean memCache, boolean fileCache, int targetWidth, int fallbackId, Bitmap preset, int animation, float ratio, float anchor, View progress, AccountHandle ah){
 		
 		Bitmap bm = null;
 		
@@ -770,7 +769,7 @@ public class BitmapAjaxCallback extends AbstractAjaxCallback<Bitmap, BitmapAjaxC
 			setBmAnimate(iv, bm, preset, fallbackId, animation, ratio, anchor, AjaxStatus.MEMORY, null, null);
 		}else{
 			BitmapAjaxCallback cb = new BitmapAjaxCallback();			
-			cb.url(url).imageView(iv).memCache(memCache).fileCache(fileCache).targetWidth(targetWidth).fallback(fallbackId).preset(preset).animation(animation).ratio(ratio).anchor(anchor).progress(progress);
+			cb.url(url).imageView(iv).memCache(memCache).fileCache(fileCache).targetWidth(targetWidth).fallback(fallbackId).preset(preset).animation(animation).ratio(ratio).anchor(anchor).progress(progress).auth(ah);
 			if(act != null){
 				cb.async(act);
 			}else{

@@ -29,8 +29,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -67,6 +69,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.View;
 
 import com.androidquery.AQuery;
@@ -95,6 +98,8 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	private String url;
 	private Map<String, Object> params;
 	private Map<String, String> headers;
+	private Map<String, String> cookies;
+	
 	private Transformer transformer;
 	
 	protected T result;
@@ -310,6 +315,21 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		headers.put(name, value);
 		return self();
 	}
+	
+	/**
+	 * Set the cookies for the http request.
+	 *
+	 * @param name the name
+	 * @param value the value
+	 * @return self
+	 */
+	public K cookie(String name, String value){
+		if(cookies == null){
+			cookies = new HashMap<String, String>();
+		}
+		cookies.put(name, value);
+		return self();
+	}	
 	
 	/**
 	 * Set the encoding used to parse the response.
@@ -551,6 +571,18 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			return (T) BitmapFactory.decodeByteArray(data, 0, data.length);
 		}
 		
+		/*
+		if(type.equals(XmlPullParser.class)){	
+			XmlPullParser parser = Xml.newPullParser();
+			try {
+				parser.setInput(new ByteArrayInputStream(data), encoding);
+			} catch (XmlPullParserException e) {
+				AQUtility.report(e);
+				return null;
+			}
+			return (T) parser;
+		}
+		*/
 		if(transformer != null){
 			return transformer.transform(url, type, encoding, data, status);
 		}
@@ -795,7 +827,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 			
 			network();
 			
-			if(ah != null && ah.expired(this, status.getCode()) && !reauth){
+			if(ah != null && ah.expired(this, status) && !reauth){
 				AQUtility.debug("reauth needed", status.getMessage());	
 				reauth = true;
 				if(ah.reauth(this)){
@@ -834,7 +866,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	
 	
 	private void filePut(){
-				
+			
 		if(result != null && fileCache){
 			
 			byte[] data = status.getData();
@@ -844,6 +876,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 				
 					File file = getCacheFile();
 					if(!status.getInvalid()){	
+						//AQUtility.debug("write", url);
 						filePut(url, result, file, data);
 					}else{
 						if(file.exists()){
@@ -860,21 +893,57 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		}
 	}
 	
+	private static String extractUrl(Uri uri){	
+		
+		String result = uri.getScheme() + "://" + uri.getAuthority() + uri.getPath();
+		
+		String fragment = uri.getFragment();
+		if(fragment != null) result += "#" + fragment;
+		
+		return result;
+	}
+	
+	private static Map<String, Object> extractParams(Uri uri){
+		
+		Map<String, Object> params = new HashMap<String, Object>(); 
+		String[] pairs = uri.getQuery().split("&");
+		
+		for(String pair: pairs){
+			String[] split = pair.split("=");
+			if(split.length >= 2){
+				params.put(split[0], split[1]);
+			}else if(split.length == 1){
+				params.put(split[0], "");
+			}
+		}
+		return params;
+	}
+	
+	
 	private void network() throws IOException{
 		
 		
-		String networkUrl = url;
+		String url = this.url;
+		Map<String, Object> params = this.params;
+		
+		//convert get to post request, if url length is too long to be handled on web		
+		if(params == null && url.length() > 2000){
+			Uri uri = Uri.parse(url);
+			url = extractUrl(uri);
+			params = extractParams(uri);
+		}
+		
 		if(ah != null){
-			networkUrl = ah.getNetworkUrl(url);
+			url = ah.getNetworkUrl(url);
 		}
 		
 		if(params == null){
-			httpGet(networkUrl, headers, status);	
+			httpGet(url, headers, status);	
 		}else{
 			if(isMultiPart(params)){
-				httpMulti(networkUrl, headers, params, status);
+				httpMulti(url, headers, params, status);
 			}else{
-				httpPost(networkUrl, headers, params, status);
+				httpPost(url, headers, params, status);
 			}
 			
 		}
@@ -930,7 +999,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 	
 	private static String patchUrl(String url){
 		
-		url = url.replaceAll(" ", "%20");
+		url = url.replaceAll(" ", "%20").replaceAll("\\|", "%7C");
 		return url;
 	}
 	
@@ -1027,9 +1096,14 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		if(headers != null){
         	for(String name: headers.keySet()){
         		hr.addHeader(name, headers.get(name));
-        		AQUtility.debug(name, headers.get(name));
+        		//AQUtility.debug(name, headers.get(name));
         	}
         }
+			
+		String cookie = makeCookie();
+		if(cookie != null){
+			hr.addHeader("Cookie", cookie);
+		}
 		
 		if(ah != null){
 			ah.applyToken(this, hr);
@@ -1038,6 +1112,7 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		DefaultHttpClient client = getClient();
 		
 		HttpContext context = new BasicHttpContext(); 	
+		
 		
 		HttpResponse response = client.execute(hr, context);
 		
@@ -1212,14 +1287,26 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		conn.setInstanceFollowRedirects(false);
 		
 		conn.setConnectTimeout(NET_TIMEOUT * 4);
-		
+
 		conn.setDoInput(true);
 		conn.setDoOutput(true);
 		conn.setUseCaches(false);
+		
 		conn.setRequestMethod("POST");
 		conn.setRequestProperty("Connection", "Keep-Alive");
 		conn.setRequestProperty("Content-Type", "multipart/form-data;charset=utf-8;boundary=" + boundary);
 
+		if(headers != null){
+        	for(String name: headers.keySet()){
+        		conn.setRequestProperty(name, headers.get(name));
+        	}
+        }
+			
+		String cookie = makeCookie();
+		if(cookie != null){
+			conn.setRequestProperty("Cookie", cookie);
+		}
+		
 		dos = new DataOutputStream(conn.getOutputStream());
 
 		for(Map.Entry<String, Object> entry: params.entrySet()){
@@ -1298,6 +1385,32 @@ public abstract class AbstractAjaxCallback<T, K> implements Runnable{
 		dos.write(data);
 		
 		dos.writeBytes(lineEnd);
+	}
+	
+	
+	private String makeCookie(){
+		
+		if(cookies == null || cookies.size() == 0) return null;
+		
+		Iterator<String> iter = cookies.keySet().iterator();
+		
+		StringBuilder sb = new StringBuilder();
+		
+		while(iter.hasNext()){
+			String key = iter.next();
+			String value = cookies.get(key);
+			sb.append(key);
+			sb.append("=");
+			sb.append(value);
+			if(iter.hasNext()){
+				sb.append("; ");
+			}
+		}
+		
+		//AQUtility.debug("cookie", sb.toString());
+		
+		return sb.toString();
+		
 	}
 	
 }

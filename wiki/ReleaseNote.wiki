@@ -2,6 +2,18 @@
 
 = Release Notes =
 
+==0.20.3==
+
+Feature:
+  * Support XmlPullParser ajax type
+  * Http response cookies
+  * Http response headers
+  
+Fix:
+  * ajax() http post now takes type Map<String, ?> including the old type Map<String, Object>
+  * http multipart post now supports header and cookie
+
+
 ==0.19.3==
 
 New Feature:

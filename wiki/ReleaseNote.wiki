@@ -6,6 +6,7 @@
 
 Feature:
   * Support XmlPullParser ajax type
+  * Http request cookies
   * Http response cookies
   * Http response headers
   

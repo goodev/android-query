@@ -472,6 +472,23 @@ aq.ajax(cb);
 
 }}}
 
+=== Http Response Headers ===
+
+{{{
+status.getHeaders()
+}}}
+
+Returns a list of headers. If the request is cached or a http multipart post, this method returns an empty list.
+
+=== Http Response Cookies ===
+
+
+{{{
+status.getCookies();
+}}}
+
+Returns a list of cookies. If the request is cached or a http multipart post, this method returns an empty list.
+
 === Encoding ===
 
 The default ajax callback uses UTF-8 to transform the object. If custom encoding is needed, uses the encoding() method for the AkaxCallback.

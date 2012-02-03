@@ -362,6 +362,22 @@ aq.progress(R.id.progress).ajax(url, JSONObject.class, this, "jsonCb");
 
 }}}
 
+ProgressDialog dialog = new ProgressDialog(this);
+
+dialog.setIndeterminate(true);
+dialog.setCancelable(true);
+dialog.setInverseBackgroundForced(false);
+dialog.setCanceledOnTouchOutside(true);
+dialog.setTitle("Sending...");
+
+String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";                
+aq.progress(dialog).ajax(url, JSONObject.class, this, "jsonCb");
+
+{{{
+
+
+}}}
+
 === Activity Finished Detection===
 
 AQuery will examine the initialization context and skip the ajax callback if an activity is already stopped before the aync task is completed. This behavior avoid unnecessary work and avoid modifying ui states that could be illegal (such as showing a dialog when an activity is not longer active).

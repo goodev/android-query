@@ -5,7 +5,7 @@
 ==0.20.3==
 
 Feature:
-  * Support XmlPullParser ajax type
+  * Support XmlPullParser ajax type [http://code.google.com/p/android-query/wiki/AsyncAPI?ts=1328249717&updated=AsyncAPI#XML_Dom doc]
   * Http request cookies [http://code.google.com/p/android-query/wiki/AsyncAPI#Http_Headers doc]
   * Http response cookies [http://code.google.com/p/android-query/wiki/AsyncAPI#Http_Headers doc]
   * Http response headers [http://code.google.com/p/android-query/wiki/AsyncAPI#Http_Headers doc]

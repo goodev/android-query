@@ -9,7 +9,7 @@ Feature:
   * Http request cookies
   * Http response cookies
   * Http response headers
-  * Support progress dialog for ajax progress
+  * Support progress dialog for ajax progress [http://code.google.com/p/android-query/wiki/AsyncAPI#Progress doc]
   
 Update:
   * ajax() http post now takes type Map<String, ?> including the old type Map<String, Object>

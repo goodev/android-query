@@ -1,4 +1,4 @@
-#summary Release note.
+#summary Release note for AnroidQuery.
 
 = Release Notes =
 
@@ -9,6 +9,7 @@ Feature:
   * Http request cookies
   * Http response cookies
   * Http response headers
+  * Support progress dialog for ajax progress
   
 Update:
   * ajax() http post now takes type Map<String, ?> including the old type Map<String, Object>

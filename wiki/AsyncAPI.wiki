@@ -141,7 +141,7 @@ public void picasaCb(String url, XmlDom xml, AjaxStatus status){
 
 Related Blog: [http://blog.androidquery.com/2011/09/simpler-and-easier-xml-parsing-in.html XML Parsing]
 
-==== XmlPullParser ===
+==== XmlPullParser ====
 
 For large XML response that cannot fit in memory, the XMLPullParser can be used to avoid memory issue.
 

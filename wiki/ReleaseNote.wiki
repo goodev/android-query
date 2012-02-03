@@ -6,9 +6,9 @@
 
 Feature:
   * Support XmlPullParser ajax type
-  * Http request cookies
-  * Http response cookies
-  * Http response headers
+  * Http request cookies [http://code.google.com/p/android-query/wiki/AsyncAPI#Http_Headers doc]
+  * Http response cookies [http://code.google.com/p/android-query/wiki/AsyncAPI#Http_Headers doc]
+  * Http response headers [http://code.google.com/p/android-query/wiki/AsyncAPI#Http_Headers doc]
   * Support progress dialog for ajax progress [http://code.google.com/p/android-query/wiki/AsyncAPI#Progress doc]
   
 Update:

@@ -362,6 +362,10 @@ aq.progress(R.id.progress).ajax(url, JSONObject.class, this, "jsonCb");
 
 }}}
 
+
+
+{{{
+
 ProgressDialog dialog = new ProgressDialog(this);
 
 dialog.setIndeterminate(true);
@@ -372,9 +376,6 @@ dialog.setTitle("Sending...");
 
 String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";                
 aq.progress(dialog).ajax(url, JSONObject.class, this, "jsonCb");
-
-{{{
-
 
 }}}
 

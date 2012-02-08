@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.20.3==
+==0.20.5==
 
 Feature:
   * Support XmlPullParser ajax type [http://code.google.com/p/android-query/wiki/AsyncAPI?ts=1328249717&updated=AsyncAPI#XML_Dom doc]

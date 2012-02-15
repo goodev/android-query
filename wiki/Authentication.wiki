@@ -178,6 +178,30 @@ public void auth_twitter(){
 
 Use the TwitterHandle to authenticate with OAuth1. Consumer key and consumer secret are provided from Twitter's app development console.
 
+===Callback Url===
+
+Make sure "Callback Url" is being set on Twitter developer console, otherwise will result in authentication error. Callback url can be a dummy url or point to your web server callback.
+
+===Token Only===
+
+Token and secret can be retrieved as follow.
+
+{{{
+TwitterHandle handle = new TwitterHandle(this, CONSUMER_KEY, CONSUMER_SECRET){
+	
+	@Override
+	protected void authenticated(String secret, String token) {
+		AQUtility.debug("secret", secret);
+		AQUtility.debug("token", token);
+	}
+	
+};
+
+boolean refreshToken = false;
+handle.authenticate(refreshToken);
+
+}}}
+
 
 
 ==Basic Auth==

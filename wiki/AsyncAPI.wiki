@@ -371,6 +371,28 @@ aq.ajax(url, String.class, expire, new AjaxCallback<String>() {
 
 }}}
 
+=== Refresh Content===
+
+Passing expire time as -1 will ensure the content be refreshed immediately and to be file cached.
+
+{{{
+
+String url = "http://www.google.com";
+
+long expire = -1;
+
+aq.ajax(url, String.class, expire, new AjaxCallback<String>() {
+
+    @Override
+    public void callback(String url, String html, AjaxStatus status) {        
+    	showResult(html);
+    }
+        
+});
+
+
+}}}
+
 === Invalidating Cache ===
 
 Calling the invalidate method of the AjaxStatus object will invalidate the url content so that it will not be cached. It's useful when http status is 200 but the object returned is invalid.

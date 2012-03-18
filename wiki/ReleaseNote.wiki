@@ -6,6 +6,7 @@
 
 Feature:
   * Automatic gzip 
+  * Add expandable list adapter support.
 
 ==0.20.5==
 

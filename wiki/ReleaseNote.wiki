@@ -2,11 +2,12 @@
 
 = Release Notes =
 
-==0.21.1==
+==0.21.1 BETA ==
 
 Feature:
   * Automatic gzip 
   * Add expandable list adapter support.
+  * Add twitter auth token retrieve method.
 
 ==0.20.5==
 

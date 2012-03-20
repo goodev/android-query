@@ -103,9 +103,29 @@ AQuery usage:
 
 That's it! 
 
+== Fragment Support==
+
+AQuery can be initialized with the root view of a fragment.
+
+Here's an example:
+
+{{{
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        
+    	View view = inflater.inflate(getContainerView(), container, false);        	
+		
+    	aq = new AQuery(getActivity(), view);
+	return view;
+		
+    }
+
+}}}
+
 == Reference ==
 
-AQuery object holds a reference to the context upon initialization. 
+AQuery object holds a reference to the context upon initialization.
 *Do not store AQuery references globally (static).*
 
 The AQuery object is extremely light weight and can be created and disposed as will.

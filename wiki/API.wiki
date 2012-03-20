@@ -105,7 +105,7 @@ That's it!
 
 == Fragment Support==
 
-AQuery can be initialized with the root view of a fragment.
+AQuery can be initialized with the root view of a fragment. A good place to initialize the AQuery object is within the onCreateView method of the Fragment.
 
 Here's an example:
 

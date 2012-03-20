@@ -123,6 +123,8 @@ Here's an example:
 
 }}}
 
+Note that the views of the activity might not be fully initialized within onCreateView() of a fragment. You might want to perform initialization work in onActivityCreated() instead.
+
 == Reference ==
 
 AQuery object holds a reference to the context upon initialization.

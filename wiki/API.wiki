@@ -130,7 +130,7 @@ Note that the views of the activity might not be fully initialized within onCrea
 AQuery object holds a reference to the context upon initialization.
 *Do not store AQuery references globally (static).*
 
-The AQuery object is extremely light weight and can be created and disposed as will.
+The AQuery object is extremely light weight and can be created and disposed at will.
 
 == Methods ==
 

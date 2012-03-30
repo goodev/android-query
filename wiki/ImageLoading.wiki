@@ -515,6 +515,8 @@ protected void onDestroy(){
 	
 }
 
+}}}
+
 === Low Memory ===
 
 Low memory happens when the device is overloaded with apps. When this happens, we want to remove all images from memory cache.

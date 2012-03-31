@@ -331,11 +331,11 @@ Related Blog:
 
 AQuery has no dependency and does not require developers to inherit specialized views or activities. Developers are free to use AQuery along with any other library without any conflict.
 
-==Philosophy==
+===Philosophy===
 
 AQuery's philosophy is to make common tasks as simple as possible in a non-intrusive manner. 
 
-==History==
+===History===
 
 AQuery is inspired by jQuery, a javascript framework for web site, hence the name "Query". 
 
@@ -345,7 +345,7 @@ Demo with AQuery code snippets is available on [https://market.android.com/detai
 
 https://market.android.com/details?id=com.androidquery
 
-==Demo App==
+===Demo App===
 
 Try out our [https://market.android.com/details?id=com.androidquery.facebook SimpleFB (Facebook)] written with AQuery.
 

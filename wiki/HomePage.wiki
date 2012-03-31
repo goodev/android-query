@@ -322,7 +322,7 @@ See [http://code.google.com/p/android-query/wiki/Contribution Contribution]
 
 ===Light Weight===
 
-Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small and optimized with proguard (~25k for 0.8.2). The actual increase in apk size will be even smaller.
+Memory is scarce for mobile apps. The AQuery lib is standalone and relatively small and optimized with proguard (~60k). The actual increase in apk size will be even smaller.
 
 Related Blog:
 [http://android-query.blogspot.com/2011/06/android-optimization-with-proper.html Android ProGuard Optimization]
@@ -339,7 +339,7 @@ AQuery's philosophy is to make common tasks as simple as possible in a non-intru
 
 AQuery is inspired by jQuery, a javascript framework for web site, hence the name "Query". 
 
-==API Demo App==
+===API Demo App===
 
 Demo with AQuery code snippets is available on [https://market.android.com/details?id=com.androidquery Android Market].
 
@@ -350,13 +350,13 @@ https://market.android.com/details?id=com.androidquery
 Try out our [https://market.android.com/details?id=com.androidquery.facebook SimpleFB (Facebook)] written with AQuery.
 
 
-==Contribute!==
+===Contribute!===
 
 AQuery is a new library and need nourishment from the community. 
 
 Git users: fork [https://github.com/androidquery/androidquery androidquery] at GitHub!
 
-==Subscribe AQuery News==
+===Subscribe AQuery News===
 
 New release will be posted here:
   * [http://groups.google.com/group/android-query Android-Query Group]

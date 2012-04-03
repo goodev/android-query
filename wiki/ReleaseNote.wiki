@@ -10,6 +10,10 @@ Feature:
   * Add twitter auth token retrieve method.
   * Add longClicked methods similar to clicked.
   * Add shouldDelay method for Gallery, ExpandableListView.
+  * Add more efficient shouldDelay method for ListView
+
+
+Deprecated old ListView should delay method.
 
 ==0.20.5==
 

@@ -2,12 +2,14 @@
 
 = Release Notes =
 
-==0.21.2 BETA ==
+==0.21.3 BETA ==
 
 Feature:
   * Automatic gzip 
   * Add expandable list adapter support.
   * Add twitter auth token retrieve method.
+  * Add longClicked methods similar to clicked.
+  * Add shouldDelay method for Gallery, ExpandableListView.
 
 ==0.20.5==
 

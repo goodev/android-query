@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.21.3 BETA ==
+==0.21.4 BETA ==
 
 Feature:
   * Automatic gzip 
@@ -11,6 +11,8 @@ Feature:
   * Add longClicked methods similar to clicked.
   * Add shouldDelay method for Gallery, ExpandableListView.
   * Add more efficient shouldDelay method for ListView
+  * Add getToken() to Facebook handle.
+  * Add getToken() and getSecret() to TwitterHandle.
 
 
 Deprecated old ListView should delay method.

@@ -14,6 +14,7 @@ Feature:
   * Add getToken() to Facebook handle.
   * Add getToken() and getSecret() to TwitterHandle.
 
+GZip is automatically on for all ajax calls. No settings required. Use the setGZip(false) method to disable gzip.
 
 Deprecated old ListView should delay method.
 

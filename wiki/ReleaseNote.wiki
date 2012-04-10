@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.21.4 BETA ==
+==0.21.5 ==
 
 Feature:
   * Automatic gzip 

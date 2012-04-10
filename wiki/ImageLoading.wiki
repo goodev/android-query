@@ -344,7 +344,7 @@ aq.id(R.id.list).adapter(aa);
 
 The shouldDelay() method uses the *setOnScrollListener()* method and will override any previously non-aquery assigned scroll listener. If a scrolled listener is required, use the aquery method *scrolled(OnScrollListener listener)* to register your listener instead.
 
-ListView, GridView, Gallery, and ExpandableListView are supported. For ExpandableListView, use the variation method [here http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html#shouldDelay(int, boolean, View, ViewGroup, java.lang.String)].
+ListView, GridView, Gallery, and ExpandableListView are supported. For ExpandableListView, use the variation method [ttp://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html#shouldDelay(int, boolean, View, ViewGroup, java.lang.String) here].
 
 ==== ViewHolder Pattern====
 

@@ -230,7 +230,7 @@ Documentation pending.
 
 ===Dismiss Dialogs===
 
-Call AndroidQuery.dismiss() to dismiss any showing dialogs. 
+Call AndroidQuery.dismiss() in OnDestroy() to dismiss any showing dialogs. 
 
 {{{
 aq.dismiss();

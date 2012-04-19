@@ -180,6 +180,13 @@ Use the TwitterHandle to authenticate with OAuth1. Consumer key and consumer sec
 
 ===Callback Url===
 
+{{{
+04-18 15:40:47.282: W/DefaultRequestDirector(1043): Authentication
+error: Unable to respond to any of these challenges: {oauth=WWW-
+Authenticate: OAuth realm="https://api.twitter.com"}
+}}}
+
+
 Make sure "Callback Url" is being set on Twitter developer console, otherwise will result in authentication error. Callback url can be a dummy url or point to your web server callback.
 
 ===Token Only===

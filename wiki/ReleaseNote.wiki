@@ -2,6 +2,13 @@
 
 = Release Notes =
 
+==0.22.1 BETA==
+
+Feature:
+  * Add image fallback type PRESET
+  * Add ajax type inputstream
+  * Add ajax type file
+
 ==0.21.5 ==
 
 Feature:

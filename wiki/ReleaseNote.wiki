@@ -8,6 +8,7 @@ Feature:
   * Add image fallback type PRESET
   * Add ajax type inputstream
   * Add ajax type file
+  * Add auth type for service Google Doc List
 
 ==0.21.5 ==
 

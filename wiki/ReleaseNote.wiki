@@ -9,7 +9,7 @@ Feature:
   * Add ajax type inputstream
   * Add ajax type file
   * Add auth type for service Google Doc List
-  * Add file download
+  * Add file download [http://code.google.com/p/android-query/wiki/AsyncAPI?ts=1335460094&updated=AsyncAPI#File_Download doc]
 
 ==0.21.5 ==
 

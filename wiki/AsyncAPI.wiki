@@ -197,6 +197,71 @@ aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 });
 }}}
 
+
+===File===
+
+
+{{{
+
+String url = "https://picasaweb.google.com/data/feed/base/featured?max-results=8";		
+
+aq.progress(R.id.progress).ajax(url, File.class, new AjaxCallback<File>(){
+	
+	public void callback(String url, File file, AjaxStatus status) {
+		
+		if(file != null){
+			showResult("File:" + file.length() + ":" + file, status);
+		}else{
+			showResult("Failed", status);
+		}
+	}
+	
+});
+
+}}}
+
+===File Download===
+
+{{{
+String url = "https://picasaweb.google.com/data/feed/base/featured?max-results=16";		
+
+File ext = Environment.getExternalStorageDirectory();
+File target = new File(ext, "aquery/myfolder/photos.xml");		
+
+aq.progress(R.id.progress).download(url, target, new AjaxCallback<File>(){
+	
+	public void callback(String url, File file, AjaxStatus status) {
+		
+		if(file != null){
+			showResult("File:" + file.length() + ":" + file, status);
+		}else{
+			showResult("Failed", status);
+		}
+	}
+	
+});
+}}}
+
+===InputStream===
+
+{{{
+String url = "https://picasaweb.google.com/data/feed/base/featured?max-results=8";		
+
+aq.progress(R.id.progress).ajax(url, InputStream.class, new AjaxCallback<InputStream>(){
+	
+	public void callback(String url, InputStream is, AjaxStatus status) {
+		
+		if(is != null){
+			showResult("InputStream:" + is, status);
+		}else{
+			showResult("Failed", status);
+		}
+	}
+	
+});
+
+}}}
+
 ====Custom Type====
 
 AQuery by default supports types that are native to Android. For app specific data types, you can assign a custom Transformer to the ajax call and convert the raw data to a desired type. The benefit of transformer is that it's run under the background thread (similar to the natively supported types), therefore minimizing CPU cycles and avoid blocking on the UI thread.

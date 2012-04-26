@@ -9,6 +9,7 @@ Feature:
   * Add ajax type inputstream
   * Add ajax type file
   * Add auth type for service Google Doc List
+  * Add file download
 
 ==0.21.5 ==
 

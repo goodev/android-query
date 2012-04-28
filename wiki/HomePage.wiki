@@ -4,11 +4,11 @@ Android-Query (AQuery) is a light-weight library for doing asynchronous tasks an
 
 <wiki:gadget url="http://android-query.googlecode.com/svn/trunk/demo/gadget/social.xml?v=4" height="115" width="750" border="0" /> 
 
-  * See [http://code.google.com/p/android-query/wiki/API Documentation]
-  * See [https://market.android.com/details?id=com.androidquery API Demo App], [https://market.android.com/details?id=com.androidquery.simplefeed Sample App (Facebook Feed)].
-  * See [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc]
-  * See [http://android-query.blogspot.com/ Android Development Blog]
-  * Download [http://code.google.com/p/android-query/downloads/list jar]  (~50k), [http://code.google.com/p/android-query/wiki/ReleaseNote Release Notes]
+  * [http://code.google.com/p/android-query/wiki/API Documentation]
+  * [https://market.android.com/details?id=com.androidquery API Demo App], [https://market.android.com/details?id=com.androidquery.simplefeed Sample App (SimpleFeed)], [https://github.com/androidquery/simplefacebook SimpleFeed Source].
+  * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html javadoc]
+  * [http://android-query.blogspot.com/ Android Development Blog]
+  * Download [http://code.google.com/p/android-query/downloads/list jar], [http://code.google.com/p/android-query/wiki/ReleaseNote Release Notes]
   * [http://groups.google.com/group/android-query Discussion Group]
   * [https://github.com/androidquery/androidquery GitHub]
 

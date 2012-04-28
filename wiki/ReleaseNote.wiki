@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.22.1 BETA==
+==0.22.3 BETA==
 
 Feature:
   * Add image fallback type PRESET
@@ -10,6 +10,7 @@ Feature:
   * Add ajax type file
   * Add auth type for service Google Doc List
   * Add file download [http://code.google.com/p/android-query/wiki/AsyncAPI?ts=1335460094&updated=AsyncAPI#File_Download doc]
+  * Add automatic encoding detection for String ajax type [http://code.google.com/p/android-query/wiki/AsyncAPI#Encoding_(BETA) doc]
 
 ==0.21.5 ==
 

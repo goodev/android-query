@@ -636,17 +636,20 @@ status.getCookies();
 
 Returns a list of cookies. If the request is cached or a http multipart post, this method returns an empty list.
 
-=== Encoding ===
+=== Encoding (BETA) ===
 
-The default ajax callback uses UTF-8 to transform the object. If custom encoding is needed, uses the encoding() method for the AkaxCallback.
+The default ajax callback uses UTF-8 to transform the object. If type String is specified and the content is html, AQuery will make a best-effort attempt to detect the encoding by inspecting the response header and the inline html META tag. If file cache is enabled, the content will be stored as UTF-8 bytes and subsequent read will not require encoding detection again.
+
+If custom encoding is needed, uses the encoding() method to fix the encoding.
 
 {{{
-String url = "http://www.kyotojp.com/limousine-big5.html";
-
-AjaxCallback<String> cb = new AjaxCallback<String>();
-cb.url(url).type(String.class).encoding("Big5").weakHandler(this, "encodingCb");
-
-aq.ajax(cb);
+	
+//Using String.class type will attempt to detect the encoding of a page and transform it to utf-8
+		
+String url = "http://114.xixik.com/gb2312_big5/";
+aq.progress(R.id.progress).ajax(url, String.class, 0, this, "encodingCb");
+		
+	
 
 }}}
 

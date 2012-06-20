@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.22.4 BETA==
+==0.22.8 BETA==
 
 Feature:
   * Add image fallback type PRESET
@@ -12,6 +12,10 @@ Feature:
   * Add file download [http://code.google.com/p/android-query/wiki/AsyncAPI?ts=1335460094&updated=AsyncAPI#File_Download doc]
   * Add automatic encoding detection for String ajax type [http://code.google.com/p/android-query/wiki/AsyncAPI#Encoding_(BETA) doc]
   * Add Activity.setProgressBarIndeterminateVisibility() support for .progress() to show ajax progress.
+  
+Bug Fix:
+  * Fix shouldDelay issue with ListView with custom headers
+  * File name is now sent with multipart post with file parameter
 
 ==0.21.5 ==
 

@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.22.8 BETA==
+==0.22.10 ==
 
 Feature:
   * Add image fallback type PRESET

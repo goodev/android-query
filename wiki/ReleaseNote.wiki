@@ -17,6 +17,12 @@ Bug Fix:
   * Fix shouldDelay issue with ListView with custom headers
   * File name is now sent with multipart post with file parameter
 
+Build:
+  * The auth plugin will be part of the "full" jar build instead to reduce the number of builds
+
+
+
+
 ==0.21.5 ==
 
 Feature:

@@ -5,6 +5,8 @@
 ==0.23.1 BETA==
 
 Feature:
+  * Round corner image support
+  * Image aspect ratio anchor support
 
 Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx

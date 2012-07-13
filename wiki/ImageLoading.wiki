@@ -120,6 +120,22 @@ aq.id(R.id.image).image(imageUrl, true, true, 0, null, 0, AQuery.FADE_IN);
 
 }}}
 
+===Rounded Corner ===
+
+The round option transform the image to a rounded corner image. Note that the value is in pixels (not dip). Due to performance impact, round corner should not be used for large images.
+
+{{{
+
+String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+
+ImageOptions options = new ImageOptions();
+options.round = 15;
+
+aq.id(R.id.image).image(url, options);
+
+}}}
+
+
 ===Aspect Ratio===
 
 =====Preserve Image Aspect Ratio=====
@@ -151,7 +167,7 @@ aq.id(R.id.image5).image(imageUrl, true, true, 0, 0, null, 0, 3.0f / 4.0f);
 
 The aspect ratio feature will set the ImageView to use the [http://developer.android.com/reference/android/widget/ImageView.ScaleType.html ScaleType] MATRIX and adjust its height to the correct aspect ratio.
 
-====Anchor====
+===Anchor===
 
 If the image aspect ratio is taller then the desired aspect ratio, the anchor option can be used to control which vertical portion of the image should be displayed.
 

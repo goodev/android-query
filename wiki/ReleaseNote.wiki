@@ -5,8 +5,8 @@
 ==0.23.1 BETA==
 
 Feature:
-  * Round corner image support
-  * Image aspect ratio anchor support
+  * Round corner image support [http://code.google.com/p/android-query/wiki/ImageLoading#Rounded_Corner doc]
+  * Image aspect ratio anchor support [http://code.google.com/p/android-query/wiki/ImageLoading#Anchor doc]
 
 Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx

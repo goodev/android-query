@@ -151,6 +151,27 @@ aq.id(R.id.image5).image(imageUrl, true, true, 0, 0, null, 0, 3.0f / 4.0f);
 
 The aspect ratio feature will set the ImageView to use the [http://developer.android.com/reference/android/widget/ImageView.ScaleType.html ScaleType] MATRIX and adjust its height to the correct aspect ratio.
 
+====Anchor====
+
+If the image aspect ratio is taller then the desired aspect ratio, the anchor option can be used to control which vertical portion of the image should be displayed.
+
+Anchor values:
+  * 1.0 : Display top of the image
+  * 0 : Display the center of the image
+  * -1.0 : Display bottom of the image
+  * AQuery.ANCHOR_DYNAMIC : Display image with a top bias for photos.  
+
+{{{
+
+ImageOptions options = new ImageOptions();
+
+options.ratio = 1;
+options.anchor = 1.0;
+aq.id(R.id.image1).image(imageUrl, options);
+
+
+}}}
+
 ===Custom Callback===
 
 {{{

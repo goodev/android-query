@@ -122,7 +122,9 @@ aq.id(R.id.image).image(imageUrl, true, true, 0, null, 0, AQuery.FADE_IN);
 
 ===Rounded Corner ===
 
-The round option transform the image to a rounded corner image. Note that the value is in pixels (not dip). Due to performance impact, round corner should not be used for large images.
+The round option transform the image to a rounded corner image with a specified radius. Note that the value is in pixels (not dip). 
+
+Due to performance impact, round corner should not be used for large images.
 
 {{{
 

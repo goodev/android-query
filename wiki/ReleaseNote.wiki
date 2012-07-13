@@ -2,6 +2,14 @@
 
 = Release Notes =
 
+==0.23.1 BETA==
+
+Feature:
+
+Bug Fix:
+  * Fix error response gzip encoding issue when response is not 2xx
+
+
 ==0.22.10 ==
 
 Feature:

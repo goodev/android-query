@@ -12,7 +12,7 @@ Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx
   * Fix shouldDelay incorrectly return true when down-sampled and rounded corner images are memory cached
   * Fix inputstream types closed prematurely for synchronous requests
-
+  * Add warnings to log for common mistakes such as calling ajax without setting response type or calling ajax with finished activity.
 
 ==0.22.10 ==
 

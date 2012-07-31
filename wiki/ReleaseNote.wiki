@@ -8,12 +8,13 @@ Feature:
   * Round corner image support [http://code.google.com/p/android-query/wiki/ImageLoading#Rounded_Corner doc]
   * Image aspect ratio anchor support [http://code.google.com/p/android-query/wiki/ImageLoading#Anchor doc]
   * Ajax and image methods now support absolute file path as an url.
+  * Add warnings to log for common mistakes such as calling ajax without setting response type or calling ajax with finished activity.
 
 Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx
   * Fix shouldDelay incorrectly return true when down-sampled and rounded corner images are memory cached
   * Fix inputstream types closed prematurely for synchronous requests
-  * Add warnings to log for common mistakes such as calling ajax without setting response type or calling ajax with finished activity.
+
 
 ==0.22.10 ==
 

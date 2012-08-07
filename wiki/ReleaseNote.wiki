@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.23.3 BETA==
+==0.23.4 BETA==
 
 Feature:
   * Round corner image support [http://code.google.com/p/android-query/wiki/ImageLoading#Rounded_Corner doc]
@@ -14,6 +14,7 @@ Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx
   * Fix shouldDelay incorrectly return true when down-sampled and rounded corner images are memory cached
   * Fix inputstream types closed prematurely for synchronous requests
+  * Fix 0 length file created for 404 error for file ajax type
 
 
 ==0.22.10 ==

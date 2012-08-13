@@ -9,6 +9,7 @@ Feature:
   * Image aspect ratio anchor support [http://code.google.com/p/android-query/wiki/ImageLoading#Anchor doc]
   * Ajax and image methods now support absolute file path as an url.
   * Add warnings to log for common mistakes such as calling ajax without setting response type or calling ajax with finished activity.
+  * Support progress bar, progress diablog bar, and activity progress bar
 
 Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx

@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.23.8 BETA==
+==0.23.9 BETA==
 
 Feature:
   * Round corner image support [http://code.google.com/p/android-query/wiki/ImageLoading#Rounded_Corner doc]
@@ -10,6 +10,7 @@ Feature:
   * Ajax and image methods now support absolute file path as an url.
   * Add warnings to log for common mistakes such as calling ajax without setting response type or calling ajax with finished activity.
   * Support progress bar, progress diablog bar, and activity progress bar
+  * Support HTTP DELETE method
 
 Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx

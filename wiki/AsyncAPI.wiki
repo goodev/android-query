@@ -350,7 +350,7 @@ public void async_post(){
 
 === Http POST (Multipart) ===
 
-AQuery support multipart post such as uploading an image to a service. Simply do a regular POST and put byte[] or File as one of the parameters.
+AQuery support multipart post such as uploading an image to a service. Simply do a regular POST and put byte array, Inputstream, or File as one of the parameters.
 
 {{{
 private void aync_multipart(){
@@ -364,7 +364,7 @@ private void aync_multipart(){
 	byte[] data = getImageData();
 	params.put("source", data);
 	
-	//Alternatively, put a file instead of byte[]
+	//Alternatively, put a File or InputStream instead of byte[]
 	//File file = getImageFile();		
 	//params.put("source", file);
 	

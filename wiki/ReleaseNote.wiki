@@ -12,6 +12,7 @@ Feature:
   * Support progress bar, progress diablog bar, and activity progress bar
   * Support HTTP DELETE method
   * Support individual ajax request timeout with callback.timeout()
+  * Support ajax network abort with callback.abort()
 
 Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx

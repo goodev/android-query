@@ -11,6 +11,7 @@ Feature:
   * Add warnings to log for common mistakes such as calling ajax without setting response type or calling ajax with finished activity.
   * Support progress bar, progress diablog bar, and activity progress bar
   * Support HTTP DELETE method
+  * Support individual ajax request timeout with callback.timeout()
 
 Bug Fix:
   * Fix error response gzip encoding issue when response is not 2xx

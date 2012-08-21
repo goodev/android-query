@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.23.9 BETA==
+==0.23.10 BETA==
 
 Feature:
   * Round corner image support [http://code.google.com/p/android-query/wiki/ImageLoading#Rounded_Corner doc]

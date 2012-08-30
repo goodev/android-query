@@ -24,6 +24,8 @@ Bug Fix:
   * Fix basic auth multipart missing auth header issue
   * Twitter auth now support multipart photo upload POST
 
+Changes:
+  * Disable USE_EXPECT_CONTINUE for HttpClient with POST (not multi) to improve overall response time
 
 ==0.22.10 ==
 

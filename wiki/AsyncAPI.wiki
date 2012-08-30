@@ -197,6 +197,22 @@ aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 });
 }}}
 
+==== Bitmap ====
+
+{{{
+//fetch a remote resource in raw bytes
+
+String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
+
+aq.ajax(url, Bitmap.class, new AjaxCallback<byte[]>() {
+
+	@Override
+	public void callback(String url, Bitmap object, AjaxStatus status) {
+		
+	}
+});
+}}}
+
 
 ===File===
 

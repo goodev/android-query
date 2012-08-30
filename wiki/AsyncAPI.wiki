@@ -204,7 +204,7 @@ aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 
 String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
 
-aq.ajax(url, Bitmap.class, new AjaxCallback<byte[]>() {
+aq.ajax(url, Bitmap.class, new AjaxCallback<Bitmap>() {
 
 	@Override
 	public void callback(String url, Bitmap object, AjaxStatus status) {

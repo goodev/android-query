@@ -200,7 +200,7 @@ aq.ajax(url, byte[].class, new AjaxCallback<byte[]>() {
 ==== Bitmap ====
 
 {{{
-//fetch a remote resource in raw bytes
+//fetch a remote resource in raw bitmap
 
 String url = "http://www.vikispot.com/z/images/vikispot/android-w.png";
 

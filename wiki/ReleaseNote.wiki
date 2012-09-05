@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.23.13 BETA==
+==0.23.14 BETA==
 
 Feature:
   * Round corner image support [http://code.google.com/p/android-query/wiki/ImageLoading#Rounded_Corner doc]
@@ -23,9 +23,12 @@ Bug Fix:
   * Fix 0 length file created for 404 error for file ajax type
   * Fix basic auth multipart missing auth header issue
   * Twitter auth now support multipart photo upload POST
+  * Fix issue where the inflate() method hold reference to current context
 
 Changes:
   * Disable USE_EXPECT_CONTINUE for HttpClient with POST (not multi) to improve overall response time
+  * Optimize image loading to support offscreen images (PageAdapter, etc)
+
 
 ==0.22.10 ==
 

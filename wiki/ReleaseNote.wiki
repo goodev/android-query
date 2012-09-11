@@ -28,7 +28,7 @@ Bug Fix:
 Changes:
   * Disable USE_EXPECT_CONTINUE for HttpClient with POST (not multi) to improve overall response time
   * Optimize image loading to support offscreen images (PageAdapter, etc)
-  * Image requests are now stored in cache then loaded instead of allocating temporary byte[] in memory. This behavior allow faster decoding but longer delay due to file storage time. This behavior is subject to change in the future. Use BitmapAjaxCallback.setDelayWrite(true) to revert this behavior.
+  * Image requests are now stored in cache then loaded instead of allocating temporary byte[] in memory. This behavior allow faster decoding, reduced memory usage, but with longer first time delay due to file storage time. This behavior is subject to change in the future. Use BitmapAjaxCallback.setDelayWrite(true) to revert this behavior.
 
 
 ==0.22.10 ==

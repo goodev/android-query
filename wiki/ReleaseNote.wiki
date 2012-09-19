@@ -9,6 +9,7 @@ Feature:
  
 Changes:
   * Multipart upload uses chunk upload
+  * Content-Type "application/octet-stream" field header added for binary data
 
 ==0.23.15==
 

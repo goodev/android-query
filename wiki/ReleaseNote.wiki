@@ -2,11 +2,14 @@
 
 = Release Notes =
 
-==0.24.1 BETA==
+==0.24.2 BETA==
 
 Feature:
   * Support progress bar, progress dialog for multipart-upload
  
+Fix:
+  * Fix issue when images not loading when an identical image is loaded but canceled due to activity termination
+
 Changes:
   * Multipart upload uses chunk upload
   * Content-Type "application/octet-stream" field header added for binary data with multipart POST

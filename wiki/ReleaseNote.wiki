@@ -2,11 +2,12 @@
 
 = Release Notes =
 
-==0.24.2 BETA==
+==0.24.3 BETA==
 
 Feature:
   * Support progress bar, progress dialog for multipart-upload
- 
+  * Add id(String tag) method for selecting view by tag
+
 Fix:
   * Fix issue when images not loading when an identical image is loaded but canceled due to activity termination
 

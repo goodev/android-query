@@ -8,6 +8,8 @@ Feature:
   * Support progress bar, progress dialog for multipart-upload
   * Add id(String tag) method for selecting view by tag
   * Automatic fallback to normal connection when proxy failed
+  * Support proxy with ajax image calls
+  * Add convenient proxy method to aq
 
 Fix:
   * Fix issue when images not loading when an identical image is loaded but canceled due to activity termination

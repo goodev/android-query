@@ -2,7 +2,15 @@
 
 = Release Notes =
 
-==0.24.3 BETA==
+==0.25.1 BETA==
+
+Fix:
+  * Add "Content-Type: application/octet-stream" for multipart post binary fields
+  * Fix gzip inputstream not properly closed issue
+  
+
+
+==0.24.4 ==
 
 Feature:
   * Support progress bar, progress dialog for multipart-upload

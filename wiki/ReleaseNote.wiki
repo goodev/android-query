@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.25.1 BETA==
+==0.25.2 BETA==
 
 Feature:
   * Add visibility method to set visibility directly

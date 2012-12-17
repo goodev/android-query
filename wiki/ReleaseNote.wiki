@@ -6,6 +6,7 @@
 
 Feature:
   * Add visibility method to set visibility directly
+  * AjaxCallback.getActiveCount() returns number of active ajax threads
 
 Fix:
   * Add "Content-Type: application/octet-stream" for multipart post binary fields

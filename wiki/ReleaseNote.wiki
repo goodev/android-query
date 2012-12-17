@@ -4,10 +4,14 @@
 
 ==0.25.1 BETA==
 
+Feature:
+  * Add visibility method to set visibility directly
+
 Fix:
   * Add "Content-Type: application/octet-stream" for multipart post binary fields
   * Fix gzip inputstream not properly closed issue
   * Support invalid domain with underscore.
+  
   
 
 

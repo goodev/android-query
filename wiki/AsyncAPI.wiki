@@ -10,7 +10,11 @@ Make sure the following permission is included in your manifest.
 
 {{{
 <uses-permission android:name="android.permission.INTERNET" /> 
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 }}}
+
+WRITE_EXTERNAL_STORAGE is needed for temporary caching for large response types.
+
 
 == Code ==
 

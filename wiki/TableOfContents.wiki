@@ -7,6 +7,7 @@
   * [Service In-App Version Check]
   * [ErrorHandling Error Handling]
   * [Contribution Extension + Contribution]
+  * [Maven]
   * [ReleaseNote Release Note]
   * [http://android-query.googlecode.com/svn/trunk/javadoc/index.html?com/androidquery/AbstractAQuery.html JavaDoc]
   * Resources

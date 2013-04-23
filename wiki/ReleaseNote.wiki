@@ -2,11 +2,12 @@
 
 = Release Notes =
 
-==0.25.6 BETA==
+==0.25.7 BETA==
 
 Feature:
   * Add visibility method to set visibility directly
   * AjaxCallback.getActiveCount() returns number of active ajax threads
+  * Added retry to AjaxCallback
 
 Fix:
   * Add "Content-Type: application/octet-stream" for multipart post binary fields

@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.25.8==
+==0.25.9==
 
 Feature:
   * Add visibility method to set visibility directly
@@ -15,6 +15,7 @@ Fix:
   * Support invalid domain with underscore.
   * Fix round corner images not fallback properly with network error
   * Fix progress bar not clearing for duplicate image ajax requests
+  * Fix auth and progress param overwritten by aq.ajax(callback)
   
 Changes:
   * When external storage is not available for temp storage, internal storage is used instead. App that process large ajax requests should still request external storage write permission.

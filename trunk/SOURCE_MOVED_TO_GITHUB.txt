@@ -1,0 +1,7 @@
+Source are moved to Github and no longer maintained at GoogleCode SVN.
+
+Visit Github:
+https://github.com/androidquery/androidquery
+
+You can also checkout AQuery with SVN with the same url:
+https://github.com/androidquery/androidquery

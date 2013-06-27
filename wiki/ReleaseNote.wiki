@@ -2,6 +2,11 @@
 
 = Release Notes =
 
+==0.26.1 (ALPHA)==
+
+Feature:
+  * Add textColorId method to set text color by resource id
+
 ==0.25.9==
 
 Feature:

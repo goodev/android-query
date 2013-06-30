@@ -1,3 +1,7 @@
+Please click and read this -> <strong>
+<font color="red" size="5">[http://blog.androidquery.com/2013/06/androidquery-future-direction_29.html AndroidQuery Future Direction].
+</font></strong>
+
 =Android Query=
 
 Android-Query (AQuery) is a light-weight library for doing asynchronous tasks and manipulating UI elements in Android. Our goal is to make Android coding simpler, easier, and more fun!

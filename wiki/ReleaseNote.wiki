@@ -6,6 +6,7 @@
 
 Feature:
   * Add textColorId method to set text color by resource id
+  * Add redirect() setting to AjaxCallback (default is true, to follow 302 redirect)
 
 ==0.25.9==
 

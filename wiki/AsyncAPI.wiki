@@ -427,7 +427,7 @@ public void async_post_entity() throws UnsupportedEncodingException{
 
 === Http POST JSON ==
 
-Posting JSON string can be done with custom entity or the following shortcut method. Note that this is same as POST with StringEntity and header "Content-Type": "application/json".
+Posting JSON string can be done with custom entity or the following shortcut method. This is same as POST with StringEntity and header "Content-Type": "application/json". Note that the 3rd parameter is the expected http response type of the url, which might not be a JSONObject.
 
 {{{
 

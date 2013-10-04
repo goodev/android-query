@@ -2,11 +2,12 @@
 
 = Release Notes =
 
-==0.26.1 (ALPHA)==
+==0.26.2 (BETA)==
 
 Feature:
   * Add textColorId method to set text color by resource id
   * Add redirect() setting to AjaxCallback (default is true, to follow 302 redirect)
+  * Add shortcut method to post with JSON
 
 Changes:
   * If image is fetched over network and it's malformed (or not an image but with response code 2xx), cache will be invalidated automatically. 

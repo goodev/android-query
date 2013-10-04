@@ -425,6 +425,19 @@ public void async_post_entity() throws UnsupportedEncodingException{
 
 }}}
 
+=== Http POST JSON ==
+
+Posting JSON string can be done with custom entity or the following shortcut method. Note that this is same as POST with StringEntity and header "Content-Type": "application/json".
+
+{{{
+
+JSONObject input = new JSONObject();
+input.putOpt("hello", "world");
+	        
+aq.post(url, input, JSONObject.class, cb);
+}}}
+
+
 === Long URL (2000+ length)===
 
 Url length shouldn't be longer than 2000 characters. ([http://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url reference])

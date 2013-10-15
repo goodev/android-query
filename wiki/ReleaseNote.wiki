@@ -2,7 +2,7 @@
 
 = Release Notes =
 
-==0.26.2 (BETA)==
+==0.26.3 (BETA)==
 
 Feature:
   * Add textColorId method to set text color by resource id
@@ -11,6 +11,8 @@ Feature:
 
 Changes:
   * If image is fetched over network and it's malformed (or not an image but with response code 2xx), cache will be invalidated automatically. 
+  * When user agent is not set and gzip is used, "gzip" will be used as user agent to work around Google servers (GAE and others) not gzip response when User-Agent header is missing.
+
 
 ==0.25.9==
 

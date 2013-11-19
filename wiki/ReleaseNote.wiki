@@ -2,7 +2,10 @@
 
 = Release Notes =
 
-==0.26.5 (BETA)==
+==0.26.6 (BETA)==
+
+Fix:
+  * Fix critical bug that might cause partially downloaded file to be cached. Temp files are now created and renamed to destination files when transfer is completed.
 
 Feature:
   * Add textColorId method to set text color by resource id

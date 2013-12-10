@@ -2,6 +2,11 @@
 
 = Release Notes =
 
+==0.27.1 (ALPHA)==
+Feature:
+  * Add item long click binding method
+
+
 ==0.26.7 ==
 
 Fix:

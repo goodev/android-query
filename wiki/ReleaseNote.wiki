@@ -6,6 +6,10 @@
 Feature:
   * Add item long click binding method
 
+==0.26.8 ==
+
+Changes:
+  * Image loading: If API level 17 or above will use inputSharable = false as an option. This is a work around for EMFILE file descriptions limit introduced since Kitkat.
 
 ==0.26.7 ==
 
